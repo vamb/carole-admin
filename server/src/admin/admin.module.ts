@@ -11,6 +11,7 @@ import { SysMenuController } from './system/menu/sys-menu.controller';
 import { SysPostController } from './system/post/sys-post.controller';
 import { SysRoleController } from './system/role/sys-role.controller';
 import { GenController } from './gen/gen.controller';
+import { ExtController } from "./ext/ext.controller";
 import { DeptService } from './system/dept/service/sys-dept.service';
 import { MenuService } from './system/menu/service/sys-menu.service';
 import { ConfigService } from './system/config/service/sys-config.service';
@@ -19,6 +20,7 @@ import { NoticeService } from './system/notice/service/sys-notice.service';
 import { PostService } from './system/post/service/sys-post.service';
 import { RoleService } from './system/role/service/sys-role.service';
 import { GenService } from '@/common/service/gen/gen.service';
+import { ExtService } from "./ext/service/ext.service";
 import { SysDictTypeService } from './system/dict-type/service/sys-dict-type.service';
 import { SysDictDataService } from './system/dict-data/service/sys-dict-data.service';
 import { UserService } from './system/user/service/sys-user.service';
@@ -39,6 +41,7 @@ import { monitorController } from './system/monitor/monitor.controller';
     SysPostController,
     SysRoleController,
     GenController,
+    ExtController,
     SysUserController,
     SysNoticeController,
     SysLogininforController,
@@ -54,6 +57,7 @@ import { monitorController } from './system/monitor/monitor.controller';
     PostService,
     RoleService,
     GenService,
+    ExtService,
     SysDictDataService,
     SysDictTypeService,
     UserService,

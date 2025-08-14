@@ -139,7 +139,10 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(AuthMiddleware)
-      .exclude('/login', '/logout', '/captchaImage')
+      .exclude(
+        '/login', '/logout', '/captchaImage',
+        "/ext/getWorkState", "/ext/postXPathData", "/ext/workStateChange"
+      )
       .forRoutes('*');
   }
 }

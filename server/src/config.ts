@@ -5,7 +5,7 @@ import { Constants } from './common/constant/Constants';
 dotenv.config({ path: join(__dirname, '.env') });
 export const Config: config = {
   //服务器的HTTP端口，默认为3000
-  port: 3000,
+  port: 3002,
   //# 应用的访问路径前缀
   contextPath: '/v1',
   swagger: {
