@@ -1,6 +1,7 @@
-import { Controller, Get, Post, Req } from '@nestjs/common';
+import { Controller, Get, Post, Req, Body } from '@nestjs/common';
 import Result from '@/common/result/Result';
 import { ExtService } from "./service/ext.service";
+import { WorkStateChangeDto } from "./dto/index";
 
 @Controller("/ext")
 export class ExtController {
@@ -25,10 +26,8 @@ export class ExtController {
   }
 
   @Post("/workStateChange")
-  async workStateChange(@Req() req) {
-    console.log('workStateChange req?.query?.workState', req?.query?.workstate)
-    const newWorkState = req?.query?.workstate
-    this.extService.setWorkState(newWorkState)
+  async workStateChange(@Body() workStateChangeDto: WorkStateChangeDto) {
+    this.extService.setWorkState(workStateChangeDto?.workState)
     return {
       ...Result.ok(),
       workState: this.extService.getWorkState()
