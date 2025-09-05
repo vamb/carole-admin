@@ -14,6 +14,21 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
+ * Model BuzMenu
+ * 
+ */
+export type BuzMenu = $Result.DefaultSelection<Prisma.$BuzMenuPayload>
+/**
+ * Model BuzVegetable
+ * 
+ */
+export type BuzVegetable = $Result.DefaultSelection<Prisma.$BuzVegetablePayload>
+/**
+ * Model BuzMenuOnVeg
+ * 
+ */
+export type BuzMenuOnVeg = $Result.DefaultSelection<Prisma.$BuzMenuOnVegPayload>
+/**
  * Model GenTable
  * 
  */
@@ -101,8 +116,8 @@ export type SysUserRole = $Result.DefaultSelection<Prisma.$SysUserRolePayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more GenTables
- * const genTables = await prisma.genTable.findMany()
+ * // Fetch zero or more BuzMenus
+ * const buzMenus = await prisma.buzMenu.findMany()
  * ```
  *
  * 
@@ -122,8 +137,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more GenTables
-   * const genTables = await prisma.genTable.findMany()
+   * // Fetch zero or more BuzMenus
+   * const buzMenus = await prisma.buzMenu.findMany()
    * ```
    *
    * 
@@ -217,6 +232,36 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<'extends', Prisma.TypeMapCb, ExtArgs>
 
       /**
+   * `prisma.buzMenu`: Exposes CRUD operations for the **BuzMenu** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BuzMenus
+    * const buzMenus = await prisma.buzMenu.findMany()
+    * ```
+    */
+  get buzMenu(): Prisma.BuzMenuDelegate<ExtArgs>;
+
+  /**
+   * `prisma.buzVegetable`: Exposes CRUD operations for the **BuzVegetable** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BuzVegetables
+    * const buzVegetables = await prisma.buzVegetable.findMany()
+    * ```
+    */
+  get buzVegetable(): Prisma.BuzVegetableDelegate<ExtArgs>;
+
+  /**
+   * `prisma.buzMenuOnVeg`: Exposes CRUD operations for the **BuzMenuOnVeg** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BuzMenuOnVegs
+    * const buzMenuOnVegs = await prisma.buzMenuOnVeg.findMany()
+    * ```
+    */
+  get buzMenuOnVeg(): Prisma.BuzMenuOnVegDelegate<ExtArgs>;
+
+  /**
    * `prisma.genTable`: Exposes CRUD operations for the **GenTable** model.
     * Example usage:
     * ```ts
@@ -852,6 +897,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
+    BuzMenu: 'BuzMenu',
+    BuzVegetable: 'BuzVegetable',
+    BuzMenuOnVeg: 'BuzMenuOnVeg',
     GenTable: 'GenTable',
     GenTableColumn: 'GenTableColumn',
     SysConfig: 'SysConfig',
@@ -884,10 +932,208 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'genTable' | 'genTableColumn' | 'sysConfig' | 'sysDept' | 'sysDictData' | 'sysDictType' | 'sysLogininfor' | 'sysMenu' | 'sysNotice' | 'sysPost' | 'sysUserPost' | 'sysRoleDept' | 'sysRoleMenu' | 'sysUser' | 'sysRole' | 'sysUserRole'
+      modelProps: 'buzMenu' | 'buzVegetable' | 'buzMenuOnVeg' | 'genTable' | 'genTableColumn' | 'sysConfig' | 'sysDept' | 'sysDictData' | 'sysDictType' | 'sysLogininfor' | 'sysMenu' | 'sysNotice' | 'sysPost' | 'sysUserPost' | 'sysRoleDept' | 'sysRoleMenu' | 'sysUser' | 'sysRole' | 'sysUserRole'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
+      BuzMenu: {
+        payload: Prisma.$BuzMenuPayload<ExtArgs>
+        fields: Prisma.BuzMenuFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BuzMenuFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BuzMenuFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuPayload>
+          }
+          findFirst: {
+            args: Prisma.BuzMenuFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BuzMenuFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuPayload>
+          }
+          findMany: {
+            args: Prisma.BuzMenuFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuPayload>[]
+          }
+          create: {
+            args: Prisma.BuzMenuCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuPayload>
+          }
+          createMany: {
+            args: Prisma.BuzMenuCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.BuzMenuDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuPayload>
+          }
+          update: {
+            args: Prisma.BuzMenuUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuPayload>
+          }
+          deleteMany: {
+            args: Prisma.BuzMenuDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BuzMenuUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.BuzMenuUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuPayload>
+          }
+          aggregate: {
+            args: Prisma.BuzMenuAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateBuzMenu>
+          }
+          groupBy: {
+            args: Prisma.BuzMenuGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<BuzMenuGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BuzMenuCountArgs<ExtArgs>,
+            result: $Utils.Optional<BuzMenuCountAggregateOutputType> | number
+          }
+        }
+      }
+      BuzVegetable: {
+        payload: Prisma.$BuzVegetablePayload<ExtArgs>
+        fields: Prisma.BuzVegetableFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BuzVegetableFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzVegetablePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BuzVegetableFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzVegetablePayload>
+          }
+          findFirst: {
+            args: Prisma.BuzVegetableFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzVegetablePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BuzVegetableFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzVegetablePayload>
+          }
+          findMany: {
+            args: Prisma.BuzVegetableFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzVegetablePayload>[]
+          }
+          create: {
+            args: Prisma.BuzVegetableCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzVegetablePayload>
+          }
+          createMany: {
+            args: Prisma.BuzVegetableCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.BuzVegetableDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzVegetablePayload>
+          }
+          update: {
+            args: Prisma.BuzVegetableUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzVegetablePayload>
+          }
+          deleteMany: {
+            args: Prisma.BuzVegetableDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BuzVegetableUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.BuzVegetableUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzVegetablePayload>
+          }
+          aggregate: {
+            args: Prisma.BuzVegetableAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateBuzVegetable>
+          }
+          groupBy: {
+            args: Prisma.BuzVegetableGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<BuzVegetableGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BuzVegetableCountArgs<ExtArgs>,
+            result: $Utils.Optional<BuzVegetableCountAggregateOutputType> | number
+          }
+        }
+      }
+      BuzMenuOnVeg: {
+        payload: Prisma.$BuzMenuOnVegPayload<ExtArgs>
+        fields: Prisma.BuzMenuOnVegFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BuzMenuOnVegFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuOnVegPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BuzMenuOnVegFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuOnVegPayload>
+          }
+          findFirst: {
+            args: Prisma.BuzMenuOnVegFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuOnVegPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BuzMenuOnVegFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuOnVegPayload>
+          }
+          findMany: {
+            args: Prisma.BuzMenuOnVegFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuOnVegPayload>[]
+          }
+          create: {
+            args: Prisma.BuzMenuOnVegCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuOnVegPayload>
+          }
+          createMany: {
+            args: Prisma.BuzMenuOnVegCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.BuzMenuOnVegDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuOnVegPayload>
+          }
+          update: {
+            args: Prisma.BuzMenuOnVegUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuOnVegPayload>
+          }
+          deleteMany: {
+            args: Prisma.BuzMenuOnVegDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BuzMenuOnVegUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.BuzMenuOnVegUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$BuzMenuOnVegPayload>
+          }
+          aggregate: {
+            args: Prisma.BuzMenuOnVegAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateBuzMenuOnVeg>
+          }
+          groupBy: {
+            args: Prisma.BuzMenuOnVegGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<BuzMenuOnVegGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BuzMenuOnVegCountArgs<ExtArgs>,
+            result: $Utils.Optional<BuzMenuOnVegCountAggregateOutputType> | number
+          }
+        }
+      }
       GenTable: {
         payload: Prisma.$GenTablePayload<ExtArgs>
         fields: Prisma.GenTableFieldRefs
@@ -2100,6 +2346,68 @@ export namespace Prisma {
 
 
   /**
+   * Count Type BuzMenuCountOutputType
+   */
+
+  export type BuzMenuCountOutputType = {
+    buzVegList: number
+  }
+
+  export type BuzMenuCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    buzVegList?: boolean | BuzMenuCountOutputTypeCountBuzVegListArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BuzMenuCountOutputType without action
+   */
+  export type BuzMenuCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuCountOutputType
+     */
+    select?: BuzMenuCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BuzMenuCountOutputType without action
+   */
+  export type BuzMenuCountOutputTypeCountBuzVegListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BuzMenuOnVegWhereInput
+  }
+
+
+  /**
+   * Count Type BuzVegetableCountOutputType
+   */
+
+  export type BuzVegetableCountOutputType = {
+    buzMenuList: number
+  }
+
+  export type BuzVegetableCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    buzMenuList?: boolean | BuzVegetableCountOutputTypeCountBuzMenuListArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BuzVegetableCountOutputType without action
+   */
+  export type BuzVegetableCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetableCountOutputType
+     */
+    select?: BuzVegetableCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BuzVegetableCountOutputType without action
+   */
+  export type BuzVegetableCountOutputTypeCountBuzMenuListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BuzMenuOnVegWhereInput
+  }
+
+
+  /**
    * Count Type GenTableCountOutputType
    */
 
@@ -2355,6 +2663,3030 @@ export namespace Prisma {
   /**
    * Models
    */
+
+  /**
+   * Model BuzMenu
+   */
+
+  export type AggregateBuzMenu = {
+    _count: BuzMenuCountAggregateOutputType | null
+    _avg: BuzMenuAvgAggregateOutputType | null
+    _sum: BuzMenuSumAggregateOutputType | null
+    _min: BuzMenuMinAggregateOutputType | null
+    _max: BuzMenuMaxAggregateOutputType | null
+  }
+
+  export type BuzMenuAvgAggregateOutputType = {
+    id: number | null
+    cookTime: number | null
+    sellingPrice: number | null
+    status: number | null
+  }
+
+  export type BuzMenuSumAggregateOutputType = {
+    id: number | null
+    cookTime: number | null
+    sellingPrice: number | null
+    status: number | null
+  }
+
+  export type BuzMenuMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    image: string | null
+    cookTime: number | null
+    sellingPrice: number | null
+    status: number | null
+  }
+
+  export type BuzMenuMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    image: string | null
+    cookTime: number | null
+    sellingPrice: number | null
+    status: number | null
+  }
+
+  export type BuzMenuCountAggregateOutputType = {
+    id: number
+    name: number
+    image: number
+    cookTime: number
+    sellingPrice: number
+    status: number
+    _all: number
+  }
+
+
+  export type BuzMenuAvgAggregateInputType = {
+    id?: true
+    cookTime?: true
+    sellingPrice?: true
+    status?: true
+  }
+
+  export type BuzMenuSumAggregateInputType = {
+    id?: true
+    cookTime?: true
+    sellingPrice?: true
+    status?: true
+  }
+
+  export type BuzMenuMinAggregateInputType = {
+    id?: true
+    name?: true
+    image?: true
+    cookTime?: true
+    sellingPrice?: true
+    status?: true
+  }
+
+  export type BuzMenuMaxAggregateInputType = {
+    id?: true
+    name?: true
+    image?: true
+    cookTime?: true
+    sellingPrice?: true
+    status?: true
+  }
+
+  export type BuzMenuCountAggregateInputType = {
+    id?: true
+    name?: true
+    image?: true
+    cookTime?: true
+    sellingPrice?: true
+    status?: true
+    _all?: true
+  }
+
+  export type BuzMenuAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BuzMenu to aggregate.
+     */
+    where?: BuzMenuWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzMenus to fetch.
+     */
+    orderBy?: BuzMenuOrderByWithRelationInput | BuzMenuOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BuzMenuWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzMenus from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzMenus.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BuzMenus
+    **/
+    _count?: true | BuzMenuCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BuzMenuAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BuzMenuSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BuzMenuMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BuzMenuMaxAggregateInputType
+  }
+
+  export type GetBuzMenuAggregateType<T extends BuzMenuAggregateArgs> = {
+        [P in keyof T & keyof AggregateBuzMenu]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBuzMenu[P]>
+      : GetScalarType<T[P], AggregateBuzMenu[P]>
+  }
+
+
+
+
+  export type BuzMenuGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BuzMenuWhereInput
+    orderBy?: BuzMenuOrderByWithAggregationInput | BuzMenuOrderByWithAggregationInput[]
+    by: BuzMenuScalarFieldEnum[] | BuzMenuScalarFieldEnum
+    having?: BuzMenuScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BuzMenuCountAggregateInputType | true
+    _avg?: BuzMenuAvgAggregateInputType
+    _sum?: BuzMenuSumAggregateInputType
+    _min?: BuzMenuMinAggregateInputType
+    _max?: BuzMenuMaxAggregateInputType
+  }
+
+  export type BuzMenuGroupByOutputType = {
+    id: number
+    name: string
+    image: string
+    cookTime: number
+    sellingPrice: number
+    status: number
+    _count: BuzMenuCountAggregateOutputType | null
+    _avg: BuzMenuAvgAggregateOutputType | null
+    _sum: BuzMenuSumAggregateOutputType | null
+    _min: BuzMenuMinAggregateOutputType | null
+    _max: BuzMenuMaxAggregateOutputType | null
+  }
+
+  type GetBuzMenuGroupByPayload<T extends BuzMenuGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BuzMenuGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BuzMenuGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BuzMenuGroupByOutputType[P]>
+            : GetScalarType<T[P], BuzMenuGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BuzMenuSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    image?: boolean
+    cookTime?: boolean
+    sellingPrice?: boolean
+    status?: boolean
+    buzVegList?: boolean | BuzMenu$buzVegListArgs<ExtArgs>
+    _count?: boolean | BuzMenuCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["buzMenu"]>
+
+
+  export type BuzMenuSelectScalar = {
+    id?: boolean
+    name?: boolean
+    image?: boolean
+    cookTime?: boolean
+    sellingPrice?: boolean
+    status?: boolean
+  }
+
+  export type BuzMenuOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "image" | "cookTime" | "sellingPrice" | "status", ExtArgs["result"]["buzMenu"]>
+  export type BuzMenuInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    buzVegList?: boolean | BuzMenu$buzVegListArgs<ExtArgs>
+    _count?: boolean | BuzMenuCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $BuzMenuPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BuzMenu"
+    objects: {
+      buzVegList: Prisma.$BuzMenuOnVegPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      image: string
+      cookTime: number
+      sellingPrice: number
+      status: number
+    }, ExtArgs["result"]["buzMenu"]>
+    composites: {}
+  }
+
+  type BuzMenuGetPayload<S extends boolean | null | undefined | BuzMenuDefaultArgs> = $Result.GetResult<Prisma.$BuzMenuPayload, S>
+
+  type BuzMenuCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<BuzMenuFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: BuzMenuCountAggregateInputType | true
+    }
+
+  export interface BuzMenuDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BuzMenu'], meta: { name: 'BuzMenu' } }
+    /**
+     * Find zero or one BuzMenu that matches the filter.
+     * @param {BuzMenuFindUniqueArgs} args - Arguments to find a BuzMenu
+     * @example
+     * // Get one BuzMenu
+     * const buzMenu = await prisma.buzMenu.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends BuzMenuFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuFindUniqueArgs<ExtArgs>>
+    ): Prisma__BuzMenuClient<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one BuzMenu that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {BuzMenuFindUniqueOrThrowArgs} args - Arguments to find a BuzMenu
+     * @example
+     * // Get one BuzMenu
+     * const buzMenu = await prisma.buzMenu.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends BuzMenuFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__BuzMenuClient<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first BuzMenu that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuFindFirstArgs} args - Arguments to find a BuzMenu
+     * @example
+     * // Get one BuzMenu
+     * const buzMenu = await prisma.buzMenu.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends BuzMenuFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuFindFirstArgs<ExtArgs>>
+    ): Prisma__BuzMenuClient<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first BuzMenu that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuFindFirstOrThrowArgs} args - Arguments to find a BuzMenu
+     * @example
+     * // Get one BuzMenu
+     * const buzMenu = await prisma.buzMenu.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends BuzMenuFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__BuzMenuClient<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more BuzMenus that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BuzMenus
+     * const buzMenus = await prisma.buzMenu.findMany()
+     * 
+     * // Get first 10 BuzMenus
+     * const buzMenus = await prisma.buzMenu.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const buzMenuWithIdOnly = await prisma.buzMenu.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends BuzMenuFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a BuzMenu.
+     * @param {BuzMenuCreateArgs} args - Arguments to create a BuzMenu.
+     * @example
+     * // Create one BuzMenu
+     * const BuzMenu = await prisma.buzMenu.create({
+     *   data: {
+     *     // ... data to create a BuzMenu
+     *   }
+     * })
+     * 
+    **/
+    create<T extends BuzMenuCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuCreateArgs<ExtArgs>>
+    ): Prisma__BuzMenuClient<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many BuzMenus.
+     * @param {BuzMenuCreateManyArgs} args - Arguments to create many BuzMenus.
+     * @example
+     * // Create many BuzMenus
+     * const buzMenu = await prisma.buzMenu.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends BuzMenuCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BuzMenu.
+     * @param {BuzMenuDeleteArgs} args - Arguments to delete one BuzMenu.
+     * @example
+     * // Delete one BuzMenu
+     * const BuzMenu = await prisma.buzMenu.delete({
+     *   where: {
+     *     // ... filter to delete one BuzMenu
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends BuzMenuDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuDeleteArgs<ExtArgs>>
+    ): Prisma__BuzMenuClient<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one BuzMenu.
+     * @param {BuzMenuUpdateArgs} args - Arguments to update one BuzMenu.
+     * @example
+     * // Update one BuzMenu
+     * const buzMenu = await prisma.buzMenu.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends BuzMenuUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuUpdateArgs<ExtArgs>>
+    ): Prisma__BuzMenuClient<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more BuzMenus.
+     * @param {BuzMenuDeleteManyArgs} args - Arguments to filter BuzMenus to delete.
+     * @example
+     * // Delete a few BuzMenus
+     * const { count } = await prisma.buzMenu.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends BuzMenuDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BuzMenus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BuzMenus
+     * const buzMenu = await prisma.buzMenu.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends BuzMenuUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BuzMenu.
+     * @param {BuzMenuUpsertArgs} args - Arguments to update or create a BuzMenu.
+     * @example
+     * // Update or create a BuzMenu
+     * const buzMenu = await prisma.buzMenu.upsert({
+     *   create: {
+     *     // ... data to create a BuzMenu
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BuzMenu we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends BuzMenuUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuUpsertArgs<ExtArgs>>
+    ): Prisma__BuzMenuClient<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of BuzMenus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuCountArgs} args - Arguments to filter BuzMenus to count.
+     * @example
+     * // Count the number of BuzMenus
+     * const count = await prisma.buzMenu.count({
+     *   where: {
+     *     // ... the filter for the BuzMenus we want to count
+     *   }
+     * })
+    **/
+    count<T extends BuzMenuCountArgs>(
+      args?: Subset<T, BuzMenuCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BuzMenuCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BuzMenu.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BuzMenuAggregateArgs>(args: Subset<T, BuzMenuAggregateArgs>): Prisma.PrismaPromise<GetBuzMenuAggregateType<T>>
+
+    /**
+     * Group by BuzMenu.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BuzMenuGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BuzMenuGroupByArgs['orderBy'] }
+        : { orderBy?: BuzMenuGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BuzMenuGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBuzMenuGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BuzMenu model
+   */
+  readonly fields: BuzMenuFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BuzMenu.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BuzMenuClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    buzVegList<T extends BuzMenu$buzVegListArgs<ExtArgs> = {}>(args?: Subset<T, BuzMenu$buzVegListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the BuzMenu model
+   */ 
+  interface BuzMenuFieldRefs {
+    readonly id: FieldRef<"BuzMenu", 'Int'>
+    readonly name: FieldRef<"BuzMenu", 'String'>
+    readonly image: FieldRef<"BuzMenu", 'String'>
+    readonly cookTime: FieldRef<"BuzMenu", 'Int'>
+    readonly sellingPrice: FieldRef<"BuzMenu", 'Float'>
+    readonly status: FieldRef<"BuzMenu", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BuzMenu findUnique
+   */
+  export type BuzMenuFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenu to fetch.
+     */
+    where: BuzMenuWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenu findUniqueOrThrow
+   */
+  export type BuzMenuFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenu to fetch.
+     */
+    where: BuzMenuWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenu findFirst
+   */
+  export type BuzMenuFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenu to fetch.
+     */
+    where?: BuzMenuWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzMenus to fetch.
+     */
+    orderBy?: BuzMenuOrderByWithRelationInput | BuzMenuOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BuzMenus.
+     */
+    cursor?: BuzMenuWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzMenus from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzMenus.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BuzMenus.
+     */
+    distinct?: BuzMenuScalarFieldEnum | BuzMenuScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenu findFirstOrThrow
+   */
+  export type BuzMenuFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenu to fetch.
+     */
+    where?: BuzMenuWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzMenus to fetch.
+     */
+    orderBy?: BuzMenuOrderByWithRelationInput | BuzMenuOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BuzMenus.
+     */
+    cursor?: BuzMenuWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzMenus from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzMenus.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BuzMenus.
+     */
+    distinct?: BuzMenuScalarFieldEnum | BuzMenuScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenu findMany
+   */
+  export type BuzMenuFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenus to fetch.
+     */
+    where?: BuzMenuWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzMenus to fetch.
+     */
+    orderBy?: BuzMenuOrderByWithRelationInput | BuzMenuOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BuzMenus.
+     */
+    cursor?: BuzMenuWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzMenus from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzMenus.
+     */
+    skip?: number
+    distinct?: BuzMenuScalarFieldEnum | BuzMenuScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenu create
+   */
+  export type BuzMenuCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BuzMenu.
+     */
+    data: XOR<BuzMenuCreateInput, BuzMenuUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenu createMany
+   */
+  export type BuzMenuCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BuzMenus.
+     */
+    data: BuzMenuCreateManyInput | BuzMenuCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BuzMenu update
+   */
+  export type BuzMenuUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BuzMenu.
+     */
+    data: XOR<BuzMenuUpdateInput, BuzMenuUncheckedUpdateInput>
+    /**
+     * Choose, which BuzMenu to update.
+     */
+    where: BuzMenuWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenu updateMany
+   */
+  export type BuzMenuUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BuzMenus.
+     */
+    data: XOR<BuzMenuUpdateManyMutationInput, BuzMenuUncheckedUpdateManyInput>
+    /**
+     * Filter which BuzMenus to update
+     */
+    where?: BuzMenuWhereInput
+  }
+
+  /**
+   * BuzMenu upsert
+   */
+  export type BuzMenuUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BuzMenu to update in case it exists.
+     */
+    where: BuzMenuWhereUniqueInput
+    /**
+     * In case the BuzMenu found by the `where` argument doesn't exist, create a new BuzMenu with this data.
+     */
+    create: XOR<BuzMenuCreateInput, BuzMenuUncheckedCreateInput>
+    /**
+     * In case the BuzMenu was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BuzMenuUpdateInput, BuzMenuUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenu delete
+   */
+  export type BuzMenuDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+    /**
+     * Filter which BuzMenu to delete.
+     */
+    where: BuzMenuWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenu deleteMany
+   */
+  export type BuzMenuDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BuzMenus to delete
+     */
+    where?: BuzMenuWhereInput
+  }
+
+  /**
+   * BuzMenu.buzVegList
+   */
+  export type BuzMenu$buzVegListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    where?: BuzMenuOnVegWhereInput
+    orderBy?: BuzMenuOnVegOrderByWithRelationInput | BuzMenuOnVegOrderByWithRelationInput[]
+    cursor?: BuzMenuOnVegWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BuzMenuOnVegScalarFieldEnum | BuzMenuOnVegScalarFieldEnum[]
+  }
+
+  /**
+   * BuzMenu without action
+   */
+  export type BuzMenuDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenu
+     */
+    select?: BuzMenuSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenu
+     */
+    omit?: BuzMenuOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BuzVegetable
+   */
+
+  export type AggregateBuzVegetable = {
+    _count: BuzVegetableCountAggregateOutputType | null
+    _avg: BuzVegetableAvgAggregateOutputType | null
+    _sum: BuzVegetableSumAggregateOutputType | null
+    _min: BuzVegetableMinAggregateOutputType | null
+    _max: BuzVegetableMaxAggregateOutputType | null
+  }
+
+  export type BuzVegetableAvgAggregateOutputType = {
+    id: number | null
+    prepareTime: number | null
+    status: number | null
+    purchasePrice: number | null
+  }
+
+  export type BuzVegetableSumAggregateOutputType = {
+    id: number | null
+    prepareTime: number | null
+    status: number | null
+    purchasePrice: number | null
+  }
+
+  export type BuzVegetableMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    prepareTime: number | null
+    status: number | null
+    purchasePrice: number | null
+  }
+
+  export type BuzVegetableMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    prepareTime: number | null
+    status: number | null
+    purchasePrice: number | null
+  }
+
+  export type BuzVegetableCountAggregateOutputType = {
+    id: number
+    name: number
+    prepareTime: number
+    status: number
+    purchasePrice: number
+    _all: number
+  }
+
+
+  export type BuzVegetableAvgAggregateInputType = {
+    id?: true
+    prepareTime?: true
+    status?: true
+    purchasePrice?: true
+  }
+
+  export type BuzVegetableSumAggregateInputType = {
+    id?: true
+    prepareTime?: true
+    status?: true
+    purchasePrice?: true
+  }
+
+  export type BuzVegetableMinAggregateInputType = {
+    id?: true
+    name?: true
+    prepareTime?: true
+    status?: true
+    purchasePrice?: true
+  }
+
+  export type BuzVegetableMaxAggregateInputType = {
+    id?: true
+    name?: true
+    prepareTime?: true
+    status?: true
+    purchasePrice?: true
+  }
+
+  export type BuzVegetableCountAggregateInputType = {
+    id?: true
+    name?: true
+    prepareTime?: true
+    status?: true
+    purchasePrice?: true
+    _all?: true
+  }
+
+  export type BuzVegetableAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BuzVegetable to aggregate.
+     */
+    where?: BuzVegetableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzVegetables to fetch.
+     */
+    orderBy?: BuzVegetableOrderByWithRelationInput | BuzVegetableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BuzVegetableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzVegetables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzVegetables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BuzVegetables
+    **/
+    _count?: true | BuzVegetableCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BuzVegetableAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BuzVegetableSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BuzVegetableMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BuzVegetableMaxAggregateInputType
+  }
+
+  export type GetBuzVegetableAggregateType<T extends BuzVegetableAggregateArgs> = {
+        [P in keyof T & keyof AggregateBuzVegetable]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBuzVegetable[P]>
+      : GetScalarType<T[P], AggregateBuzVegetable[P]>
+  }
+
+
+
+
+  export type BuzVegetableGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BuzVegetableWhereInput
+    orderBy?: BuzVegetableOrderByWithAggregationInput | BuzVegetableOrderByWithAggregationInput[]
+    by: BuzVegetableScalarFieldEnum[] | BuzVegetableScalarFieldEnum
+    having?: BuzVegetableScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BuzVegetableCountAggregateInputType | true
+    _avg?: BuzVegetableAvgAggregateInputType
+    _sum?: BuzVegetableSumAggregateInputType
+    _min?: BuzVegetableMinAggregateInputType
+    _max?: BuzVegetableMaxAggregateInputType
+  }
+
+  export type BuzVegetableGroupByOutputType = {
+    id: number
+    name: string
+    prepareTime: number
+    status: number
+    purchasePrice: number
+    _count: BuzVegetableCountAggregateOutputType | null
+    _avg: BuzVegetableAvgAggregateOutputType | null
+    _sum: BuzVegetableSumAggregateOutputType | null
+    _min: BuzVegetableMinAggregateOutputType | null
+    _max: BuzVegetableMaxAggregateOutputType | null
+  }
+
+  type GetBuzVegetableGroupByPayload<T extends BuzVegetableGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BuzVegetableGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BuzVegetableGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BuzVegetableGroupByOutputType[P]>
+            : GetScalarType<T[P], BuzVegetableGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BuzVegetableSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    prepareTime?: boolean
+    status?: boolean
+    purchasePrice?: boolean
+    buzMenuList?: boolean | BuzVegetable$buzMenuListArgs<ExtArgs>
+    _count?: boolean | BuzVegetableCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["buzVegetable"]>
+
+
+  export type BuzVegetableSelectScalar = {
+    id?: boolean
+    name?: boolean
+    prepareTime?: boolean
+    status?: boolean
+    purchasePrice?: boolean
+  }
+
+  export type BuzVegetableOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "prepareTime" | "status" | "purchasePrice", ExtArgs["result"]["buzVegetable"]>
+  export type BuzVegetableInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    buzMenuList?: boolean | BuzVegetable$buzMenuListArgs<ExtArgs>
+    _count?: boolean | BuzVegetableCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $BuzVegetablePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BuzVegetable"
+    objects: {
+      buzMenuList: Prisma.$BuzMenuOnVegPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      prepareTime: number
+      status: number
+      purchasePrice: number
+    }, ExtArgs["result"]["buzVegetable"]>
+    composites: {}
+  }
+
+  type BuzVegetableGetPayload<S extends boolean | null | undefined | BuzVegetableDefaultArgs> = $Result.GetResult<Prisma.$BuzVegetablePayload, S>
+
+  type BuzVegetableCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<BuzVegetableFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: BuzVegetableCountAggregateInputType | true
+    }
+
+  export interface BuzVegetableDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BuzVegetable'], meta: { name: 'BuzVegetable' } }
+    /**
+     * Find zero or one BuzVegetable that matches the filter.
+     * @param {BuzVegetableFindUniqueArgs} args - Arguments to find a BuzVegetable
+     * @example
+     * // Get one BuzVegetable
+     * const buzVegetable = await prisma.buzVegetable.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends BuzVegetableFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzVegetableFindUniqueArgs<ExtArgs>>
+    ): Prisma__BuzVegetableClient<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one BuzVegetable that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {BuzVegetableFindUniqueOrThrowArgs} args - Arguments to find a BuzVegetable
+     * @example
+     * // Get one BuzVegetable
+     * const buzVegetable = await prisma.buzVegetable.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends BuzVegetableFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzVegetableFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__BuzVegetableClient<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first BuzVegetable that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzVegetableFindFirstArgs} args - Arguments to find a BuzVegetable
+     * @example
+     * // Get one BuzVegetable
+     * const buzVegetable = await prisma.buzVegetable.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends BuzVegetableFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzVegetableFindFirstArgs<ExtArgs>>
+    ): Prisma__BuzVegetableClient<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first BuzVegetable that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzVegetableFindFirstOrThrowArgs} args - Arguments to find a BuzVegetable
+     * @example
+     * // Get one BuzVegetable
+     * const buzVegetable = await prisma.buzVegetable.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends BuzVegetableFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzVegetableFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__BuzVegetableClient<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more BuzVegetables that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzVegetableFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BuzVegetables
+     * const buzVegetables = await prisma.buzVegetable.findMany()
+     * 
+     * // Get first 10 BuzVegetables
+     * const buzVegetables = await prisma.buzVegetable.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const buzVegetableWithIdOnly = await prisma.buzVegetable.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends BuzVegetableFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzVegetableFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a BuzVegetable.
+     * @param {BuzVegetableCreateArgs} args - Arguments to create a BuzVegetable.
+     * @example
+     * // Create one BuzVegetable
+     * const BuzVegetable = await prisma.buzVegetable.create({
+     *   data: {
+     *     // ... data to create a BuzVegetable
+     *   }
+     * })
+     * 
+    **/
+    create<T extends BuzVegetableCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzVegetableCreateArgs<ExtArgs>>
+    ): Prisma__BuzVegetableClient<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many BuzVegetables.
+     * @param {BuzVegetableCreateManyArgs} args - Arguments to create many BuzVegetables.
+     * @example
+     * // Create many BuzVegetables
+     * const buzVegetable = await prisma.buzVegetable.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends BuzVegetableCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzVegetableCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BuzVegetable.
+     * @param {BuzVegetableDeleteArgs} args - Arguments to delete one BuzVegetable.
+     * @example
+     * // Delete one BuzVegetable
+     * const BuzVegetable = await prisma.buzVegetable.delete({
+     *   where: {
+     *     // ... filter to delete one BuzVegetable
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends BuzVegetableDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzVegetableDeleteArgs<ExtArgs>>
+    ): Prisma__BuzVegetableClient<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one BuzVegetable.
+     * @param {BuzVegetableUpdateArgs} args - Arguments to update one BuzVegetable.
+     * @example
+     * // Update one BuzVegetable
+     * const buzVegetable = await prisma.buzVegetable.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends BuzVegetableUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzVegetableUpdateArgs<ExtArgs>>
+    ): Prisma__BuzVegetableClient<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more BuzVegetables.
+     * @param {BuzVegetableDeleteManyArgs} args - Arguments to filter BuzVegetables to delete.
+     * @example
+     * // Delete a few BuzVegetables
+     * const { count } = await prisma.buzVegetable.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends BuzVegetableDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzVegetableDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BuzVegetables.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzVegetableUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BuzVegetables
+     * const buzVegetable = await prisma.buzVegetable.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends BuzVegetableUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzVegetableUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BuzVegetable.
+     * @param {BuzVegetableUpsertArgs} args - Arguments to update or create a BuzVegetable.
+     * @example
+     * // Update or create a BuzVegetable
+     * const buzVegetable = await prisma.buzVegetable.upsert({
+     *   create: {
+     *     // ... data to create a BuzVegetable
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BuzVegetable we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends BuzVegetableUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzVegetableUpsertArgs<ExtArgs>>
+    ): Prisma__BuzVegetableClient<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of BuzVegetables.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzVegetableCountArgs} args - Arguments to filter BuzVegetables to count.
+     * @example
+     * // Count the number of BuzVegetables
+     * const count = await prisma.buzVegetable.count({
+     *   where: {
+     *     // ... the filter for the BuzVegetables we want to count
+     *   }
+     * })
+    **/
+    count<T extends BuzVegetableCountArgs>(
+      args?: Subset<T, BuzVegetableCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BuzVegetableCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BuzVegetable.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzVegetableAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BuzVegetableAggregateArgs>(args: Subset<T, BuzVegetableAggregateArgs>): Prisma.PrismaPromise<GetBuzVegetableAggregateType<T>>
+
+    /**
+     * Group by BuzVegetable.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzVegetableGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BuzVegetableGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BuzVegetableGroupByArgs['orderBy'] }
+        : { orderBy?: BuzVegetableGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BuzVegetableGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBuzVegetableGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BuzVegetable model
+   */
+  readonly fields: BuzVegetableFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BuzVegetable.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BuzVegetableClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    buzMenuList<T extends BuzVegetable$buzMenuListArgs<ExtArgs> = {}>(args?: Subset<T, BuzVegetable$buzMenuListArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the BuzVegetable model
+   */ 
+  interface BuzVegetableFieldRefs {
+    readonly id: FieldRef<"BuzVegetable", 'Int'>
+    readonly name: FieldRef<"BuzVegetable", 'String'>
+    readonly prepareTime: FieldRef<"BuzVegetable", 'Int'>
+    readonly status: FieldRef<"BuzVegetable", 'Int'>
+    readonly purchasePrice: FieldRef<"BuzVegetable", 'Float'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BuzVegetable findUnique
+   */
+  export type BuzVegetableFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzVegetable to fetch.
+     */
+    where: BuzVegetableWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzVegetable findUniqueOrThrow
+   */
+  export type BuzVegetableFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzVegetable to fetch.
+     */
+    where: BuzVegetableWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzVegetable findFirst
+   */
+  export type BuzVegetableFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzVegetable to fetch.
+     */
+    where?: BuzVegetableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzVegetables to fetch.
+     */
+    orderBy?: BuzVegetableOrderByWithRelationInput | BuzVegetableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BuzVegetables.
+     */
+    cursor?: BuzVegetableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzVegetables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzVegetables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BuzVegetables.
+     */
+    distinct?: BuzVegetableScalarFieldEnum | BuzVegetableScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzVegetable findFirstOrThrow
+   */
+  export type BuzVegetableFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzVegetable to fetch.
+     */
+    where?: BuzVegetableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzVegetables to fetch.
+     */
+    orderBy?: BuzVegetableOrderByWithRelationInput | BuzVegetableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BuzVegetables.
+     */
+    cursor?: BuzVegetableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzVegetables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzVegetables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BuzVegetables.
+     */
+    distinct?: BuzVegetableScalarFieldEnum | BuzVegetableScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzVegetable findMany
+   */
+  export type BuzVegetableFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzVegetables to fetch.
+     */
+    where?: BuzVegetableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzVegetables to fetch.
+     */
+    orderBy?: BuzVegetableOrderByWithRelationInput | BuzVegetableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BuzVegetables.
+     */
+    cursor?: BuzVegetableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzVegetables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzVegetables.
+     */
+    skip?: number
+    distinct?: BuzVegetableScalarFieldEnum | BuzVegetableScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzVegetable create
+   */
+  export type BuzVegetableCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BuzVegetable.
+     */
+    data?: XOR<BuzVegetableCreateInput, BuzVegetableUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzVegetable createMany
+   */
+  export type BuzVegetableCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BuzVegetables.
+     */
+    data: BuzVegetableCreateManyInput | BuzVegetableCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BuzVegetable update
+   */
+  export type BuzVegetableUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BuzVegetable.
+     */
+    data: XOR<BuzVegetableUpdateInput, BuzVegetableUncheckedUpdateInput>
+    /**
+     * Choose, which BuzVegetable to update.
+     */
+    where: BuzVegetableWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzVegetable updateMany
+   */
+  export type BuzVegetableUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BuzVegetables.
+     */
+    data: XOR<BuzVegetableUpdateManyMutationInput, BuzVegetableUncheckedUpdateManyInput>
+    /**
+     * Filter which BuzVegetables to update
+     */
+    where?: BuzVegetableWhereInput
+  }
+
+  /**
+   * BuzVegetable upsert
+   */
+  export type BuzVegetableUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BuzVegetable to update in case it exists.
+     */
+    where: BuzVegetableWhereUniqueInput
+    /**
+     * In case the BuzVegetable found by the `where` argument doesn't exist, create a new BuzVegetable with this data.
+     */
+    create: XOR<BuzVegetableCreateInput, BuzVegetableUncheckedCreateInput>
+    /**
+     * In case the BuzVegetable was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BuzVegetableUpdateInput, BuzVegetableUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzVegetable delete
+   */
+  export type BuzVegetableDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+    /**
+     * Filter which BuzVegetable to delete.
+     */
+    where: BuzVegetableWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzVegetable deleteMany
+   */
+  export type BuzVegetableDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BuzVegetables to delete
+     */
+    where?: BuzVegetableWhereInput
+  }
+
+  /**
+   * BuzVegetable.buzMenuList
+   */
+  export type BuzVegetable$buzMenuListArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    where?: BuzMenuOnVegWhereInput
+    orderBy?: BuzMenuOnVegOrderByWithRelationInput | BuzMenuOnVegOrderByWithRelationInput[]
+    cursor?: BuzMenuOnVegWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BuzMenuOnVegScalarFieldEnum | BuzMenuOnVegScalarFieldEnum[]
+  }
+
+  /**
+   * BuzVegetable without action
+   */
+  export type BuzVegetableDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzVegetable
+     */
+    select?: BuzVegetableSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzVegetable
+     */
+    omit?: BuzVegetableOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzVegetableInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BuzMenuOnVeg
+   */
+
+  export type AggregateBuzMenuOnVeg = {
+    _count: BuzMenuOnVegCountAggregateOutputType | null
+    _avg: BuzMenuOnVegAvgAggregateOutputType | null
+    _sum: BuzMenuOnVegSumAggregateOutputType | null
+    _min: BuzMenuOnVegMinAggregateOutputType | null
+    _max: BuzMenuOnVegMaxAggregateOutputType | null
+  }
+
+  export type BuzMenuOnVegAvgAggregateOutputType = {
+    buzMenuId: number | null
+    buzVegId: number | null
+  }
+
+  export type BuzMenuOnVegSumAggregateOutputType = {
+    buzMenuId: number | null
+    buzVegId: number | null
+  }
+
+  export type BuzMenuOnVegMinAggregateOutputType = {
+    buzMenuId: number | null
+    buzVegId: number | null
+  }
+
+  export type BuzMenuOnVegMaxAggregateOutputType = {
+    buzMenuId: number | null
+    buzVegId: number | null
+  }
+
+  export type BuzMenuOnVegCountAggregateOutputType = {
+    buzMenuId: number
+    buzVegId: number
+    _all: number
+  }
+
+
+  export type BuzMenuOnVegAvgAggregateInputType = {
+    buzMenuId?: true
+    buzVegId?: true
+  }
+
+  export type BuzMenuOnVegSumAggregateInputType = {
+    buzMenuId?: true
+    buzVegId?: true
+  }
+
+  export type BuzMenuOnVegMinAggregateInputType = {
+    buzMenuId?: true
+    buzVegId?: true
+  }
+
+  export type BuzMenuOnVegMaxAggregateInputType = {
+    buzMenuId?: true
+    buzVegId?: true
+  }
+
+  export type BuzMenuOnVegCountAggregateInputType = {
+    buzMenuId?: true
+    buzVegId?: true
+    _all?: true
+  }
+
+  export type BuzMenuOnVegAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BuzMenuOnVeg to aggregate.
+     */
+    where?: BuzMenuOnVegWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzMenuOnVegs to fetch.
+     */
+    orderBy?: BuzMenuOnVegOrderByWithRelationInput | BuzMenuOnVegOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BuzMenuOnVegWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzMenuOnVegs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzMenuOnVegs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BuzMenuOnVegs
+    **/
+    _count?: true | BuzMenuOnVegCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BuzMenuOnVegAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BuzMenuOnVegSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BuzMenuOnVegMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BuzMenuOnVegMaxAggregateInputType
+  }
+
+  export type GetBuzMenuOnVegAggregateType<T extends BuzMenuOnVegAggregateArgs> = {
+        [P in keyof T & keyof AggregateBuzMenuOnVeg]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBuzMenuOnVeg[P]>
+      : GetScalarType<T[P], AggregateBuzMenuOnVeg[P]>
+  }
+
+
+
+
+  export type BuzMenuOnVegGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BuzMenuOnVegWhereInput
+    orderBy?: BuzMenuOnVegOrderByWithAggregationInput | BuzMenuOnVegOrderByWithAggregationInput[]
+    by: BuzMenuOnVegScalarFieldEnum[] | BuzMenuOnVegScalarFieldEnum
+    having?: BuzMenuOnVegScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BuzMenuOnVegCountAggregateInputType | true
+    _avg?: BuzMenuOnVegAvgAggregateInputType
+    _sum?: BuzMenuOnVegSumAggregateInputType
+    _min?: BuzMenuOnVegMinAggregateInputType
+    _max?: BuzMenuOnVegMaxAggregateInputType
+  }
+
+  export type BuzMenuOnVegGroupByOutputType = {
+    buzMenuId: number
+    buzVegId: number
+    _count: BuzMenuOnVegCountAggregateOutputType | null
+    _avg: BuzMenuOnVegAvgAggregateOutputType | null
+    _sum: BuzMenuOnVegSumAggregateOutputType | null
+    _min: BuzMenuOnVegMinAggregateOutputType | null
+    _max: BuzMenuOnVegMaxAggregateOutputType | null
+  }
+
+  type GetBuzMenuOnVegGroupByPayload<T extends BuzMenuOnVegGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BuzMenuOnVegGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BuzMenuOnVegGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BuzMenuOnVegGroupByOutputType[P]>
+            : GetScalarType<T[P], BuzMenuOnVegGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BuzMenuOnVegSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    buzMenuId?: boolean
+    buzVegId?: boolean
+    buzMenu?: boolean | BuzMenuDefaultArgs<ExtArgs>
+    buzVegetable?: boolean | BuzVegetableDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["buzMenuOnVeg"]>
+
+
+  export type BuzMenuOnVegSelectScalar = {
+    buzMenuId?: boolean
+    buzVegId?: boolean
+  }
+
+  export type BuzMenuOnVegOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"buzMenuId" | "buzVegId", ExtArgs["result"]["buzMenuOnVeg"]>
+  export type BuzMenuOnVegInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    buzMenu?: boolean | BuzMenuDefaultArgs<ExtArgs>
+    buzVegetable?: boolean | BuzVegetableDefaultArgs<ExtArgs>
+  }
+
+  export type $BuzMenuOnVegPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BuzMenuOnVeg"
+    objects: {
+      buzMenu: Prisma.$BuzMenuPayload<ExtArgs>
+      buzVegetable: Prisma.$BuzVegetablePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      buzMenuId: number
+      buzVegId: number
+    }, ExtArgs["result"]["buzMenuOnVeg"]>
+    composites: {}
+  }
+
+  type BuzMenuOnVegGetPayload<S extends boolean | null | undefined | BuzMenuOnVegDefaultArgs> = $Result.GetResult<Prisma.$BuzMenuOnVegPayload, S>
+
+  type BuzMenuOnVegCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<BuzMenuOnVegFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: BuzMenuOnVegCountAggregateInputType | true
+    }
+
+  export interface BuzMenuOnVegDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BuzMenuOnVeg'], meta: { name: 'BuzMenuOnVeg' } }
+    /**
+     * Find zero or one BuzMenuOnVeg that matches the filter.
+     * @param {BuzMenuOnVegFindUniqueArgs} args - Arguments to find a BuzMenuOnVeg
+     * @example
+     * // Get one BuzMenuOnVeg
+     * const buzMenuOnVeg = await prisma.buzMenuOnVeg.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends BuzMenuOnVegFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuOnVegFindUniqueArgs<ExtArgs>>
+    ): Prisma__BuzMenuOnVegClient<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one BuzMenuOnVeg that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {BuzMenuOnVegFindUniqueOrThrowArgs} args - Arguments to find a BuzMenuOnVeg
+     * @example
+     * // Get one BuzMenuOnVeg
+     * const buzMenuOnVeg = await prisma.buzMenuOnVeg.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends BuzMenuOnVegFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuOnVegFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__BuzMenuOnVegClient<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first BuzMenuOnVeg that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuOnVegFindFirstArgs} args - Arguments to find a BuzMenuOnVeg
+     * @example
+     * // Get one BuzMenuOnVeg
+     * const buzMenuOnVeg = await prisma.buzMenuOnVeg.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends BuzMenuOnVegFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuOnVegFindFirstArgs<ExtArgs>>
+    ): Prisma__BuzMenuOnVegClient<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first BuzMenuOnVeg that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuOnVegFindFirstOrThrowArgs} args - Arguments to find a BuzMenuOnVeg
+     * @example
+     * // Get one BuzMenuOnVeg
+     * const buzMenuOnVeg = await prisma.buzMenuOnVeg.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends BuzMenuOnVegFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuOnVegFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__BuzMenuOnVegClient<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more BuzMenuOnVegs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuOnVegFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BuzMenuOnVegs
+     * const buzMenuOnVegs = await prisma.buzMenuOnVeg.findMany()
+     * 
+     * // Get first 10 BuzMenuOnVegs
+     * const buzMenuOnVegs = await prisma.buzMenuOnVeg.findMany({ take: 10 })
+     * 
+     * // Only select the `buzMenuId`
+     * const buzMenuOnVegWithBuzMenuIdOnly = await prisma.buzMenuOnVeg.findMany({ select: { buzMenuId: true } })
+     * 
+    **/
+    findMany<T extends BuzMenuOnVegFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuOnVegFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a BuzMenuOnVeg.
+     * @param {BuzMenuOnVegCreateArgs} args - Arguments to create a BuzMenuOnVeg.
+     * @example
+     * // Create one BuzMenuOnVeg
+     * const BuzMenuOnVeg = await prisma.buzMenuOnVeg.create({
+     *   data: {
+     *     // ... data to create a BuzMenuOnVeg
+     *   }
+     * })
+     * 
+    **/
+    create<T extends BuzMenuOnVegCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuOnVegCreateArgs<ExtArgs>>
+    ): Prisma__BuzMenuOnVegClient<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many BuzMenuOnVegs.
+     * @param {BuzMenuOnVegCreateManyArgs} args - Arguments to create many BuzMenuOnVegs.
+     * @example
+     * // Create many BuzMenuOnVegs
+     * const buzMenuOnVeg = await prisma.buzMenuOnVeg.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends BuzMenuOnVegCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuOnVegCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a BuzMenuOnVeg.
+     * @param {BuzMenuOnVegDeleteArgs} args - Arguments to delete one BuzMenuOnVeg.
+     * @example
+     * // Delete one BuzMenuOnVeg
+     * const BuzMenuOnVeg = await prisma.buzMenuOnVeg.delete({
+     *   where: {
+     *     // ... filter to delete one BuzMenuOnVeg
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends BuzMenuOnVegDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuOnVegDeleteArgs<ExtArgs>>
+    ): Prisma__BuzMenuOnVegClient<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one BuzMenuOnVeg.
+     * @param {BuzMenuOnVegUpdateArgs} args - Arguments to update one BuzMenuOnVeg.
+     * @example
+     * // Update one BuzMenuOnVeg
+     * const buzMenuOnVeg = await prisma.buzMenuOnVeg.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends BuzMenuOnVegUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuOnVegUpdateArgs<ExtArgs>>
+    ): Prisma__BuzMenuOnVegClient<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more BuzMenuOnVegs.
+     * @param {BuzMenuOnVegDeleteManyArgs} args - Arguments to filter BuzMenuOnVegs to delete.
+     * @example
+     * // Delete a few BuzMenuOnVegs
+     * const { count } = await prisma.buzMenuOnVeg.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends BuzMenuOnVegDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, BuzMenuOnVegDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BuzMenuOnVegs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuOnVegUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BuzMenuOnVegs
+     * const buzMenuOnVeg = await prisma.buzMenuOnVeg.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends BuzMenuOnVegUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuOnVegUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one BuzMenuOnVeg.
+     * @param {BuzMenuOnVegUpsertArgs} args - Arguments to update or create a BuzMenuOnVeg.
+     * @example
+     * // Update or create a BuzMenuOnVeg
+     * const buzMenuOnVeg = await prisma.buzMenuOnVeg.upsert({
+     *   create: {
+     *     // ... data to create a BuzMenuOnVeg
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BuzMenuOnVeg we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends BuzMenuOnVegUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, BuzMenuOnVegUpsertArgs<ExtArgs>>
+    ): Prisma__BuzMenuOnVegClient<$Result.GetResult<Prisma.$BuzMenuOnVegPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of BuzMenuOnVegs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuOnVegCountArgs} args - Arguments to filter BuzMenuOnVegs to count.
+     * @example
+     * // Count the number of BuzMenuOnVegs
+     * const count = await prisma.buzMenuOnVeg.count({
+     *   where: {
+     *     // ... the filter for the BuzMenuOnVegs we want to count
+     *   }
+     * })
+    **/
+    count<T extends BuzMenuOnVegCountArgs>(
+      args?: Subset<T, BuzMenuOnVegCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BuzMenuOnVegCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BuzMenuOnVeg.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuOnVegAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BuzMenuOnVegAggregateArgs>(args: Subset<T, BuzMenuOnVegAggregateArgs>): Prisma.PrismaPromise<GetBuzMenuOnVegAggregateType<T>>
+
+    /**
+     * Group by BuzMenuOnVeg.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BuzMenuOnVegGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BuzMenuOnVegGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BuzMenuOnVegGroupByArgs['orderBy'] }
+        : { orderBy?: BuzMenuOnVegGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BuzMenuOnVegGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBuzMenuOnVegGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BuzMenuOnVeg model
+   */
+  readonly fields: BuzMenuOnVegFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BuzMenuOnVeg.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BuzMenuOnVegClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    buzMenu<T extends BuzMenuDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BuzMenuDefaultArgs<ExtArgs>>): Prisma__BuzMenuClient<$Result.GetResult<Prisma.$BuzMenuPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    buzVegetable<T extends BuzVegetableDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BuzVegetableDefaultArgs<ExtArgs>>): Prisma__BuzVegetableClient<$Result.GetResult<Prisma.$BuzVegetablePayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the BuzMenuOnVeg model
+   */ 
+  interface BuzMenuOnVegFieldRefs {
+    readonly buzMenuId: FieldRef<"BuzMenuOnVeg", 'Int'>
+    readonly buzVegId: FieldRef<"BuzMenuOnVeg", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BuzMenuOnVeg findUnique
+   */
+  export type BuzMenuOnVegFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenuOnVeg to fetch.
+     */
+    where: BuzMenuOnVegWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenuOnVeg findUniqueOrThrow
+   */
+  export type BuzMenuOnVegFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenuOnVeg to fetch.
+     */
+    where: BuzMenuOnVegWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenuOnVeg findFirst
+   */
+  export type BuzMenuOnVegFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenuOnVeg to fetch.
+     */
+    where?: BuzMenuOnVegWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzMenuOnVegs to fetch.
+     */
+    orderBy?: BuzMenuOnVegOrderByWithRelationInput | BuzMenuOnVegOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BuzMenuOnVegs.
+     */
+    cursor?: BuzMenuOnVegWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzMenuOnVegs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzMenuOnVegs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BuzMenuOnVegs.
+     */
+    distinct?: BuzMenuOnVegScalarFieldEnum | BuzMenuOnVegScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenuOnVeg findFirstOrThrow
+   */
+  export type BuzMenuOnVegFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenuOnVeg to fetch.
+     */
+    where?: BuzMenuOnVegWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzMenuOnVegs to fetch.
+     */
+    orderBy?: BuzMenuOnVegOrderByWithRelationInput | BuzMenuOnVegOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BuzMenuOnVegs.
+     */
+    cursor?: BuzMenuOnVegWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzMenuOnVegs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzMenuOnVegs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BuzMenuOnVegs.
+     */
+    distinct?: BuzMenuOnVegScalarFieldEnum | BuzMenuOnVegScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenuOnVeg findMany
+   */
+  export type BuzMenuOnVegFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    /**
+     * Filter, which BuzMenuOnVegs to fetch.
+     */
+    where?: BuzMenuOnVegWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BuzMenuOnVegs to fetch.
+     */
+    orderBy?: BuzMenuOnVegOrderByWithRelationInput | BuzMenuOnVegOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BuzMenuOnVegs.
+     */
+    cursor?: BuzMenuOnVegWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BuzMenuOnVegs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BuzMenuOnVegs.
+     */
+    skip?: number
+    distinct?: BuzMenuOnVegScalarFieldEnum | BuzMenuOnVegScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenuOnVeg create
+   */
+  export type BuzMenuOnVegCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BuzMenuOnVeg.
+     */
+    data: XOR<BuzMenuOnVegCreateInput, BuzMenuOnVegUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenuOnVeg createMany
+   */
+  export type BuzMenuOnVegCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BuzMenuOnVegs.
+     */
+    data: BuzMenuOnVegCreateManyInput | BuzMenuOnVegCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BuzMenuOnVeg update
+   */
+  export type BuzMenuOnVegUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BuzMenuOnVeg.
+     */
+    data: XOR<BuzMenuOnVegUpdateInput, BuzMenuOnVegUncheckedUpdateInput>
+    /**
+     * Choose, which BuzMenuOnVeg to update.
+     */
+    where: BuzMenuOnVegWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenuOnVeg updateMany
+   */
+  export type BuzMenuOnVegUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BuzMenuOnVegs.
+     */
+    data: XOR<BuzMenuOnVegUpdateManyMutationInput, BuzMenuOnVegUncheckedUpdateManyInput>
+    /**
+     * Filter which BuzMenuOnVegs to update
+     */
+    where?: BuzMenuOnVegWhereInput
+  }
+
+  /**
+   * BuzMenuOnVeg upsert
+   */
+  export type BuzMenuOnVegUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BuzMenuOnVeg to update in case it exists.
+     */
+    where: BuzMenuOnVegWhereUniqueInput
+    /**
+     * In case the BuzMenuOnVeg found by the `where` argument doesn't exist, create a new BuzMenuOnVeg with this data.
+     */
+    create: XOR<BuzMenuOnVegCreateInput, BuzMenuOnVegUncheckedCreateInput>
+    /**
+     * In case the BuzMenuOnVeg was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BuzMenuOnVegUpdateInput, BuzMenuOnVegUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenuOnVeg delete
+   */
+  export type BuzMenuOnVegDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+    /**
+     * Filter which BuzMenuOnVeg to delete.
+     */
+    where: BuzMenuOnVegWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * BuzMenuOnVeg deleteMany
+   */
+  export type BuzMenuOnVegDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BuzMenuOnVegs to delete
+     */
+    where?: BuzMenuOnVegWhereInput
+  }
+
+  /**
+   * BuzMenuOnVeg without action
+   */
+  export type BuzMenuOnVegDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BuzMenuOnVeg
+     */
+    select?: BuzMenuOnVegSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BuzMenuOnVeg
+     */
+    omit?: BuzMenuOnVegOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BuzMenuOnVegInclude<ExtArgs> | null
+  }
+
 
   /**
    * Model GenTable
@@ -19529,6 +22861,45 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+  export const BuzMenuScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    image: 'image',
+    cookTime: 'cookTime',
+    sellingPrice: 'sellingPrice',
+    status: 'status'
+  };
+
+  export type BuzMenuScalarFieldEnum = (typeof BuzMenuScalarFieldEnum)[keyof typeof BuzMenuScalarFieldEnum]
+
+
+  export const RelationLoadStrategy: {
+    query: 'query',
+    join: 'join'
+  };
+
+  export type RelationLoadStrategy = (typeof RelationLoadStrategy)[keyof typeof RelationLoadStrategy]
+
+
+  export const BuzVegetableScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    prepareTime: 'prepareTime',
+    status: 'status',
+    purchasePrice: 'purchasePrice'
+  };
+
+  export type BuzVegetableScalarFieldEnum = (typeof BuzVegetableScalarFieldEnum)[keyof typeof BuzVegetableScalarFieldEnum]
+
+
+  export const BuzMenuOnVegScalarFieldEnum: {
+    buzMenuId: 'buzMenuId',
+    buzVegId: 'buzVegId'
+  };
+
+  export type BuzMenuOnVegScalarFieldEnum = (typeof BuzMenuOnVegScalarFieldEnum)[keyof typeof BuzMenuOnVegScalarFieldEnum]
+
+
   export const GenTableScalarFieldEnum: {
     tableId: 'tableId',
     tableName: 'tableName',
@@ -19554,14 +22925,6 @@ export namespace Prisma {
   };
 
   export type GenTableScalarFieldEnum = (typeof GenTableScalarFieldEnum)[keyof typeof GenTableScalarFieldEnum]
-
-
-  export const RelationLoadStrategy: {
-    query: 'query',
-    join: 'join'
-  };
-
-  export type RelationLoadStrategy = (typeof RelationLoadStrategy)[keyof typeof RelationLoadStrategy]
 
 
   export const GenTableColumnScalarFieldEnum: {
@@ -19853,6 +23216,171 @@ export namespace Prisma {
    * Deep Input Types
    */
 
+
+  export type BuzMenuWhereInput = {
+    AND?: BuzMenuWhereInput | BuzMenuWhereInput[]
+    OR?: BuzMenuWhereInput[]
+    NOT?: BuzMenuWhereInput | BuzMenuWhereInput[]
+    id?: IntFilter<"BuzMenu"> | number
+    name?: StringFilter<"BuzMenu"> | string
+    image?: StringFilter<"BuzMenu"> | string
+    cookTime?: IntFilter<"BuzMenu"> | number
+    sellingPrice?: FloatFilter<"BuzMenu"> | number
+    status?: IntFilter<"BuzMenu"> | number
+    buzVegList?: BuzMenuOnVegListRelationFilter
+  }
+
+  export type BuzMenuOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    image?: SortOrder
+    cookTime?: SortOrder
+    sellingPrice?: SortOrder
+    status?: SortOrder
+    buzVegList?: BuzMenuOnVegOrderByRelationAggregateInput
+  }
+
+  export type BuzMenuWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BuzMenuWhereInput | BuzMenuWhereInput[]
+    OR?: BuzMenuWhereInput[]
+    NOT?: BuzMenuWhereInput | BuzMenuWhereInput[]
+    name?: StringFilter<"BuzMenu"> | string
+    image?: StringFilter<"BuzMenu"> | string
+    cookTime?: IntFilter<"BuzMenu"> | number
+    sellingPrice?: FloatFilter<"BuzMenu"> | number
+    status?: IntFilter<"BuzMenu"> | number
+    buzVegList?: BuzMenuOnVegListRelationFilter
+  }, "id">
+
+  export type BuzMenuOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    image?: SortOrder
+    cookTime?: SortOrder
+    sellingPrice?: SortOrder
+    status?: SortOrder
+    _count?: BuzMenuCountOrderByAggregateInput
+    _avg?: BuzMenuAvgOrderByAggregateInput
+    _max?: BuzMenuMaxOrderByAggregateInput
+    _min?: BuzMenuMinOrderByAggregateInput
+    _sum?: BuzMenuSumOrderByAggregateInput
+  }
+
+  export type BuzMenuScalarWhereWithAggregatesInput = {
+    AND?: BuzMenuScalarWhereWithAggregatesInput | BuzMenuScalarWhereWithAggregatesInput[]
+    OR?: BuzMenuScalarWhereWithAggregatesInput[]
+    NOT?: BuzMenuScalarWhereWithAggregatesInput | BuzMenuScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BuzMenu"> | number
+    name?: StringWithAggregatesFilter<"BuzMenu"> | string
+    image?: StringWithAggregatesFilter<"BuzMenu"> | string
+    cookTime?: IntWithAggregatesFilter<"BuzMenu"> | number
+    sellingPrice?: FloatWithAggregatesFilter<"BuzMenu"> | number
+    status?: IntWithAggregatesFilter<"BuzMenu"> | number
+  }
+
+  export type BuzVegetableWhereInput = {
+    AND?: BuzVegetableWhereInput | BuzVegetableWhereInput[]
+    OR?: BuzVegetableWhereInput[]
+    NOT?: BuzVegetableWhereInput | BuzVegetableWhereInput[]
+    id?: IntFilter<"BuzVegetable"> | number
+    name?: StringFilter<"BuzVegetable"> | string
+    prepareTime?: IntFilter<"BuzVegetable"> | number
+    status?: IntFilter<"BuzVegetable"> | number
+    purchasePrice?: FloatFilter<"BuzVegetable"> | number
+    buzMenuList?: BuzMenuOnVegListRelationFilter
+  }
+
+  export type BuzVegetableOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    prepareTime?: SortOrder
+    status?: SortOrder
+    purchasePrice?: SortOrder
+    buzMenuList?: BuzMenuOnVegOrderByRelationAggregateInput
+  }
+
+  export type BuzVegetableWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BuzVegetableWhereInput | BuzVegetableWhereInput[]
+    OR?: BuzVegetableWhereInput[]
+    NOT?: BuzVegetableWhereInput | BuzVegetableWhereInput[]
+    name?: StringFilter<"BuzVegetable"> | string
+    prepareTime?: IntFilter<"BuzVegetable"> | number
+    status?: IntFilter<"BuzVegetable"> | number
+    purchasePrice?: FloatFilter<"BuzVegetable"> | number
+    buzMenuList?: BuzMenuOnVegListRelationFilter
+  }, "id">
+
+  export type BuzVegetableOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    prepareTime?: SortOrder
+    status?: SortOrder
+    purchasePrice?: SortOrder
+    _count?: BuzVegetableCountOrderByAggregateInput
+    _avg?: BuzVegetableAvgOrderByAggregateInput
+    _max?: BuzVegetableMaxOrderByAggregateInput
+    _min?: BuzVegetableMinOrderByAggregateInput
+    _sum?: BuzVegetableSumOrderByAggregateInput
+  }
+
+  export type BuzVegetableScalarWhereWithAggregatesInput = {
+    AND?: BuzVegetableScalarWhereWithAggregatesInput | BuzVegetableScalarWhereWithAggregatesInput[]
+    OR?: BuzVegetableScalarWhereWithAggregatesInput[]
+    NOT?: BuzVegetableScalarWhereWithAggregatesInput | BuzVegetableScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BuzVegetable"> | number
+    name?: StringWithAggregatesFilter<"BuzVegetable"> | string
+    prepareTime?: IntWithAggregatesFilter<"BuzVegetable"> | number
+    status?: IntWithAggregatesFilter<"BuzVegetable"> | number
+    purchasePrice?: FloatWithAggregatesFilter<"BuzVegetable"> | number
+  }
+
+  export type BuzMenuOnVegWhereInput = {
+    AND?: BuzMenuOnVegWhereInput | BuzMenuOnVegWhereInput[]
+    OR?: BuzMenuOnVegWhereInput[]
+    NOT?: BuzMenuOnVegWhereInput | BuzMenuOnVegWhereInput[]
+    buzMenuId?: IntFilter<"BuzMenuOnVeg"> | number
+    buzVegId?: IntFilter<"BuzMenuOnVeg"> | number
+    buzMenu?: XOR<BuzMenuRelationFilter, BuzMenuWhereInput>
+    buzVegetable?: XOR<BuzVegetableRelationFilter, BuzVegetableWhereInput>
+  }
+
+  export type BuzMenuOnVegOrderByWithRelationInput = {
+    buzMenuId?: SortOrder
+    buzVegId?: SortOrder
+    buzMenu?: BuzMenuOrderByWithRelationInput
+    buzVegetable?: BuzVegetableOrderByWithRelationInput
+  }
+
+  export type BuzMenuOnVegWhereUniqueInput = Prisma.AtLeast<{
+    buzMenuId_buzVegId?: BuzMenuOnVegBuzMenuIdBuzVegIdCompoundUniqueInput
+    AND?: BuzMenuOnVegWhereInput | BuzMenuOnVegWhereInput[]
+    OR?: BuzMenuOnVegWhereInput[]
+    NOT?: BuzMenuOnVegWhereInput | BuzMenuOnVegWhereInput[]
+    buzMenuId?: IntFilter<"BuzMenuOnVeg"> | number
+    buzVegId?: IntFilter<"BuzMenuOnVeg"> | number
+    buzMenu?: XOR<BuzMenuRelationFilter, BuzMenuWhereInput>
+    buzVegetable?: XOR<BuzVegetableRelationFilter, BuzVegetableWhereInput>
+  }, "buzMenuId_buzVegId">
+
+  export type BuzMenuOnVegOrderByWithAggregationInput = {
+    buzMenuId?: SortOrder
+    buzVegId?: SortOrder
+    _count?: BuzMenuOnVegCountOrderByAggregateInput
+    _avg?: BuzMenuOnVegAvgOrderByAggregateInput
+    _max?: BuzMenuOnVegMaxOrderByAggregateInput
+    _min?: BuzMenuOnVegMinOrderByAggregateInput
+    _sum?: BuzMenuOnVegSumOrderByAggregateInput
+  }
+
+  export type BuzMenuOnVegScalarWhereWithAggregatesInput = {
+    AND?: BuzMenuOnVegScalarWhereWithAggregatesInput | BuzMenuOnVegScalarWhereWithAggregatesInput[]
+    OR?: BuzMenuOnVegScalarWhereWithAggregatesInput[]
+    NOT?: BuzMenuOnVegScalarWhereWithAggregatesInput | BuzMenuOnVegScalarWhereWithAggregatesInput[]
+    buzMenuId?: IntWithAggregatesFilter<"BuzMenuOnVeg"> | number
+    buzVegId?: IntWithAggregatesFilter<"BuzMenuOnVeg"> | number
+  }
 
   export type GenTableWhereInput = {
     AND?: GenTableWhereInput | GenTableWhereInput[]
@@ -21266,6 +24794,161 @@ export namespace Prisma {
     NOT?: SysUserRoleScalarWhereWithAggregatesInput | SysUserRoleScalarWhereWithAggregatesInput[]
     userId?: IntWithAggregatesFilter<"SysUserRole"> | number
     roleId?: IntWithAggregatesFilter<"SysUserRole"> | number
+  }
+
+  export type BuzMenuCreateInput = {
+    name?: string
+    image: string
+    cookTime?: number
+    sellingPrice?: number
+    status?: number
+    buzVegList?: BuzMenuOnVegCreateNestedManyWithoutBuzMenuInput
+  }
+
+  export type BuzMenuUncheckedCreateInput = {
+    id?: number
+    name?: string
+    image: string
+    cookTime?: number
+    sellingPrice?: number
+    status?: number
+    buzVegList?: BuzMenuOnVegUncheckedCreateNestedManyWithoutBuzMenuInput
+  }
+
+  export type BuzMenuUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    cookTime?: IntFieldUpdateOperationsInput | number
+    sellingPrice?: FloatFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    buzVegList?: BuzMenuOnVegUpdateManyWithoutBuzMenuNestedInput
+  }
+
+  export type BuzMenuUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    cookTime?: IntFieldUpdateOperationsInput | number
+    sellingPrice?: FloatFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    buzVegList?: BuzMenuOnVegUncheckedUpdateManyWithoutBuzMenuNestedInput
+  }
+
+  export type BuzMenuCreateManyInput = {
+    id?: number
+    name?: string
+    image: string
+    cookTime?: number
+    sellingPrice?: number
+    status?: number
+  }
+
+  export type BuzMenuUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    cookTime?: IntFieldUpdateOperationsInput | number
+    sellingPrice?: FloatFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BuzMenuUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    cookTime?: IntFieldUpdateOperationsInput | number
+    sellingPrice?: FloatFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BuzVegetableCreateInput = {
+    name?: string
+    prepareTime?: number
+    status?: number
+    purchasePrice?: number
+    buzMenuList?: BuzMenuOnVegCreateNestedManyWithoutBuzVegetableInput
+  }
+
+  export type BuzVegetableUncheckedCreateInput = {
+    id?: number
+    name?: string
+    prepareTime?: number
+    status?: number
+    purchasePrice?: number
+    buzMenuList?: BuzMenuOnVegUncheckedCreateNestedManyWithoutBuzVegetableInput
+  }
+
+  export type BuzVegetableUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    prepareTime?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    purchasePrice?: FloatFieldUpdateOperationsInput | number
+    buzMenuList?: BuzMenuOnVegUpdateManyWithoutBuzVegetableNestedInput
+  }
+
+  export type BuzVegetableUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    prepareTime?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    purchasePrice?: FloatFieldUpdateOperationsInput | number
+    buzMenuList?: BuzMenuOnVegUncheckedUpdateManyWithoutBuzVegetableNestedInput
+  }
+
+  export type BuzVegetableCreateManyInput = {
+    id?: number
+    name?: string
+    prepareTime?: number
+    status?: number
+    purchasePrice?: number
+  }
+
+  export type BuzVegetableUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    prepareTime?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    purchasePrice?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type BuzVegetableUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    prepareTime?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    purchasePrice?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type BuzMenuOnVegCreateInput = {
+    buzMenu: BuzMenuCreateNestedOneWithoutBuzVegListInput
+    buzVegetable: BuzVegetableCreateNestedOneWithoutBuzMenuListInput
+  }
+
+  export type BuzMenuOnVegUncheckedCreateInput = {
+    buzMenuId: number
+    buzVegId: number
+  }
+
+  export type BuzMenuOnVegUpdateInput = {
+    buzMenu?: BuzMenuUpdateOneRequiredWithoutBuzVegListNestedInput
+    buzVegetable?: BuzVegetableUpdateOneRequiredWithoutBuzMenuListNestedInput
+  }
+
+  export type BuzMenuOnVegUncheckedUpdateInput = {
+    buzMenuId?: IntFieldUpdateOperationsInput | number
+    buzVegId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BuzMenuOnVegCreateManyInput = {
+    buzMenuId: number
+    buzVegId: number
+  }
+
+  export type BuzMenuOnVegUpdateManyMutationInput = {
+
+  }
+
+  export type BuzMenuOnVegUncheckedUpdateManyInput = {
+    buzMenuId?: IntFieldUpdateOperationsInput | number
+    buzVegId?: IntFieldUpdateOperationsInput | number
   }
 
   export type GenTableCreateInput = {
@@ -22848,6 +26531,209 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type StringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type BuzMenuOnVegListRelationFilter = {
+    every?: BuzMenuOnVegWhereInput
+    some?: BuzMenuOnVegWhereInput
+    none?: BuzMenuOnVegWhereInput
+  }
+
+  export type BuzMenuOnVegOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BuzMenuCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    image?: SortOrder
+    cookTime?: SortOrder
+    sellingPrice?: SortOrder
+    status?: SortOrder
+  }
+
+  export type BuzMenuAvgOrderByAggregateInput = {
+    id?: SortOrder
+    cookTime?: SortOrder
+    sellingPrice?: SortOrder
+    status?: SortOrder
+  }
+
+  export type BuzMenuMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    image?: SortOrder
+    cookTime?: SortOrder
+    sellingPrice?: SortOrder
+    status?: SortOrder
+  }
+
+  export type BuzMenuMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    image?: SortOrder
+    cookTime?: SortOrder
+    sellingPrice?: SortOrder
+    status?: SortOrder
+  }
+
+  export type BuzMenuSumOrderByAggregateInput = {
+    id?: SortOrder
+    cookTime?: SortOrder
+    sellingPrice?: SortOrder
+    status?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type StringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type BuzVegetableCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    prepareTime?: SortOrder
+    status?: SortOrder
+    purchasePrice?: SortOrder
+  }
+
+  export type BuzVegetableAvgOrderByAggregateInput = {
+    id?: SortOrder
+    prepareTime?: SortOrder
+    status?: SortOrder
+    purchasePrice?: SortOrder
+  }
+
+  export type BuzVegetableMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    prepareTime?: SortOrder
+    status?: SortOrder
+    purchasePrice?: SortOrder
+  }
+
+  export type BuzVegetableMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    prepareTime?: SortOrder
+    status?: SortOrder
+    purchasePrice?: SortOrder
+  }
+
+  export type BuzVegetableSumOrderByAggregateInput = {
+    id?: SortOrder
+    prepareTime?: SortOrder
+    status?: SortOrder
+    purchasePrice?: SortOrder
+  }
+
+  export type BuzMenuRelationFilter = {
+    is?: BuzMenuWhereInput
+    isNot?: BuzMenuWhereInput
+  }
+
+  export type BuzVegetableRelationFilter = {
+    is?: BuzVegetableWhereInput
+    isNot?: BuzVegetableWhereInput
+  }
+
+  export type BuzMenuOnVegBuzMenuIdBuzVegIdCompoundUniqueInput = {
+    buzMenuId: number
+    buzVegId: number
+  }
+
+  export type BuzMenuOnVegCountOrderByAggregateInput = {
+    buzMenuId?: SortOrder
+    buzVegId?: SortOrder
+  }
+
+  export type BuzMenuOnVegAvgOrderByAggregateInput = {
+    buzMenuId?: SortOrder
+    buzVegId?: SortOrder
+  }
+
+  export type BuzMenuOnVegMaxOrderByAggregateInput = {
+    buzMenuId?: SortOrder
+    buzVegId?: SortOrder
+  }
+
+  export type BuzMenuOnVegMinOrderByAggregateInput = {
+    buzMenuId?: SortOrder
+    buzVegId?: SortOrder
+  }
+
+  export type BuzMenuOnVegSumOrderByAggregateInput = {
+    buzMenuId?: SortOrder
+    buzVegId?: SortOrder
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | null
@@ -22955,22 +26841,6 @@ export namespace Prisma {
 
   export type GenTableSumOrderByAggregateInput = {
     tableId?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -23400,20 +27270,6 @@ export namespace Prisma {
     infoId?: SortOrder
   }
 
-  export type StringFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringFilter<$PrismaModel> | string
-  }
-
   export type SysRoleMenuListRelationFilter = {
     every?: SysRoleMenuWhereInput
     some?: SysRoleMenuWhereInput
@@ -23504,23 +27360,6 @@ export namespace Prisma {
     orderNum?: SortOrder
     isFrame?: SortOrder
     isCache?: SortOrder
-  }
-
-  export type StringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type SysNoticeCountOrderByAggregateInput = {
@@ -23924,6 +27763,138 @@ export namespace Prisma {
     roleId?: SortOrder
   }
 
+  export type BuzMenuOnVegCreateNestedManyWithoutBuzMenuInput = {
+    create?: XOR<BuzMenuOnVegCreateWithoutBuzMenuInput, BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput> | BuzMenuOnVegCreateWithoutBuzMenuInput[] | BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput[]
+    connectOrCreate?: BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput | BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput[]
+    createMany?: BuzMenuOnVegCreateManyBuzMenuInputEnvelope
+    connect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+  }
+
+  export type BuzMenuOnVegUncheckedCreateNestedManyWithoutBuzMenuInput = {
+    create?: XOR<BuzMenuOnVegCreateWithoutBuzMenuInput, BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput> | BuzMenuOnVegCreateWithoutBuzMenuInput[] | BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput[]
+    connectOrCreate?: BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput | BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput[]
+    createMany?: BuzMenuOnVegCreateManyBuzMenuInputEnvelope
+    connect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type BuzMenuOnVegUpdateManyWithoutBuzMenuNestedInput = {
+    create?: XOR<BuzMenuOnVegCreateWithoutBuzMenuInput, BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput> | BuzMenuOnVegCreateWithoutBuzMenuInput[] | BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput[]
+    connectOrCreate?: BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput | BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput[]
+    upsert?: BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzMenuInput | BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzMenuInput[]
+    createMany?: BuzMenuOnVegCreateManyBuzMenuInputEnvelope
+    set?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    disconnect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    delete?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    connect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    update?: BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzMenuInput | BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzMenuInput[]
+    updateMany?: BuzMenuOnVegUpdateManyWithWhereWithoutBuzMenuInput | BuzMenuOnVegUpdateManyWithWhereWithoutBuzMenuInput[]
+    deleteMany?: BuzMenuOnVegScalarWhereInput | BuzMenuOnVegScalarWhereInput[]
+  }
+
+  export type BuzMenuOnVegUncheckedUpdateManyWithoutBuzMenuNestedInput = {
+    create?: XOR<BuzMenuOnVegCreateWithoutBuzMenuInput, BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput> | BuzMenuOnVegCreateWithoutBuzMenuInput[] | BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput[]
+    connectOrCreate?: BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput | BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput[]
+    upsert?: BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzMenuInput | BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzMenuInput[]
+    createMany?: BuzMenuOnVegCreateManyBuzMenuInputEnvelope
+    set?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    disconnect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    delete?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    connect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    update?: BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzMenuInput | BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzMenuInput[]
+    updateMany?: BuzMenuOnVegUpdateManyWithWhereWithoutBuzMenuInput | BuzMenuOnVegUpdateManyWithWhereWithoutBuzMenuInput[]
+    deleteMany?: BuzMenuOnVegScalarWhereInput | BuzMenuOnVegScalarWhereInput[]
+  }
+
+  export type BuzMenuOnVegCreateNestedManyWithoutBuzVegetableInput = {
+    create?: XOR<BuzMenuOnVegCreateWithoutBuzVegetableInput, BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput> | BuzMenuOnVegCreateWithoutBuzVegetableInput[] | BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput[]
+    connectOrCreate?: BuzMenuOnVegCreateOrConnectWithoutBuzVegetableInput | BuzMenuOnVegCreateOrConnectWithoutBuzVegetableInput[]
+    createMany?: BuzMenuOnVegCreateManyBuzVegetableInputEnvelope
+    connect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+  }
+
+  export type BuzMenuOnVegUncheckedCreateNestedManyWithoutBuzVegetableInput = {
+    create?: XOR<BuzMenuOnVegCreateWithoutBuzVegetableInput, BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput> | BuzMenuOnVegCreateWithoutBuzVegetableInput[] | BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput[]
+    connectOrCreate?: BuzMenuOnVegCreateOrConnectWithoutBuzVegetableInput | BuzMenuOnVegCreateOrConnectWithoutBuzVegetableInput[]
+    createMany?: BuzMenuOnVegCreateManyBuzVegetableInputEnvelope
+    connect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+  }
+
+  export type BuzMenuOnVegUpdateManyWithoutBuzVegetableNestedInput = {
+    create?: XOR<BuzMenuOnVegCreateWithoutBuzVegetableInput, BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput> | BuzMenuOnVegCreateWithoutBuzVegetableInput[] | BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput[]
+    connectOrCreate?: BuzMenuOnVegCreateOrConnectWithoutBuzVegetableInput | BuzMenuOnVegCreateOrConnectWithoutBuzVegetableInput[]
+    upsert?: BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzVegetableInput | BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzVegetableInput[]
+    createMany?: BuzMenuOnVegCreateManyBuzVegetableInputEnvelope
+    set?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    disconnect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    delete?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    connect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    update?: BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzVegetableInput | BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzVegetableInput[]
+    updateMany?: BuzMenuOnVegUpdateManyWithWhereWithoutBuzVegetableInput | BuzMenuOnVegUpdateManyWithWhereWithoutBuzVegetableInput[]
+    deleteMany?: BuzMenuOnVegScalarWhereInput | BuzMenuOnVegScalarWhereInput[]
+  }
+
+  export type BuzMenuOnVegUncheckedUpdateManyWithoutBuzVegetableNestedInput = {
+    create?: XOR<BuzMenuOnVegCreateWithoutBuzVegetableInput, BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput> | BuzMenuOnVegCreateWithoutBuzVegetableInput[] | BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput[]
+    connectOrCreate?: BuzMenuOnVegCreateOrConnectWithoutBuzVegetableInput | BuzMenuOnVegCreateOrConnectWithoutBuzVegetableInput[]
+    upsert?: BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzVegetableInput | BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzVegetableInput[]
+    createMany?: BuzMenuOnVegCreateManyBuzVegetableInputEnvelope
+    set?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    disconnect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    delete?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    connect?: BuzMenuOnVegWhereUniqueInput | BuzMenuOnVegWhereUniqueInput[]
+    update?: BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzVegetableInput | BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzVegetableInput[]
+    updateMany?: BuzMenuOnVegUpdateManyWithWhereWithoutBuzVegetableInput | BuzMenuOnVegUpdateManyWithWhereWithoutBuzVegetableInput[]
+    deleteMany?: BuzMenuOnVegScalarWhereInput | BuzMenuOnVegScalarWhereInput[]
+  }
+
+  export type BuzMenuCreateNestedOneWithoutBuzVegListInput = {
+    create?: XOR<BuzMenuCreateWithoutBuzVegListInput, BuzMenuUncheckedCreateWithoutBuzVegListInput>
+    connectOrCreate?: BuzMenuCreateOrConnectWithoutBuzVegListInput
+    connect?: BuzMenuWhereUniqueInput
+  }
+
+  export type BuzVegetableCreateNestedOneWithoutBuzMenuListInput = {
+    create?: XOR<BuzVegetableCreateWithoutBuzMenuListInput, BuzVegetableUncheckedCreateWithoutBuzMenuListInput>
+    connectOrCreate?: BuzVegetableCreateOrConnectWithoutBuzMenuListInput
+    connect?: BuzVegetableWhereUniqueInput
+  }
+
+  export type BuzMenuUpdateOneRequiredWithoutBuzVegListNestedInput = {
+    create?: XOR<BuzMenuCreateWithoutBuzVegListInput, BuzMenuUncheckedCreateWithoutBuzVegListInput>
+    connectOrCreate?: BuzMenuCreateOrConnectWithoutBuzVegListInput
+    upsert?: BuzMenuUpsertWithoutBuzVegListInput
+    connect?: BuzMenuWhereUniqueInput
+    update?: XOR<XOR<BuzMenuUpdateToOneWithWhereWithoutBuzVegListInput, BuzMenuUpdateWithoutBuzVegListInput>, BuzMenuUncheckedUpdateWithoutBuzVegListInput>
+  }
+
+  export type BuzVegetableUpdateOneRequiredWithoutBuzMenuListNestedInput = {
+    create?: XOR<BuzVegetableCreateWithoutBuzMenuListInput, BuzVegetableUncheckedCreateWithoutBuzMenuListInput>
+    connectOrCreate?: BuzVegetableCreateOrConnectWithoutBuzMenuListInput
+    upsert?: BuzVegetableUpsertWithoutBuzMenuListInput
+    connect?: BuzVegetableWhereUniqueInput
+    update?: XOR<XOR<BuzVegetableUpdateToOneWithWhereWithoutBuzMenuListInput, BuzVegetableUpdateWithoutBuzMenuListInput>, BuzVegetableUncheckedUpdateWithoutBuzMenuListInput>
+  }
+
   export type GenTableColumnCreateNestedManyWithoutTableInput = {
     create?: XOR<GenTableColumnCreateWithoutTableInput, GenTableColumnUncheckedCreateWithoutTableInput> | GenTableColumnCreateWithoutTableInput[] | GenTableColumnUncheckedCreateWithoutTableInput[]
     connectOrCreate?: GenTableColumnCreateOrConnectWithoutTableInput | GenTableColumnCreateOrConnectWithoutTableInput[]
@@ -23954,14 +27925,6 @@ export namespace Prisma {
     update?: GenTableColumnUpdateWithWhereUniqueWithoutTableInput | GenTableColumnUpdateWithWhereUniqueWithoutTableInput[]
     updateMany?: GenTableColumnUpdateManyWithWhereWithoutTableInput | GenTableColumnUpdateManyWithWhereWithoutTableInput[]
     deleteMany?: GenTableColumnScalarWhereInput | GenTableColumnScalarWhereInput[]
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type GenTableColumnUncheckedUpdateManyWithoutTableNestedInput = {
@@ -24156,10 +28119,6 @@ export namespace Prisma {
     connectOrCreate?: SysRoleMenuCreateOrConnectWithoutMenuInput | SysRoleMenuCreateOrConnectWithoutMenuInput[]
     createMany?: SysRoleMenuCreateManyMenuInputEnvelope
     connect?: SysRoleMenuWhereUniqueInput | SysRoleMenuWhereUniqueInput[]
-  }
-
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
   }
 
   export type SysRoleMenuUpdateManyWithoutMenuNestedInput = {
@@ -24581,10 +28540,10 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
+  export type NestedStringFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
     lt?: string | StringFieldRefInput<$PrismaModel>
     lte?: string | StringFieldRefInput<$PrismaModel>
     gt?: string | StringFieldRefInput<$PrismaModel>
@@ -24592,7 +28551,18 @@ export namespace Prisma {
     contains?: string | StringFieldRefInput<$PrismaModel>
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+    not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -24611,7 +28581,24 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type NestedFloatFilter<$PrismaModel = never> = {
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[]
+    notIn?: string[]
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[]
     notIn?: number[]
@@ -24619,7 +28606,26 @@ export namespace Prisma {
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -24677,35 +28683,176 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedStringFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringFilter<$PrismaModel> | string
+  export type BuzMenuOnVegCreateWithoutBuzMenuInput = {
+    buzVegetable: BuzVegetableCreateNestedOneWithoutBuzMenuListInput
   }
 
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[]
-    notIn?: string[]
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
+  export type BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput = {
+    buzVegId: number
+  }
+
+  export type BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput = {
+    where: BuzMenuOnVegWhereUniqueInput
+    create: XOR<BuzMenuOnVegCreateWithoutBuzMenuInput, BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput>
+  }
+
+  export type BuzMenuOnVegCreateManyBuzMenuInputEnvelope = {
+    data: BuzMenuOnVegCreateManyBuzMenuInput | BuzMenuOnVegCreateManyBuzMenuInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzMenuInput = {
+    where: BuzMenuOnVegWhereUniqueInput
+    update: XOR<BuzMenuOnVegUpdateWithoutBuzMenuInput, BuzMenuOnVegUncheckedUpdateWithoutBuzMenuInput>
+    create: XOR<BuzMenuOnVegCreateWithoutBuzMenuInput, BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput>
+  }
+
+  export type BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzMenuInput = {
+    where: BuzMenuOnVegWhereUniqueInput
+    data: XOR<BuzMenuOnVegUpdateWithoutBuzMenuInput, BuzMenuOnVegUncheckedUpdateWithoutBuzMenuInput>
+  }
+
+  export type BuzMenuOnVegUpdateManyWithWhereWithoutBuzMenuInput = {
+    where: BuzMenuOnVegScalarWhereInput
+    data: XOR<BuzMenuOnVegUpdateManyMutationInput, BuzMenuOnVegUncheckedUpdateManyWithoutBuzMenuInput>
+  }
+
+  export type BuzMenuOnVegScalarWhereInput = {
+    AND?: BuzMenuOnVegScalarWhereInput | BuzMenuOnVegScalarWhereInput[]
+    OR?: BuzMenuOnVegScalarWhereInput[]
+    NOT?: BuzMenuOnVegScalarWhereInput | BuzMenuOnVegScalarWhereInput[]
+    buzMenuId?: IntFilter<"BuzMenuOnVeg"> | number
+    buzVegId?: IntFilter<"BuzMenuOnVeg"> | number
+  }
+
+  export type BuzMenuOnVegCreateWithoutBuzVegetableInput = {
+    buzMenu: BuzMenuCreateNestedOneWithoutBuzVegListInput
+  }
+
+  export type BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput = {
+    buzMenuId: number
+  }
+
+  export type BuzMenuOnVegCreateOrConnectWithoutBuzVegetableInput = {
+    where: BuzMenuOnVegWhereUniqueInput
+    create: XOR<BuzMenuOnVegCreateWithoutBuzVegetableInput, BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput>
+  }
+
+  export type BuzMenuOnVegCreateManyBuzVegetableInputEnvelope = {
+    data: BuzMenuOnVegCreateManyBuzVegetableInput | BuzMenuOnVegCreateManyBuzVegetableInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BuzMenuOnVegUpsertWithWhereUniqueWithoutBuzVegetableInput = {
+    where: BuzMenuOnVegWhereUniqueInput
+    update: XOR<BuzMenuOnVegUpdateWithoutBuzVegetableInput, BuzMenuOnVegUncheckedUpdateWithoutBuzVegetableInput>
+    create: XOR<BuzMenuOnVegCreateWithoutBuzVegetableInput, BuzMenuOnVegUncheckedCreateWithoutBuzVegetableInput>
+  }
+
+  export type BuzMenuOnVegUpdateWithWhereUniqueWithoutBuzVegetableInput = {
+    where: BuzMenuOnVegWhereUniqueInput
+    data: XOR<BuzMenuOnVegUpdateWithoutBuzVegetableInput, BuzMenuOnVegUncheckedUpdateWithoutBuzVegetableInput>
+  }
+
+  export type BuzMenuOnVegUpdateManyWithWhereWithoutBuzVegetableInput = {
+    where: BuzMenuOnVegScalarWhereInput
+    data: XOR<BuzMenuOnVegUpdateManyMutationInput, BuzMenuOnVegUncheckedUpdateManyWithoutBuzVegetableInput>
+  }
+
+  export type BuzMenuCreateWithoutBuzVegListInput = {
+    name?: string
+    image: string
+    cookTime?: number
+    sellingPrice?: number
+    status?: number
+  }
+
+  export type BuzMenuUncheckedCreateWithoutBuzVegListInput = {
+    id?: number
+    name?: string
+    image: string
+    cookTime?: number
+    sellingPrice?: number
+    status?: number
+  }
+
+  export type BuzMenuCreateOrConnectWithoutBuzVegListInput = {
+    where: BuzMenuWhereUniqueInput
+    create: XOR<BuzMenuCreateWithoutBuzVegListInput, BuzMenuUncheckedCreateWithoutBuzVegListInput>
+  }
+
+  export type BuzVegetableCreateWithoutBuzMenuListInput = {
+    name?: string
+    prepareTime?: number
+    status?: number
+    purchasePrice?: number
+  }
+
+  export type BuzVegetableUncheckedCreateWithoutBuzMenuListInput = {
+    id?: number
+    name?: string
+    prepareTime?: number
+    status?: number
+    purchasePrice?: number
+  }
+
+  export type BuzVegetableCreateOrConnectWithoutBuzMenuListInput = {
+    where: BuzVegetableWhereUniqueInput
+    create: XOR<BuzVegetableCreateWithoutBuzMenuListInput, BuzVegetableUncheckedCreateWithoutBuzMenuListInput>
+  }
+
+  export type BuzMenuUpsertWithoutBuzVegListInput = {
+    update: XOR<BuzMenuUpdateWithoutBuzVegListInput, BuzMenuUncheckedUpdateWithoutBuzVegListInput>
+    create: XOR<BuzMenuCreateWithoutBuzVegListInput, BuzMenuUncheckedCreateWithoutBuzVegListInput>
+    where?: BuzMenuWhereInput
+  }
+
+  export type BuzMenuUpdateToOneWithWhereWithoutBuzVegListInput = {
+    where?: BuzMenuWhereInput
+    data: XOR<BuzMenuUpdateWithoutBuzVegListInput, BuzMenuUncheckedUpdateWithoutBuzVegListInput>
+  }
+
+  export type BuzMenuUpdateWithoutBuzVegListInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    cookTime?: IntFieldUpdateOperationsInput | number
+    sellingPrice?: FloatFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BuzMenuUncheckedUpdateWithoutBuzVegListInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    cookTime?: IntFieldUpdateOperationsInput | number
+    sellingPrice?: FloatFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BuzVegetableUpsertWithoutBuzMenuListInput = {
+    update: XOR<BuzVegetableUpdateWithoutBuzMenuListInput, BuzVegetableUncheckedUpdateWithoutBuzMenuListInput>
+    create: XOR<BuzVegetableCreateWithoutBuzMenuListInput, BuzVegetableUncheckedCreateWithoutBuzMenuListInput>
+    where?: BuzVegetableWhereInput
+  }
+
+  export type BuzVegetableUpdateToOneWithWhereWithoutBuzMenuListInput = {
+    where?: BuzVegetableWhereInput
+    data: XOR<BuzVegetableUpdateWithoutBuzMenuListInput, BuzVegetableUncheckedUpdateWithoutBuzMenuListInput>
+  }
+
+  export type BuzVegetableUpdateWithoutBuzMenuListInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    prepareTime?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    purchasePrice?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type BuzVegetableUncheckedUpdateWithoutBuzMenuListInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    prepareTime?: IntFieldUpdateOperationsInput | number
+    status?: IntFieldUpdateOperationsInput | number
+    purchasePrice?: FloatFieldUpdateOperationsInput | number
   }
 
   export type GenTableColumnCreateWithoutTableInput = {
@@ -26249,6 +30396,38 @@ export namespace Prisma {
     depts?: SysRoleDeptUncheckedUpdateManyWithoutRoleNestedInput
   }
 
+  export type BuzMenuOnVegCreateManyBuzMenuInput = {
+    buzVegId: number
+  }
+
+  export type BuzMenuOnVegUpdateWithoutBuzMenuInput = {
+    buzVegetable?: BuzVegetableUpdateOneRequiredWithoutBuzMenuListNestedInput
+  }
+
+  export type BuzMenuOnVegUncheckedUpdateWithoutBuzMenuInput = {
+    buzVegId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BuzMenuOnVegUncheckedUpdateManyWithoutBuzMenuInput = {
+    buzVegId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BuzMenuOnVegCreateManyBuzVegetableInput = {
+    buzMenuId: number
+  }
+
+  export type BuzMenuOnVegUpdateWithoutBuzVegetableInput = {
+    buzMenu?: BuzMenuUpdateOneRequiredWithoutBuzVegListNestedInput
+  }
+
+  export type BuzMenuOnVegUncheckedUpdateWithoutBuzVegetableInput = {
+    buzMenuId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BuzMenuOnVegUncheckedUpdateManyWithoutBuzVegetableInput = {
+    buzMenuId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type GenTableColumnCreateManyTableInput = {
     columnId?: number
     columnName?: string | null
@@ -26624,6 +30803,14 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
+     * @deprecated Use BuzMenuCountOutputTypeDefaultArgs instead
+     */
+    export type BuzMenuCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BuzMenuCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BuzVegetableCountOutputTypeDefaultArgs instead
+     */
+    export type BuzVegetableCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BuzVegetableCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use GenTableCountOutputTypeDefaultArgs instead
      */
     export type GenTableCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = GenTableCountOutputTypeDefaultArgs<ExtArgs>
@@ -26651,6 +30838,18 @@ export namespace Prisma {
      * @deprecated Use SysRoleCountOutputTypeDefaultArgs instead
      */
     export type SysRoleCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SysRoleCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BuzMenuDefaultArgs instead
+     */
+    export type BuzMenuArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BuzMenuDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BuzVegetableDefaultArgs instead
+     */
+    export type BuzVegetableArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BuzVegetableDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use BuzMenuOnVegDefaultArgs instead
+     */
+    export type BuzMenuOnVegArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = BuzMenuOnVegDefaultArgs<ExtArgs>
     /**
      * @deprecated Use GenTableDefaultArgs instead
      */

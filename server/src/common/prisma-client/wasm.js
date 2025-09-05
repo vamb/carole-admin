@@ -119,6 +119,33 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.BuzMenuScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  image: 'image',
+  cookTime: 'cookTime',
+  sellingPrice: 'sellingPrice',
+  status: 'status'
+};
+
+exports.Prisma.RelationLoadStrategy = {
+  query: 'query',
+  join: 'join'
+};
+
+exports.Prisma.BuzVegetableScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  prepareTime: 'prepareTime',
+  status: 'status',
+  purchasePrice: 'purchasePrice'
+};
+
+exports.Prisma.BuzMenuOnVegScalarFieldEnum = {
+  buzMenuId: 'buzMenuId',
+  buzVegId: 'buzVegId'
+};
+
 exports.Prisma.GenTableScalarFieldEnum = {
   tableId: 'tableId',
   tableName: 'tableName',
@@ -141,11 +168,6 @@ exports.Prisma.GenTableScalarFieldEnum = {
   updateBy: 'updateBy',
   updateTime: 'updateTime',
   remark: 'remark'
-};
-
-exports.Prisma.RelationLoadStrategy = {
-  query: 'query',
-  join: 'join'
 };
 
 exports.Prisma.GenTableColumnScalarFieldEnum = {
@@ -360,6 +382,9 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
+  BuzMenu: 'BuzMenu',
+  BuzVegetable: 'BuzVegetable',
+  BuzMenuOnVeg: 'BuzMenuOnVeg',
   GenTable: 'GenTable',
   GenTableColumn: 'GenTableColumn',
   SysConfig: 'SysConfig',

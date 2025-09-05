@@ -1,0 +1,34 @@
+model BuzMenu {
+  id            Int      @id @default(autoincrement()) @map("id") @db.UnsignedInt
+  name          String   @default("") @map("name") @db.VarChar(50)
+  image         String   @map("image") @db.Text
+  cookTime      Int      @default(0) @map("cookTime") @db.UnsignedInt
+  sellingPrice  Float    @default(0) @map("sellingPrice") @db.Float
+  status        Int      @default(1) @map("status") @db.TinyInt
+
+  buzVegList    BuzMenuOnVeg[]
+  @@map("buz_menu")
+}
+
+model BuzVegetable {
+  id            Int      @id @default(autoincrement()) @map("id") @db.UnsignedInt
+  name          String   @default("") @map("name") @db.VarChar(50)
+  prepareTime   Int      @default(0)  @map("prepareTime") @db.UnsignedInt
+  status        Int      @default(1)  @map("status") @db.TinyInt
+  purchasePrice Float    @default(0)  @map("purchasePrice") @db.Float
+
+  buzMenuList   BuzMenuOnVeg[]
+  @@map("buz_vegetable")
+}
+
+model BuzMenuOnVeg {
+  buzMenu       BuzMenu      @relation(fields: [buzMenuId], references: [id])
+  buzMenuId     Int
+  buzVegetable  BuzVegetable @relation(fields: [buzVegId], references: [id])
+  buzVegId      Int
+
+  @@id([buzMenuId, buzVegId]) // 复合主键：防止重复关系
+  @@index([buzVegId])         // 单字段索引：优化反向查询
+  @@index([buzMenuId])        // 单字段索引：优化反向查询
+  @@map("buz_menu_on_veg")
+}

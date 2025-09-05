@@ -17,6 +17,40 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+CREATE TABLE `buz_menu` (
+    `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(50) NOT NULL DEFAULT '',
+    `image` TEXT NOT NULL,
+    `desc` TEXT NULL ,
+    `cookTime` INTEGER UNSIGNED NOT NULL DEFAULT 0,
+    `sellingPrice` FLOAT NOT NULL DEFAULT 0,
+    `status` TINYINT NOT NULL DEFAULT 1,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `buz_vegetable` (
+    `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(50) NOT NULL DEFAULT '',
+    `prepareTime` INTEGER UNSIGNED NOT NULL DEFAULT 0,
+    `desc` TEXT NULL,
+    `status` TINYINT NOT NULL DEFAULT 1,
+    `purchasePrice` FLOAT NOT NULL DEFAULT 0,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `BuzMenuOnVeg` (
+    `buzMenuId` INTEGER NOT NULL,
+    `buzVegId` INTEGER NOT NULL,
+
+    INDEX `BuzMenuOnVeg_buzVegId_idx`(`buzVegId`),
+    INDEX `BuzMenuOnVeg_buzMenuId_idx`(`buzMenuId`),
+    PRIMARY KEY (`buzMenuId`, `buzVegId`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 -- ----------------------------
 -- Table structure for gen_table
 -- ----------------------------
