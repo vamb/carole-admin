@@ -29,6 +29,12 @@ CREATE TABLE `buz_menu` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+ALTER TABLE `buz_menu` ADD COLUMN `create_by` VARCHAR(64) NULL DEFAULT '',
+    ADD COLUMN `create_time` VARCHAR(25) NULL,
+    ADD COLUMN `remark` VARCHAR(500) NULL,
+    ADD COLUMN `update_by` VARCHAR(64) NULL DEFAULT '',
+    ADD COLUMN `update_time` VARCHAR(25) NULL;
+
 -- CreateTable
 CREATE TABLE `buz_vegetable` (
     `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -41,8 +47,14 @@ CREATE TABLE `buz_vegetable` (
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
+ALTER TABLE `buz_vegetable` ADD COLUMN `create_by` VARCHAR(64) NULL DEFAULT '',
+    ADD COLUMN `create_time` VARCHAR(25) NULL,
+    ADD COLUMN `remark` VARCHAR(500) NULL,
+    ADD COLUMN `update_by` VARCHAR(64) NULL DEFAULT '',
+    ADD COLUMN `update_time` VARCHAR(25) NULL;
+
 -- CreateTable
-CREATE TABLE `BuzMenuOnVeg` (
+CREATE TABLE `buz_menu_on_veg` (
     `buzMenuId` INTEGER NOT NULL,
     `buzVegId` INTEGER NOT NULL,
 

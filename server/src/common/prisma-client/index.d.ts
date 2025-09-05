@@ -2697,6 +2697,11 @@ export namespace Prisma {
     cookTime: number | null
     sellingPrice: number | null
     status: number | null
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
+    remark: string | null
   }
 
   export type BuzMenuMaxAggregateOutputType = {
@@ -2706,6 +2711,11 @@ export namespace Prisma {
     cookTime: number | null
     sellingPrice: number | null
     status: number | null
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
+    remark: string | null
   }
 
   export type BuzMenuCountAggregateOutputType = {
@@ -2715,6 +2725,11 @@ export namespace Prisma {
     cookTime: number
     sellingPrice: number
     status: number
+    createBy: number
+    createTime: number
+    updateBy: number
+    updateTime: number
+    remark: number
     _all: number
   }
 
@@ -2740,6 +2755,11 @@ export namespace Prisma {
     cookTime?: true
     sellingPrice?: true
     status?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
+    remark?: true
   }
 
   export type BuzMenuMaxAggregateInputType = {
@@ -2749,6 +2769,11 @@ export namespace Prisma {
     cookTime?: true
     sellingPrice?: true
     status?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
+    remark?: true
   }
 
   export type BuzMenuCountAggregateInputType = {
@@ -2758,6 +2783,11 @@ export namespace Prisma {
     cookTime?: true
     sellingPrice?: true
     status?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
+    remark?: true
     _all?: true
   }
 
@@ -2854,6 +2884,11 @@ export namespace Prisma {
     cookTime: number
     sellingPrice: number
     status: number
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
+    remark: string | null
     _count: BuzMenuCountAggregateOutputType | null
     _avg: BuzMenuAvgAggregateOutputType | null
     _sum: BuzMenuSumAggregateOutputType | null
@@ -2882,6 +2917,11 @@ export namespace Prisma {
     cookTime?: boolean
     sellingPrice?: boolean
     status?: boolean
+    createBy?: boolean
+    createTime?: boolean
+    updateBy?: boolean
+    updateTime?: boolean
+    remark?: boolean
     buzVegList?: boolean | BuzMenu$buzVegListArgs<ExtArgs>
     _count?: boolean | BuzMenuCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["buzMenu"]>
@@ -2894,9 +2934,14 @@ export namespace Prisma {
     cookTime?: boolean
     sellingPrice?: boolean
     status?: boolean
+    createBy?: boolean
+    createTime?: boolean
+    updateBy?: boolean
+    updateTime?: boolean
+    remark?: boolean
   }
 
-  export type BuzMenuOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "image" | "cookTime" | "sellingPrice" | "status", ExtArgs["result"]["buzMenu"]>
+  export type BuzMenuOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "image" | "cookTime" | "sellingPrice" | "status" | "createBy" | "createTime" | "updateBy" | "updateTime" | "remark", ExtArgs["result"]["buzMenu"]>
   export type BuzMenuInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     buzVegList?: boolean | BuzMenu$buzVegListArgs<ExtArgs>
     _count?: boolean | BuzMenuCountOutputTypeDefaultArgs<ExtArgs>
@@ -2914,6 +2959,11 @@ export namespace Prisma {
       cookTime: number
       sellingPrice: number
       status: number
+      createBy: string | null
+      createTime: string | null
+      updateBy: string | null
+      updateTime: string | null
+      remark: string | null
     }, ExtArgs["result"]["buzMenu"]>
     composites: {}
   }
@@ -3314,6 +3364,11 @@ export namespace Prisma {
     readonly cookTime: FieldRef<"BuzMenu", 'Int'>
     readonly sellingPrice: FieldRef<"BuzMenu", 'Float'>
     readonly status: FieldRef<"BuzMenu", 'Int'>
+    readonly createBy: FieldRef<"BuzMenu", 'String'>
+    readonly createTime: FieldRef<"BuzMenu", 'String'>
+    readonly updateBy: FieldRef<"BuzMenu", 'String'>
+    readonly updateTime: FieldRef<"BuzMenu", 'String'>
+    readonly remark: FieldRef<"BuzMenu", 'String'>
   }
     
 
@@ -3732,6 +3787,11 @@ export namespace Prisma {
     prepareTime: number | null
     status: number | null
     purchasePrice: number | null
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
+    remark: string | null
   }
 
   export type BuzVegetableMaxAggregateOutputType = {
@@ -3740,6 +3800,11 @@ export namespace Prisma {
     prepareTime: number | null
     status: number | null
     purchasePrice: number | null
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
+    remark: string | null
   }
 
   export type BuzVegetableCountAggregateOutputType = {
@@ -3748,6 +3813,11 @@ export namespace Prisma {
     prepareTime: number
     status: number
     purchasePrice: number
+    createBy: number
+    createTime: number
+    updateBy: number
+    updateTime: number
+    remark: number
     _all: number
   }
 
@@ -3772,6 +3842,11 @@ export namespace Prisma {
     prepareTime?: true
     status?: true
     purchasePrice?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
+    remark?: true
   }
 
   export type BuzVegetableMaxAggregateInputType = {
@@ -3780,6 +3855,11 @@ export namespace Prisma {
     prepareTime?: true
     status?: true
     purchasePrice?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
+    remark?: true
   }
 
   export type BuzVegetableCountAggregateInputType = {
@@ -3788,6 +3868,11 @@ export namespace Prisma {
     prepareTime?: true
     status?: true
     purchasePrice?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
+    remark?: true
     _all?: true
   }
 
@@ -3883,6 +3968,11 @@ export namespace Prisma {
     prepareTime: number
     status: number
     purchasePrice: number
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
+    remark: string | null
     _count: BuzVegetableCountAggregateOutputType | null
     _avg: BuzVegetableAvgAggregateOutputType | null
     _sum: BuzVegetableSumAggregateOutputType | null
@@ -3910,6 +4000,11 @@ export namespace Prisma {
     prepareTime?: boolean
     status?: boolean
     purchasePrice?: boolean
+    createBy?: boolean
+    createTime?: boolean
+    updateBy?: boolean
+    updateTime?: boolean
+    remark?: boolean
     buzMenuList?: boolean | BuzVegetable$buzMenuListArgs<ExtArgs>
     _count?: boolean | BuzVegetableCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["buzVegetable"]>
@@ -3921,9 +4016,14 @@ export namespace Prisma {
     prepareTime?: boolean
     status?: boolean
     purchasePrice?: boolean
+    createBy?: boolean
+    createTime?: boolean
+    updateBy?: boolean
+    updateTime?: boolean
+    remark?: boolean
   }
 
-  export type BuzVegetableOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "prepareTime" | "status" | "purchasePrice", ExtArgs["result"]["buzVegetable"]>
+  export type BuzVegetableOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "prepareTime" | "status" | "purchasePrice" | "createBy" | "createTime" | "updateBy" | "updateTime" | "remark", ExtArgs["result"]["buzVegetable"]>
   export type BuzVegetableInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     buzMenuList?: boolean | BuzVegetable$buzMenuListArgs<ExtArgs>
     _count?: boolean | BuzVegetableCountOutputTypeDefaultArgs<ExtArgs>
@@ -3940,6 +4040,11 @@ export namespace Prisma {
       prepareTime: number
       status: number
       purchasePrice: number
+      createBy: string | null
+      createTime: string | null
+      updateBy: string | null
+      updateTime: string | null
+      remark: string | null
     }, ExtArgs["result"]["buzVegetable"]>
     composites: {}
   }
@@ -4339,6 +4444,11 @@ export namespace Prisma {
     readonly prepareTime: FieldRef<"BuzVegetable", 'Int'>
     readonly status: FieldRef<"BuzVegetable", 'Int'>
     readonly purchasePrice: FieldRef<"BuzVegetable", 'Float'>
+    readonly createBy: FieldRef<"BuzVegetable", 'String'>
+    readonly createTime: FieldRef<"BuzVegetable", 'String'>
+    readonly updateBy: FieldRef<"BuzVegetable", 'String'>
+    readonly updateTime: FieldRef<"BuzVegetable", 'String'>
+    readonly remark: FieldRef<"BuzVegetable", 'String'>
   }
     
 
@@ -22867,7 +22977,12 @@ export namespace Prisma {
     image: 'image',
     cookTime: 'cookTime',
     sellingPrice: 'sellingPrice',
-    status: 'status'
+    status: 'status',
+    createBy: 'createBy',
+    createTime: 'createTime',
+    updateBy: 'updateBy',
+    updateTime: 'updateTime',
+    remark: 'remark'
   };
 
   export type BuzMenuScalarFieldEnum = (typeof BuzMenuScalarFieldEnum)[keyof typeof BuzMenuScalarFieldEnum]
@@ -22886,7 +23001,12 @@ export namespace Prisma {
     name: 'name',
     prepareTime: 'prepareTime',
     status: 'status',
-    purchasePrice: 'purchasePrice'
+    purchasePrice: 'purchasePrice',
+    createBy: 'createBy',
+    createTime: 'createTime',
+    updateBy: 'updateBy',
+    updateTime: 'updateTime',
+    remark: 'remark'
   };
 
   export type BuzVegetableScalarFieldEnum = (typeof BuzVegetableScalarFieldEnum)[keyof typeof BuzVegetableScalarFieldEnum]
@@ -23227,6 +23347,11 @@ export namespace Prisma {
     cookTime?: IntFilter<"BuzMenu"> | number
     sellingPrice?: FloatFilter<"BuzMenu"> | number
     status?: IntFilter<"BuzMenu"> | number
+    createBy?: StringNullableFilter<"BuzMenu"> | string | null
+    createTime?: StringNullableFilter<"BuzMenu"> | string | null
+    updateBy?: StringNullableFilter<"BuzMenu"> | string | null
+    updateTime?: StringNullableFilter<"BuzMenu"> | string | null
+    remark?: StringNullableFilter<"BuzMenu"> | string | null
     buzVegList?: BuzMenuOnVegListRelationFilter
   }
 
@@ -23237,6 +23362,11 @@ export namespace Prisma {
     cookTime?: SortOrder
     sellingPrice?: SortOrder
     status?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    createTime?: SortOrderInput | SortOrder
+    updateBy?: SortOrderInput | SortOrder
+    updateTime?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
     buzVegList?: BuzMenuOnVegOrderByRelationAggregateInput
   }
 
@@ -23250,6 +23380,11 @@ export namespace Prisma {
     cookTime?: IntFilter<"BuzMenu"> | number
     sellingPrice?: FloatFilter<"BuzMenu"> | number
     status?: IntFilter<"BuzMenu"> | number
+    createBy?: StringNullableFilter<"BuzMenu"> | string | null
+    createTime?: StringNullableFilter<"BuzMenu"> | string | null
+    updateBy?: StringNullableFilter<"BuzMenu"> | string | null
+    updateTime?: StringNullableFilter<"BuzMenu"> | string | null
+    remark?: StringNullableFilter<"BuzMenu"> | string | null
     buzVegList?: BuzMenuOnVegListRelationFilter
   }, "id">
 
@@ -23260,6 +23395,11 @@ export namespace Prisma {
     cookTime?: SortOrder
     sellingPrice?: SortOrder
     status?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    createTime?: SortOrderInput | SortOrder
+    updateBy?: SortOrderInput | SortOrder
+    updateTime?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
     _count?: BuzMenuCountOrderByAggregateInput
     _avg?: BuzMenuAvgOrderByAggregateInput
     _max?: BuzMenuMaxOrderByAggregateInput
@@ -23277,6 +23417,11 @@ export namespace Prisma {
     cookTime?: IntWithAggregatesFilter<"BuzMenu"> | number
     sellingPrice?: FloatWithAggregatesFilter<"BuzMenu"> | number
     status?: IntWithAggregatesFilter<"BuzMenu"> | number
+    createBy?: StringNullableWithAggregatesFilter<"BuzMenu"> | string | null
+    createTime?: StringNullableWithAggregatesFilter<"BuzMenu"> | string | null
+    updateBy?: StringNullableWithAggregatesFilter<"BuzMenu"> | string | null
+    updateTime?: StringNullableWithAggregatesFilter<"BuzMenu"> | string | null
+    remark?: StringNullableWithAggregatesFilter<"BuzMenu"> | string | null
   }
 
   export type BuzVegetableWhereInput = {
@@ -23288,6 +23433,11 @@ export namespace Prisma {
     prepareTime?: IntFilter<"BuzVegetable"> | number
     status?: IntFilter<"BuzVegetable"> | number
     purchasePrice?: FloatFilter<"BuzVegetable"> | number
+    createBy?: StringNullableFilter<"BuzVegetable"> | string | null
+    createTime?: StringNullableFilter<"BuzVegetable"> | string | null
+    updateBy?: StringNullableFilter<"BuzVegetable"> | string | null
+    updateTime?: StringNullableFilter<"BuzVegetable"> | string | null
+    remark?: StringNullableFilter<"BuzVegetable"> | string | null
     buzMenuList?: BuzMenuOnVegListRelationFilter
   }
 
@@ -23297,6 +23447,11 @@ export namespace Prisma {
     prepareTime?: SortOrder
     status?: SortOrder
     purchasePrice?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    createTime?: SortOrderInput | SortOrder
+    updateBy?: SortOrderInput | SortOrder
+    updateTime?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
     buzMenuList?: BuzMenuOnVegOrderByRelationAggregateInput
   }
 
@@ -23309,6 +23464,11 @@ export namespace Prisma {
     prepareTime?: IntFilter<"BuzVegetable"> | number
     status?: IntFilter<"BuzVegetable"> | number
     purchasePrice?: FloatFilter<"BuzVegetable"> | number
+    createBy?: StringNullableFilter<"BuzVegetable"> | string | null
+    createTime?: StringNullableFilter<"BuzVegetable"> | string | null
+    updateBy?: StringNullableFilter<"BuzVegetable"> | string | null
+    updateTime?: StringNullableFilter<"BuzVegetable"> | string | null
+    remark?: StringNullableFilter<"BuzVegetable"> | string | null
     buzMenuList?: BuzMenuOnVegListRelationFilter
   }, "id">
 
@@ -23318,6 +23478,11 @@ export namespace Prisma {
     prepareTime?: SortOrder
     status?: SortOrder
     purchasePrice?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    createTime?: SortOrderInput | SortOrder
+    updateBy?: SortOrderInput | SortOrder
+    updateTime?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
     _count?: BuzVegetableCountOrderByAggregateInput
     _avg?: BuzVegetableAvgOrderByAggregateInput
     _max?: BuzVegetableMaxOrderByAggregateInput
@@ -23334,6 +23499,11 @@ export namespace Prisma {
     prepareTime?: IntWithAggregatesFilter<"BuzVegetable"> | number
     status?: IntWithAggregatesFilter<"BuzVegetable"> | number
     purchasePrice?: FloatWithAggregatesFilter<"BuzVegetable"> | number
+    createBy?: StringNullableWithAggregatesFilter<"BuzVegetable"> | string | null
+    createTime?: StringNullableWithAggregatesFilter<"BuzVegetable"> | string | null
+    updateBy?: StringNullableWithAggregatesFilter<"BuzVegetable"> | string | null
+    updateTime?: StringNullableWithAggregatesFilter<"BuzVegetable"> | string | null
+    remark?: StringNullableWithAggregatesFilter<"BuzVegetable"> | string | null
   }
 
   export type BuzMenuOnVegWhereInput = {
@@ -24802,6 +24972,11 @@ export namespace Prisma {
     cookTime?: number
     sellingPrice?: number
     status?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
     buzVegList?: BuzMenuOnVegCreateNestedManyWithoutBuzMenuInput
   }
 
@@ -24812,6 +24987,11 @@ export namespace Prisma {
     cookTime?: number
     sellingPrice?: number
     status?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
     buzVegList?: BuzMenuOnVegUncheckedCreateNestedManyWithoutBuzMenuInput
   }
 
@@ -24821,6 +25001,11 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     sellingPrice?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
     buzVegList?: BuzMenuOnVegUpdateManyWithoutBuzMenuNestedInput
   }
 
@@ -24831,6 +25016,11 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     sellingPrice?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
     buzVegList?: BuzMenuOnVegUncheckedUpdateManyWithoutBuzMenuNestedInput
   }
 
@@ -24841,6 +25031,11 @@ export namespace Prisma {
     cookTime?: number
     sellingPrice?: number
     status?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
   }
 
   export type BuzMenuUpdateManyMutationInput = {
@@ -24849,6 +25044,11 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     sellingPrice?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BuzMenuUncheckedUpdateManyInput = {
@@ -24858,6 +25058,11 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     sellingPrice?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BuzVegetableCreateInput = {
@@ -24865,6 +25070,11 @@ export namespace Prisma {
     prepareTime?: number
     status?: number
     purchasePrice?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
     buzMenuList?: BuzMenuOnVegCreateNestedManyWithoutBuzVegetableInput
   }
 
@@ -24874,6 +25084,11 @@ export namespace Prisma {
     prepareTime?: number
     status?: number
     purchasePrice?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
     buzMenuList?: BuzMenuOnVegUncheckedCreateNestedManyWithoutBuzVegetableInput
   }
 
@@ -24882,6 +25097,11 @@ export namespace Prisma {
     prepareTime?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     purchasePrice?: FloatFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
     buzMenuList?: BuzMenuOnVegUpdateManyWithoutBuzVegetableNestedInput
   }
 
@@ -24891,6 +25111,11 @@ export namespace Prisma {
     prepareTime?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     purchasePrice?: FloatFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
     buzMenuList?: BuzMenuOnVegUncheckedUpdateManyWithoutBuzVegetableNestedInput
   }
 
@@ -24900,6 +25125,11 @@ export namespace Prisma {
     prepareTime?: number
     status?: number
     purchasePrice?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
   }
 
   export type BuzVegetableUpdateManyMutationInput = {
@@ -24907,6 +25137,11 @@ export namespace Prisma {
     prepareTime?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     purchasePrice?: FloatFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BuzVegetableUncheckedUpdateManyInput = {
@@ -24915,6 +25150,11 @@ export namespace Prisma {
     prepareTime?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     purchasePrice?: FloatFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BuzMenuOnVegCreateInput = {
@@ -26556,10 +26796,29 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type BuzMenuOnVegListRelationFilter = {
     every?: BuzMenuOnVegWhereInput
     some?: BuzMenuOnVegWhereInput
     none?: BuzMenuOnVegWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type BuzMenuOnVegOrderByRelationAggregateInput = {
@@ -26573,6 +26832,11 @@ export namespace Prisma {
     cookTime?: SortOrder
     sellingPrice?: SortOrder
     status?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
+    remark?: SortOrder
   }
 
   export type BuzMenuAvgOrderByAggregateInput = {
@@ -26589,6 +26853,11 @@ export namespace Prisma {
     cookTime?: SortOrder
     sellingPrice?: SortOrder
     status?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
+    remark?: SortOrder
   }
 
   export type BuzMenuMinOrderByAggregateInput = {
@@ -26598,6 +26867,11 @@ export namespace Prisma {
     cookTime?: SortOrder
     sellingPrice?: SortOrder
     status?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
+    remark?: SortOrder
   }
 
   export type BuzMenuSumOrderByAggregateInput = {
@@ -26656,12 +26930,34 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type BuzVegetableCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     prepareTime?: SortOrder
     status?: SortOrder
     purchasePrice?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
+    remark?: SortOrder
   }
 
   export type BuzVegetableAvgOrderByAggregateInput = {
@@ -26677,6 +26973,11 @@ export namespace Prisma {
     prepareTime?: SortOrder
     status?: SortOrder
     purchasePrice?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
+    remark?: SortOrder
   }
 
   export type BuzVegetableMinOrderByAggregateInput = {
@@ -26685,6 +26986,11 @@ export namespace Prisma {
     prepareTime?: SortOrder
     status?: SortOrder
     purchasePrice?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
+    remark?: SortOrder
   }
 
   export type BuzVegetableSumOrderByAggregateInput = {
@@ -26734,29 +27040,10 @@ export namespace Prisma {
     buzVegId?: SortOrder
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type GenTableColumnListRelationFilter = {
     every?: GenTableColumnWhereInput
     some?: GenTableColumnWhereInput
     none?: GenTableColumnWhereInput
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
   }
 
   export type GenTableColumnOrderByRelationAggregateInput = {
@@ -26841,23 +27128,6 @@ export namespace Prisma {
 
   export type GenTableSumOrderByAggregateInput = {
     tableId?: SortOrder
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type IntNullableFilter<$PrismaModel = never> = {
@@ -27797,6 +28067,10 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type BuzMenuOnVegUpdateManyWithoutBuzMenuNestedInput = {
     create?: XOR<BuzMenuOnVegCreateWithoutBuzMenuInput, BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput> | BuzMenuOnVegCreateWithoutBuzMenuInput[] | BuzMenuOnVegUncheckedCreateWithoutBuzMenuInput[]
     connectOrCreate?: BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput | BuzMenuOnVegCreateOrConnectWithoutBuzMenuInput[]
@@ -27907,10 +28181,6 @@ export namespace Prisma {
     connectOrCreate?: GenTableColumnCreateOrConnectWithoutTableInput | GenTableColumnCreateOrConnectWithoutTableInput[]
     createMany?: GenTableColumnCreateManyTableInputEnvelope
     connect?: GenTableColumnWhereUniqueInput | GenTableColumnWhereUniqueInput[]
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
   }
 
   export type GenTableColumnUpdateManyWithoutTableNestedInput = {
@@ -28565,6 +28835,20 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -28612,20 +28896,6 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -28765,6 +29035,11 @@ export namespace Prisma {
     cookTime?: number
     sellingPrice?: number
     status?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
   }
 
   export type BuzMenuUncheckedCreateWithoutBuzVegListInput = {
@@ -28774,6 +29049,11 @@ export namespace Prisma {
     cookTime?: number
     sellingPrice?: number
     status?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
   }
 
   export type BuzMenuCreateOrConnectWithoutBuzVegListInput = {
@@ -28786,6 +29066,11 @@ export namespace Prisma {
     prepareTime?: number
     status?: number
     purchasePrice?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
   }
 
   export type BuzVegetableUncheckedCreateWithoutBuzMenuListInput = {
@@ -28794,6 +29079,11 @@ export namespace Prisma {
     prepareTime?: number
     status?: number
     purchasePrice?: number
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
   }
 
   export type BuzVegetableCreateOrConnectWithoutBuzMenuListInput = {
@@ -28818,6 +29108,11 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     sellingPrice?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BuzMenuUncheckedUpdateWithoutBuzVegListInput = {
@@ -28827,6 +29122,11 @@ export namespace Prisma {
     cookTime?: IntFieldUpdateOperationsInput | number
     sellingPrice?: FloatFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BuzVegetableUpsertWithoutBuzMenuListInput = {
@@ -28845,6 +29145,11 @@ export namespace Prisma {
     prepareTime?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     purchasePrice?: FloatFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type BuzVegetableUncheckedUpdateWithoutBuzMenuListInput = {
@@ -28853,6 +29158,11 @@ export namespace Prisma {
     prepareTime?: IntFieldUpdateOperationsInput | number
     status?: IntFieldUpdateOperationsInput | number
     purchasePrice?: FloatFieldUpdateOperationsInput | number
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type GenTableColumnCreateWithoutTableInput = {

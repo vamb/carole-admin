@@ -125,7 +125,12 @@ exports.Prisma.BuzMenuScalarFieldEnum = {
   image: 'image',
   cookTime: 'cookTime',
   sellingPrice: 'sellingPrice',
-  status: 'status'
+  status: 'status',
+  createBy: 'createBy',
+  createTime: 'createTime',
+  updateBy: 'updateBy',
+  updateTime: 'updateTime',
+  remark: 'remark'
 };
 
 exports.Prisma.RelationLoadStrategy = {
@@ -138,7 +143,12 @@ exports.Prisma.BuzVegetableScalarFieldEnum = {
   name: 'name',
   prepareTime: 'prepareTime',
   status: 'status',
-  purchasePrice: 'purchasePrice'
+  purchasePrice: 'purchasePrice',
+  createBy: 'createBy',
+  createTime: 'createTime',
+  updateBy: 'updateBy',
+  updateTime: 'updateTime',
+  remark: 'remark'
 };
 
 exports.Prisma.BuzMenuOnVegScalarFieldEnum = {
