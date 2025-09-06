@@ -6,6 +6,7 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { AdminModule } from './admin/admin.module';
+import { BuzModule } from './business/buz.module';
 import { CommonModule } from './common/common.module';
 import { AuthMiddleware } from './common/middleware/auth/auth.middleware';
 import { AuthService } from './common/service/auth/auth.service';
@@ -36,6 +37,7 @@ import { ThrottlerStorageRedisService } from 'nestjs-throttler-storage-redis';
 @Module({
   imports: [
     AdminModule,
+    BuzModule,
     CommonModule,
     ThrottlerModule.forRoot({
       throttlers: [
@@ -141,7 +143,8 @@ export class AppModule implements NestModule {
       .apply(AuthMiddleware)
       .exclude(
         '/login', '/logout', '/captchaImage',
-        "/ext/getWorkState", "/ext/postXPathData", "/ext/workStateChange"
+        "/ext/getWorkState", "/ext/postXPathData", "/ext/workStateChange",
+        "/buz/vegetable/list"
       )
       .forRoutes('*');
   }
