@@ -3,7 +3,8 @@ import { PrismaService } from "@/common/service/prisma/prisma.service";
 import { Response } from "express";
 import { exportTable } from "@/common/utils";
 import {
-  QueryLearnDto
+  QueryLearnDto,
+  CreateLearnDto,
 } from "../dto/learnDto";
 import { Prisma } from "@prismaClient";
 import { isNotEmpty } from 'class-validator';
@@ -38,5 +39,16 @@ export class LearnService {
         where: queryCondition
       })
     }
+  }
+
+  async addLearn(learn: CreateLearnDto) {
+    //删除掉空值
+    for (const key in learn) {
+      !isNotEmpty(learn[key]) && delete learn[key];
+    }
+    const d = await this.prisma.learnLession.create({
+      data: learn
+    })
+    return d
   }
 }

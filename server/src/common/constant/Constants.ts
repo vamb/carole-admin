@@ -121,4 +121,9 @@ export class Constants {
    * 文件访问前缀
    */
   public static readonly FILE_PREFIX: string = '/upload';
+
+  /**
+   * 教程
+   */
+  public static readonly LEARN_LESSION: string = '/learn_lession'
 }

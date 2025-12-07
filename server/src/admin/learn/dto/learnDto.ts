@@ -16,3 +16,15 @@ export class QueryLearnDto extends queryDomain {
   @IsOptional()
   remark: string | null;
 }
+
+export class CreateLearnDto extends BaseDomain {
+  @ApiProperty({ description: '课程名称' })
+  @IsNotEmpty({ message: "名称不能为空" })
+  @IsString()
+  name: string;
+
+  @ApiProperty({ description: "课程描述" })
+  @IsOptional()
+  @IsString()
+  remark?: string;
+}

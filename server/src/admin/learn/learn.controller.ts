@@ -1,12 +1,13 @@
-import { Body, Controller, Get, Param, Delete, Post, Put, Query, Res } from "@nestjs/common";
+import { Body, Controller, Get, Param, Delete, Post, Put, Query, Req, Res } from "@nestjs/common";
 import { ParseIntArrayPipe } from "@/common/pipe/parse-int-array.pipe";
 import Result from "@/common/result/Result";
-import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LearnService } from '@/admin/learn/service/learn.service';
-import { QueryLearnDto } from "./dto/learnDto";
+import { CreateLearnDto, QueryLearnDto } from './dto/learnDto';
 import { LearnLession } from '@prismaClient';
 import { RequirePermission } from '@/common/decorator/require-premission.decorator';
 import { TableDataInfo } from '@/common/domain/TableDataInfo';
+import { nowDateTime } from '@/common/utils';
 
 @ApiTags("教学")
 @ApiBearerAuth()
@@ -21,5 +22,24 @@ export class LearnController {
     @Query() q: QueryLearnDto
   ): Promise<TableDataInfo<LearnLession>> {
     return Result.TableData(await this.learnService.selectLearnLession(q));
+  }
+
+  @ApiOperation({ summary: '新增教程' })
+  @ApiResponse({ type: Result<LearnLession> })
+  @ApiBody({ type: CreateLearnDto })
+  @RequirePermission("learn:add")
+  @Post("/")
+  async addLearn(
+    @Body() learn: CreateLearnDto,
+    @Req() req,
+  ): Promise<Result<LearnLession>> {
+    learn = {
+      ...learn,
+      // createTime: nowDateTime(),
+      // updateTime: nowDateTime(),
+      // createBy: req.user?.userName,
+      // updateBy: req.user?.userName,
+    }
+    return Result.ok(await this.learnService.addLearn(learn))
   }
 }
