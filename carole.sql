@@ -17,6 +17,7 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+DROP TABLE IF EXISTS `buz_menu`;
 CREATE TABLE `buz_menu` (
     `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(50) NOT NULL DEFAULT '',
@@ -36,6 +37,7 @@ ALTER TABLE `buz_menu` ADD COLUMN `create_by` VARCHAR(64) NULL DEFAULT '',
     ADD COLUMN `update_time` VARCHAR(25) NULL;
 
 -- CreateTable
+DROP TABLE IF EXISTS `buz_vegetable`;
 CREATE TABLE `buz_vegetable` (
     `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(50) NOT NULL DEFAULT '',
@@ -54,6 +56,7 @@ ALTER TABLE `buz_vegetable` ADD COLUMN `create_by` VARCHAR(64) NULL DEFAULT '',
     ADD COLUMN `update_time` VARCHAR(25) NULL;
 
 -- CreateTable
+DROP TABLE IF EXISTS `buz_menu_on_veg`;
 CREATE TABLE `buz_menu_on_veg` (
     `buzMenuId` INTEGER NOT NULL,
     `buzVegId` INTEGER NOT NULL,
