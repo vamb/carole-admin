@@ -205,6 +205,12 @@ exports.Prisma.GenTableColumnScalarFieldEnum = {
   updateTime: 'updateTime'
 };
 
+exports.Prisma.LearnLessionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  remark: 'remark'
+};
+
 exports.Prisma.SysConfigScalarFieldEnum = {
   configId: 'configId',
   configName: 'configName',
@@ -397,6 +403,7 @@ exports.Prisma.ModelName = {
   BuzMenuOnVeg: 'BuzMenuOnVeg',
   GenTable: 'GenTable',
   GenTableColumn: 'GenTableColumn',
+  LearnLession: 'LearnLession',
   SysConfig: 'SysConfig',
   SysDept: 'SysDept',
   SysDictData: 'SysDictData',

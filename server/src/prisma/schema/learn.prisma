@@ -1,0 +1,6 @@
+model LearnLession {
+  id        Int              @id @default(autoincrement()) @map("id") @db.UnsignedInt
+  name      String           @default("") @map("name") @db.VarChar(50)
+  remark    String?          @map("remark") @db.VarChar(500)
+  @@map("learn_lession")
+}

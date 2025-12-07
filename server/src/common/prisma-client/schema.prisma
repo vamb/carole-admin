@@ -101,6 +101,14 @@ model GenTableColumn {
   @@map("gen_table_column")
 }
 
+model LearnLession {
+  id     Int     @id @default(autoincrement()) @map("id") @db.UnsignedInt
+  name   String  @default("") @map("name") @db.VarChar(50)
+  remark String? @map("remark") @db.VarChar(500)
+
+  @@map("learn_lession")
+}
+
 model SysConfig {
   configId    Int     @id @default(autoincrement()) @map("config_id")
   configName  String? @default("") @map("config_name") @db.VarChar(100)

@@ -37,6 +37,7 @@ import { TableDataInfo } from '@/common/domain/TableDataInfo';
 @Controller('system/config')
 export class SysConfigController {
   constructor(private configService: ConfigService) {}
+
   @ApiOperation({ summary: '查询参数配置列表' })
   @ApiResponse({ type: TableDataInfo<SysConfig> })
   @RequirePermission('system:config:query')

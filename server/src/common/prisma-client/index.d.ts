@@ -39,6 +39,11 @@ export type GenTable = $Result.DefaultSelection<Prisma.$GenTablePayload>
  */
 export type GenTableColumn = $Result.DefaultSelection<Prisma.$GenTableColumnPayload>
 /**
+ * Model LearnLession
+ * 
+ */
+export type LearnLession = $Result.DefaultSelection<Prisma.$LearnLessionPayload>
+/**
  * Model SysConfig
  * 
  */
@@ -280,6 +285,16 @@ export class PrismaClient<
     * ```
     */
   get genTableColumn(): Prisma.GenTableColumnDelegate<ExtArgs>;
+
+  /**
+   * `prisma.learnLession`: Exposes CRUD operations for the **LearnLession** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LearnLessions
+    * const learnLessions = await prisma.learnLession.findMany()
+    * ```
+    */
+  get learnLession(): Prisma.LearnLessionDelegate<ExtArgs>;
 
   /**
    * `prisma.sysConfig`: Exposes CRUD operations for the **SysConfig** model.
@@ -902,6 +917,7 @@ export namespace Prisma {
     BuzMenuOnVeg: 'BuzMenuOnVeg',
     GenTable: 'GenTable',
     GenTableColumn: 'GenTableColumn',
+    LearnLession: 'LearnLession',
     SysConfig: 'SysConfig',
     SysDept: 'SysDept',
     SysDictData: 'SysDictData',
@@ -932,7 +948,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'buzMenu' | 'buzVegetable' | 'buzMenuOnVeg' | 'genTable' | 'genTableColumn' | 'sysConfig' | 'sysDept' | 'sysDictData' | 'sysDictType' | 'sysLogininfor' | 'sysMenu' | 'sysNotice' | 'sysPost' | 'sysUserPost' | 'sysRoleDept' | 'sysRoleMenu' | 'sysUser' | 'sysRole' | 'sysUserRole'
+      modelProps: 'buzMenu' | 'buzVegetable' | 'buzMenuOnVeg' | 'genTable' | 'genTableColumn' | 'learnLession' | 'sysConfig' | 'sysDept' | 'sysDictData' | 'sysDictType' | 'sysLogininfor' | 'sysMenu' | 'sysNotice' | 'sysPost' | 'sysUserPost' | 'sysRoleDept' | 'sysRoleMenu' | 'sysUser' | 'sysRole' | 'sysUserRole'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1263,6 +1279,72 @@ export namespace Prisma {
           count: {
             args: Prisma.GenTableColumnCountArgs<ExtArgs>,
             result: $Utils.Optional<GenTableColumnCountAggregateOutputType> | number
+          }
+        }
+      }
+      LearnLession: {
+        payload: Prisma.$LearnLessionPayload<ExtArgs>
+        fields: Prisma.LearnLessionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LearnLessionFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LearnLessionFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionPayload>
+          }
+          findFirst: {
+            args: Prisma.LearnLessionFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LearnLessionFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionPayload>
+          }
+          findMany: {
+            args: Prisma.LearnLessionFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionPayload>[]
+          }
+          create: {
+            args: Prisma.LearnLessionCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionPayload>
+          }
+          createMany: {
+            args: Prisma.LearnLessionCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.LearnLessionDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionPayload>
+          }
+          update: {
+            args: Prisma.LearnLessionUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionPayload>
+          }
+          deleteMany: {
+            args: Prisma.LearnLessionDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LearnLessionUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.LearnLessionUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionPayload>
+          }
+          aggregate: {
+            args: Prisma.LearnLessionAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateLearnLession>
+          }
+          groupBy: {
+            args: Prisma.LearnLessionGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<LearnLessionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LearnLessionCountArgs<ExtArgs>,
+            result: $Utils.Optional<LearnLessionCountAggregateOutputType> | number
           }
         }
       }
@@ -8185,6 +8267,924 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: GenTableColumnInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LearnLession
+   */
+
+  export type AggregateLearnLession = {
+    _count: LearnLessionCountAggregateOutputType | null
+    _avg: LearnLessionAvgAggregateOutputType | null
+    _sum: LearnLessionSumAggregateOutputType | null
+    _min: LearnLessionMinAggregateOutputType | null
+    _max: LearnLessionMaxAggregateOutputType | null
+  }
+
+  export type LearnLessionAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LearnLessionSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LearnLessionMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    remark: string | null
+  }
+
+  export type LearnLessionMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    remark: string | null
+  }
+
+  export type LearnLessionCountAggregateOutputType = {
+    id: number
+    name: number
+    remark: number
+    _all: number
+  }
+
+
+  export type LearnLessionAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type LearnLessionSumAggregateInputType = {
+    id?: true
+  }
+
+  export type LearnLessionMinAggregateInputType = {
+    id?: true
+    name?: true
+    remark?: true
+  }
+
+  export type LearnLessionMaxAggregateInputType = {
+    id?: true
+    name?: true
+    remark?: true
+  }
+
+  export type LearnLessionCountAggregateInputType = {
+    id?: true
+    name?: true
+    remark?: true
+    _all?: true
+  }
+
+  export type LearnLessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearnLession to aggregate.
+     */
+    where?: LearnLessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnLessions to fetch.
+     */
+    orderBy?: LearnLessionOrderByWithRelationInput | LearnLessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LearnLessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnLessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnLessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LearnLessions
+    **/
+    _count?: true | LearnLessionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LearnLessionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LearnLessionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LearnLessionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LearnLessionMaxAggregateInputType
+  }
+
+  export type GetLearnLessionAggregateType<T extends LearnLessionAggregateArgs> = {
+        [P in keyof T & keyof AggregateLearnLession]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLearnLession[P]>
+      : GetScalarType<T[P], AggregateLearnLession[P]>
+  }
+
+
+
+
+  export type LearnLessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LearnLessionWhereInput
+    orderBy?: LearnLessionOrderByWithAggregationInput | LearnLessionOrderByWithAggregationInput[]
+    by: LearnLessionScalarFieldEnum[] | LearnLessionScalarFieldEnum
+    having?: LearnLessionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LearnLessionCountAggregateInputType | true
+    _avg?: LearnLessionAvgAggregateInputType
+    _sum?: LearnLessionSumAggregateInputType
+    _min?: LearnLessionMinAggregateInputType
+    _max?: LearnLessionMaxAggregateInputType
+  }
+
+  export type LearnLessionGroupByOutputType = {
+    id: number
+    name: string
+    remark: string | null
+    _count: LearnLessionCountAggregateOutputType | null
+    _avg: LearnLessionAvgAggregateOutputType | null
+    _sum: LearnLessionSumAggregateOutputType | null
+    _min: LearnLessionMinAggregateOutputType | null
+    _max: LearnLessionMaxAggregateOutputType | null
+  }
+
+  type GetLearnLessionGroupByPayload<T extends LearnLessionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LearnLessionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LearnLessionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LearnLessionGroupByOutputType[P]>
+            : GetScalarType<T[P], LearnLessionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LearnLessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    remark?: boolean
+  }, ExtArgs["result"]["learnLession"]>
+
+
+  export type LearnLessionSelectScalar = {
+    id?: boolean
+    name?: boolean
+    remark?: boolean
+  }
+
+  export type LearnLessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "remark", ExtArgs["result"]["learnLession"]>
+
+  export type $LearnLessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LearnLession"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      remark: string | null
+    }, ExtArgs["result"]["learnLession"]>
+    composites: {}
+  }
+
+  type LearnLessionGetPayload<S extends boolean | null | undefined | LearnLessionDefaultArgs> = $Result.GetResult<Prisma.$LearnLessionPayload, S>
+
+  type LearnLessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<LearnLessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: LearnLessionCountAggregateInputType | true
+    }
+
+  export interface LearnLessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LearnLession'], meta: { name: 'LearnLession' } }
+    /**
+     * Find zero or one LearnLession that matches the filter.
+     * @param {LearnLessionFindUniqueArgs} args - Arguments to find a LearnLession
+     * @example
+     * // Get one LearnLession
+     * const learnLession = await prisma.learnLession.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends LearnLessionFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionFindUniqueArgs<ExtArgs>>
+    ): Prisma__LearnLessionClient<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one LearnLession that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {LearnLessionFindUniqueOrThrowArgs} args - Arguments to find a LearnLession
+     * @example
+     * // Get one LearnLession
+     * const learnLession = await prisma.learnLession.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends LearnLessionFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__LearnLessionClient<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first LearnLession that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionFindFirstArgs} args - Arguments to find a LearnLession
+     * @example
+     * // Get one LearnLession
+     * const learnLession = await prisma.learnLession.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends LearnLessionFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionFindFirstArgs<ExtArgs>>
+    ): Prisma__LearnLessionClient<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first LearnLession that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionFindFirstOrThrowArgs} args - Arguments to find a LearnLession
+     * @example
+     * // Get one LearnLession
+     * const learnLession = await prisma.learnLession.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends LearnLessionFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__LearnLessionClient<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more LearnLessions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LearnLessions
+     * const learnLessions = await prisma.learnLession.findMany()
+     * 
+     * // Get first 10 LearnLessions
+     * const learnLessions = await prisma.learnLession.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const learnLessionWithIdOnly = await prisma.learnLession.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends LearnLessionFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a LearnLession.
+     * @param {LearnLessionCreateArgs} args - Arguments to create a LearnLession.
+     * @example
+     * // Create one LearnLession
+     * const LearnLession = await prisma.learnLession.create({
+     *   data: {
+     *     // ... data to create a LearnLession
+     *   }
+     * })
+     * 
+    **/
+    create<T extends LearnLessionCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionCreateArgs<ExtArgs>>
+    ): Prisma__LearnLessionClient<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many LearnLessions.
+     * @param {LearnLessionCreateManyArgs} args - Arguments to create many LearnLessions.
+     * @example
+     * // Create many LearnLessions
+     * const learnLession = await prisma.learnLession.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends LearnLessionCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a LearnLession.
+     * @param {LearnLessionDeleteArgs} args - Arguments to delete one LearnLession.
+     * @example
+     * // Delete one LearnLession
+     * const LearnLession = await prisma.learnLession.delete({
+     *   where: {
+     *     // ... filter to delete one LearnLession
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends LearnLessionDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionDeleteArgs<ExtArgs>>
+    ): Prisma__LearnLessionClient<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one LearnLession.
+     * @param {LearnLessionUpdateArgs} args - Arguments to update one LearnLession.
+     * @example
+     * // Update one LearnLession
+     * const learnLession = await prisma.learnLession.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends LearnLessionUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionUpdateArgs<ExtArgs>>
+    ): Prisma__LearnLessionClient<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more LearnLessions.
+     * @param {LearnLessionDeleteManyArgs} args - Arguments to filter LearnLessions to delete.
+     * @example
+     * // Delete a few LearnLessions
+     * const { count } = await prisma.learnLession.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends LearnLessionDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LearnLessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LearnLessions
+     * const learnLession = await prisma.learnLession.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends LearnLessionUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one LearnLession.
+     * @param {LearnLessionUpsertArgs} args - Arguments to update or create a LearnLession.
+     * @example
+     * // Update or create a LearnLession
+     * const learnLession = await prisma.learnLession.upsert({
+     *   create: {
+     *     // ... data to create a LearnLession
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LearnLession we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends LearnLessionUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionUpsertArgs<ExtArgs>>
+    ): Prisma__LearnLessionClient<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of LearnLessions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionCountArgs} args - Arguments to filter LearnLessions to count.
+     * @example
+     * // Count the number of LearnLessions
+     * const count = await prisma.learnLession.count({
+     *   where: {
+     *     // ... the filter for the LearnLessions we want to count
+     *   }
+     * })
+    **/
+    count<T extends LearnLessionCountArgs>(
+      args?: Subset<T, LearnLessionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LearnLessionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LearnLession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LearnLessionAggregateArgs>(args: Subset<T, LearnLessionAggregateArgs>): Prisma.PrismaPromise<GetLearnLessionAggregateType<T>>
+
+    /**
+     * Group by LearnLession.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LearnLessionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LearnLessionGroupByArgs['orderBy'] }
+        : { orderBy?: LearnLessionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LearnLessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLearnLessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LearnLession model
+   */
+  readonly fields: LearnLessionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LearnLession.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LearnLessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the LearnLession model
+   */ 
+  interface LearnLessionFieldRefs {
+    readonly id: FieldRef<"LearnLession", 'Int'>
+    readonly name: FieldRef<"LearnLession", 'String'>
+    readonly remark: FieldRef<"LearnLession", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LearnLession findUnique
+   */
+  export type LearnLessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * Filter, which LearnLession to fetch.
+     */
+    where: LearnLessionWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLession findUniqueOrThrow
+   */
+  export type LearnLessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * Filter, which LearnLession to fetch.
+     */
+    where: LearnLessionWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLession findFirst
+   */
+  export type LearnLessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * Filter, which LearnLession to fetch.
+     */
+    where?: LearnLessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnLessions to fetch.
+     */
+    orderBy?: LearnLessionOrderByWithRelationInput | LearnLessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearnLessions.
+     */
+    cursor?: LearnLessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnLessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnLessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearnLessions.
+     */
+    distinct?: LearnLessionScalarFieldEnum | LearnLessionScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLession findFirstOrThrow
+   */
+  export type LearnLessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * Filter, which LearnLession to fetch.
+     */
+    where?: LearnLessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnLessions to fetch.
+     */
+    orderBy?: LearnLessionOrderByWithRelationInput | LearnLessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearnLessions.
+     */
+    cursor?: LearnLessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnLessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnLessions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearnLessions.
+     */
+    distinct?: LearnLessionScalarFieldEnum | LearnLessionScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLession findMany
+   */
+  export type LearnLessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * Filter, which LearnLessions to fetch.
+     */
+    where?: LearnLessionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnLessions to fetch.
+     */
+    orderBy?: LearnLessionOrderByWithRelationInput | LearnLessionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LearnLessions.
+     */
+    cursor?: LearnLessionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnLessions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnLessions.
+     */
+    skip?: number
+    distinct?: LearnLessionScalarFieldEnum | LearnLessionScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLession create
+   */
+  export type LearnLessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * The data needed to create a LearnLession.
+     */
+    data?: XOR<LearnLessionCreateInput, LearnLessionUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLession createMany
+   */
+  export type LearnLessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LearnLessions.
+     */
+    data: LearnLessionCreateManyInput | LearnLessionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LearnLession update
+   */
+  export type LearnLessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * The data needed to update a LearnLession.
+     */
+    data: XOR<LearnLessionUpdateInput, LearnLessionUncheckedUpdateInput>
+    /**
+     * Choose, which LearnLession to update.
+     */
+    where: LearnLessionWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLession updateMany
+   */
+  export type LearnLessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LearnLessions.
+     */
+    data: XOR<LearnLessionUpdateManyMutationInput, LearnLessionUncheckedUpdateManyInput>
+    /**
+     * Filter which LearnLessions to update
+     */
+    where?: LearnLessionWhereInput
+  }
+
+  /**
+   * LearnLession upsert
+   */
+  export type LearnLessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * The filter to search for the LearnLession to update in case it exists.
+     */
+    where: LearnLessionWhereUniqueInput
+    /**
+     * In case the LearnLession found by the `where` argument doesn't exist, create a new LearnLession with this data.
+     */
+    create: XOR<LearnLessionCreateInput, LearnLessionUncheckedCreateInput>
+    /**
+     * In case the LearnLession was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LearnLessionUpdateInput, LearnLessionUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLession delete
+   */
+  export type LearnLessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * Filter which LearnLession to delete.
+     */
+    where: LearnLessionWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLession deleteMany
+   */
+  export type LearnLessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearnLessions to delete
+     */
+    where?: LearnLessionWhereInput
+  }
+
+  /**
+   * LearnLession without action
+   */
+  export type LearnLessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLession
+     */
+    select?: LearnLessionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLession
+     */
+    omit?: LearnLessionOmit<ExtArgs> | null
   }
 
 
@@ -23075,6 +24075,15 @@ export namespace Prisma {
   export type GenTableColumnScalarFieldEnum = (typeof GenTableColumnScalarFieldEnum)[keyof typeof GenTableColumnScalarFieldEnum]
 
 
+  export const LearnLessionScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    remark: 'remark'
+  };
+
+  export type LearnLessionScalarFieldEnum = (typeof LearnLessionScalarFieldEnum)[keyof typeof LearnLessionScalarFieldEnum]
+
+
   export const SysConfigScalarFieldEnum: {
     configId: 'configId',
     configName: 'configName',
@@ -23829,6 +24838,50 @@ export namespace Prisma {
     createTime?: StringNullableWithAggregatesFilter<"GenTableColumn"> | string | null
     updateBy?: StringNullableWithAggregatesFilter<"GenTableColumn"> | string | null
     updateTime?: StringNullableWithAggregatesFilter<"GenTableColumn"> | string | null
+  }
+
+  export type LearnLessionWhereInput = {
+    AND?: LearnLessionWhereInput | LearnLessionWhereInput[]
+    OR?: LearnLessionWhereInput[]
+    NOT?: LearnLessionWhereInput | LearnLessionWhereInput[]
+    id?: IntFilter<"LearnLession"> | number
+    name?: StringFilter<"LearnLession"> | string
+    remark?: StringNullableFilter<"LearnLession"> | string | null
+  }
+
+  export type LearnLessionOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    remark?: SortOrderInput | SortOrder
+  }
+
+  export type LearnLessionWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LearnLessionWhereInput | LearnLessionWhereInput[]
+    OR?: LearnLessionWhereInput[]
+    NOT?: LearnLessionWhereInput | LearnLessionWhereInput[]
+    name?: StringFilter<"LearnLession"> | string
+    remark?: StringNullableFilter<"LearnLession"> | string | null
+  }, "id">
+
+  export type LearnLessionOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    remark?: SortOrderInput | SortOrder
+    _count?: LearnLessionCountOrderByAggregateInput
+    _avg?: LearnLessionAvgOrderByAggregateInput
+    _max?: LearnLessionMaxOrderByAggregateInput
+    _min?: LearnLessionMinOrderByAggregateInput
+    _sum?: LearnLessionSumOrderByAggregateInput
+  }
+
+  export type LearnLessionScalarWhereWithAggregatesInput = {
+    AND?: LearnLessionScalarWhereWithAggregatesInput | LearnLessionScalarWhereWithAggregatesInput[]
+    OR?: LearnLessionScalarWhereWithAggregatesInput[]
+    NOT?: LearnLessionScalarWhereWithAggregatesInput | LearnLessionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LearnLession"> | number
+    name?: StringWithAggregatesFilter<"LearnLession"> | string
+    remark?: StringNullableWithAggregatesFilter<"LearnLession"> | string | null
   }
 
   export type SysConfigWhereInput = {
@@ -25529,6 +26582,45 @@ export namespace Prisma {
     createTime?: NullableStringFieldUpdateOperationsInput | string | null
     updateBy?: NullableStringFieldUpdateOperationsInput | string | null
     updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnLessionCreateInput = {
+    name?: string
+    remark?: string | null
+  }
+
+  export type LearnLessionUncheckedCreateInput = {
+    id?: number
+    name?: string
+    remark?: string | null
+  }
+
+  export type LearnLessionUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnLessionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnLessionCreateManyInput = {
+    id?: number
+    name?: string
+    remark?: string | null
+  }
+
+  export type LearnLessionUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnLessionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SysConfigCreateInput = {
@@ -27247,6 +28339,32 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type LearnLessionCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    remark?: SortOrder
+  }
+
+  export type LearnLessionAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type LearnLessionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    remark?: SortOrder
+  }
+
+  export type LearnLessionMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    remark?: SortOrder
+  }
+
+  export type LearnLessionSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type SysConfigCountOrderByAggregateInput = {
@@ -31168,6 +32286,10 @@ export namespace Prisma {
      * @deprecated Use GenTableColumnDefaultArgs instead
      */
     export type GenTableColumnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = GenTableColumnDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use LearnLessionDefaultArgs instead
+     */
+    export type LearnLessionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LearnLessionDefaultArgs<ExtArgs>
     /**
      * @deprecated Use SysConfigDefaultArgs instead
      */

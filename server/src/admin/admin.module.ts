@@ -27,6 +27,8 @@ import { UserService } from './system/user/service/sys-user.service';
 import { SysNoticeController } from './system/notice/sys-notice.controller';
 import { SysLogininforController } from './system/logininfor/sys-logininfor.controller';
 import { monitorController } from './system/monitor/monitor.controller';
+import { LearnService } from "./learn/service/learn.service";
+import { LearnController } from "./learn/learn.controller";
 @Module({
   imports: [],
   controllers: [
@@ -46,6 +48,7 @@ import { monitorController } from './system/monitor/monitor.controller';
     SysNoticeController,
     SysLogininforController,
     monitorController,
+    LearnController
   ],
   providers: [
     DeptService,
@@ -62,6 +65,7 @@ import { monitorController } from './system/monitor/monitor.controller';
     SysDictTypeService,
     UserService,
     LogininforService,
+    LearnService,
   ],
 })
 export class AdminModule {}

@@ -33,6 +33,7 @@ export class ConfigService {
     }
     console.log('系统配置信息初始化完成！');
   }
+
   /**@description 查询参数配置所有 */
   async selectConfigAll() {
     return this.prisma.sysConfig.findMany();
