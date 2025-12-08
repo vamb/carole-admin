@@ -3,7 +3,7 @@ import { ParseIntArrayPipe } from "@/common/pipe/parse-int-array.pipe";
 import Result from "@/common/result/Result";
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LearnService } from '@/admin/learn/service/learn.service';
-import { CreateLearnDto, QueryLearnDto } from './dto/learnDto';
+import { CreateLearnDto, QueryLearnDto, UpdateLearnDto } from './dto/learnDto';
 import { LearnLession } from '@prismaClient';
 import { RequirePermission } from '@/common/decorator/require-premission.decorator';
 import { TableDataInfo } from '@/common/domain/TableDataInfo';
@@ -41,5 +41,29 @@ export class LearnController {
       // updateBy: req.user?.userName,
     }
     return Result.ok(await this.learnService.addLearn(learn))
+  }
+
+  @ApiOperation({ summary: "修改教程" })
+  @ApiResponse({ type: Result<any> })
+  @ApiBody({ type: UpdateLearnDto })
+  @RequirePermission("learn:edit")
+  @Put("/")
+  async updateLearn(
+    @Body() learn: UpdateLearnDto,
+    @Req() req,
+  ): Promise<Result<any>> {
+    await this.learnService.updateLearnLession(learn)
+    return Result.ok("修改成功! ")
+  }
+
+  @ApiOperation({ summary: "删除教程" })
+  @ApiResponse({ type: Result<any> })
+  @RequirePermission("learn:remove")
+  @Delete("/:ids")
+  async delLearn(
+    @Param("ids", ParseIntArrayPipe) learnIds: number[],
+  ): Promise<Result<any>> {
+    const { count } = await this.learnService.deleteLearnIds(learnIds)
+    return Result.toAjax(count);
   }
 }

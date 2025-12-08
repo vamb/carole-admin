@@ -8,7 +8,7 @@ export class QueryLearnDto extends queryDomain {
   @ApiProperty({ description: "教程主键", required: false })
   @IsOptional()
   @IsNumber()
-  id: Number | null;
+  id: number | null;
   @ApiProperty({ description: "教程名称", required: false })
   @IsOptional()
   name: string | null;
@@ -24,6 +24,22 @@ export class CreateLearnDto extends BaseDomain {
   name: string;
 
   @ApiProperty({ description: "课程描述" })
+  @IsOptional()
+  @IsString()
+  remark?: string;
+}
+
+export class UpdateLearnDto extends BaseDomain {
+  @ApiProperty({ description: "教程主键" })
+  @IsNotEmpty({ message: "主键不能为空" })
+  @Transform((v) => + v.value)
+  @IsNumber()
+  id: number;
+  @ApiProperty({ description: "教程名称" })
+  @IsNotEmpty({ message: "教程名称不能为空" })
+  @IsString()
+  name: string;
+  @ApiProperty({ description: "备注", required: false })
   @IsOptional()
   @IsString()
   remark?: string;

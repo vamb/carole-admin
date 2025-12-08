@@ -4,8 +4,8 @@ import { Response } from "express";
 import { exportTable } from "@/common/utils";
 import {
   QueryLearnDto,
-  CreateLearnDto,
-} from "../dto/learnDto";
+  CreateLearnDto, UpdateLearnDto,
+} from '../dto/learnDto';
 import { Prisma } from "@prismaClient";
 import { isNotEmpty } from 'class-validator';
 import { redisUtils } from '@/common/utils/redisUtils';
@@ -50,5 +50,30 @@ export class LearnService {
       data: learn
     })
     return d
+  }
+
+  async updateLearnLession(learnLession: UpdateLearnDto) {
+    //删除掉空值
+    for (const key in learnLession) {
+      !isNotEmpty(learnLession[key]) && delete learnLession[key];
+    }
+    await this.prisma.learnLession.update({
+      where: {
+        id: learnLession.id,
+      },
+      data: learnLession
+    })
+    return true;
+  }
+
+  async deleteLearnIds(learnIds: number[]) {
+    const r = await this.prisma.learnLession.deleteMany({
+      where: {
+        id: {
+          in: learnIds
+        },
+      },
+    });
+    return r;
   }
 }
