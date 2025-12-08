@@ -17,6 +17,19 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+DROP TABLE IF EXISTS `learn_lession`;
+CREATE TABLE `learn_lession` (
+    `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(50) NOT NULL DEFAULT '',
+    `create_by` VARCHAR(64) NULL DEFAULT '',
+    `create_time` VARCHAR(25) NULL,
+    `update_by` VARCHAR(64) NULL DEFAULT '',
+    `update_time` VARCHAR(25) NULL,
+    `remark` VARCHAR(500) NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 DROP TABLE IF EXISTS `buz_menu`;
 CREATE TABLE `buz_menu` (
     `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,

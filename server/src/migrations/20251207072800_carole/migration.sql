@@ -101,6 +101,10 @@ CREATE TABLE `gen_table_column` (
 CREATE TABLE `learn_lession` (
     `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(50) NOT NULL DEFAULT '',
+    `create_by` VARCHAR(64) NULL DEFAULT '',
+    `create_time` VARCHAR(25) NULL,
+    `update_by` VARCHAR(64) NULL DEFAULT '',
+    `update_time` VARCHAR(25) NULL,
     `remark` VARCHAR(500) NULL,
 
     PRIMARY KEY (`id`)

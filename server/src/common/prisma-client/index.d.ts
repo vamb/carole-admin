@@ -8293,18 +8293,30 @@ export namespace Prisma {
   export type LearnLessionMinAggregateOutputType = {
     id: number | null
     name: string | null
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
     remark: string | null
   }
 
   export type LearnLessionMaxAggregateOutputType = {
     id: number | null
     name: string | null
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
     remark: string | null
   }
 
   export type LearnLessionCountAggregateOutputType = {
     id: number
     name: number
+    createBy: number
+    createTime: number
+    updateBy: number
+    updateTime: number
     remark: number
     _all: number
   }
@@ -8321,18 +8333,30 @@ export namespace Prisma {
   export type LearnLessionMinAggregateInputType = {
     id?: true
     name?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
     remark?: true
   }
 
   export type LearnLessionMaxAggregateInputType = {
     id?: true
     name?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
     remark?: true
   }
 
   export type LearnLessionCountAggregateInputType = {
     id?: true
     name?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
     remark?: true
     _all?: true
   }
@@ -8426,6 +8450,10 @@ export namespace Prisma {
   export type LearnLessionGroupByOutputType = {
     id: number
     name: string
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
     remark: string | null
     _count: LearnLessionCountAggregateOutputType | null
     _avg: LearnLessionAvgAggregateOutputType | null
@@ -8451,6 +8479,10 @@ export namespace Prisma {
   export type LearnLessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    createBy?: boolean
+    createTime?: boolean
+    updateBy?: boolean
+    updateTime?: boolean
     remark?: boolean
   }, ExtArgs["result"]["learnLession"]>
 
@@ -8458,10 +8490,14 @@ export namespace Prisma {
   export type LearnLessionSelectScalar = {
     id?: boolean
     name?: boolean
+    createBy?: boolean
+    createTime?: boolean
+    updateBy?: boolean
+    updateTime?: boolean
     remark?: boolean
   }
 
-  export type LearnLessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "remark", ExtArgs["result"]["learnLession"]>
+  export type LearnLessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createBy" | "createTime" | "updateBy" | "updateTime" | "remark", ExtArgs["result"]["learnLession"]>
 
   export type $LearnLessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "LearnLession"
@@ -8469,6 +8505,10 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
+      createBy: string | null
+      createTime: string | null
+      updateBy: string | null
+      updateTime: string | null
       remark: string | null
     }, ExtArgs["result"]["learnLession"]>
     composites: {}
@@ -8865,6 +8905,10 @@ export namespace Prisma {
   interface LearnLessionFieldRefs {
     readonly id: FieldRef<"LearnLession", 'Int'>
     readonly name: FieldRef<"LearnLession", 'String'>
+    readonly createBy: FieldRef<"LearnLession", 'String'>
+    readonly createTime: FieldRef<"LearnLession", 'String'>
+    readonly updateBy: FieldRef<"LearnLession", 'String'>
+    readonly updateTime: FieldRef<"LearnLession", 'String'>
     readonly remark: FieldRef<"LearnLession", 'String'>
   }
     
@@ -24078,6 +24122,10 @@ export namespace Prisma {
   export const LearnLessionScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    createBy: 'createBy',
+    createTime: 'createTime',
+    updateBy: 'updateBy',
+    updateTime: 'updateTime',
     remark: 'remark'
   };
 
@@ -24846,12 +24894,20 @@ export namespace Prisma {
     NOT?: LearnLessionWhereInput | LearnLessionWhereInput[]
     id?: IntFilter<"LearnLession"> | number
     name?: StringFilter<"LearnLession"> | string
+    createBy?: StringNullableFilter<"LearnLession"> | string | null
+    createTime?: StringNullableFilter<"LearnLession"> | string | null
+    updateBy?: StringNullableFilter<"LearnLession"> | string | null
+    updateTime?: StringNullableFilter<"LearnLession"> | string | null
     remark?: StringNullableFilter<"LearnLession"> | string | null
   }
 
   export type LearnLessionOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    createTime?: SortOrderInput | SortOrder
+    updateBy?: SortOrderInput | SortOrder
+    updateTime?: SortOrderInput | SortOrder
     remark?: SortOrderInput | SortOrder
   }
 
@@ -24861,12 +24917,20 @@ export namespace Prisma {
     OR?: LearnLessionWhereInput[]
     NOT?: LearnLessionWhereInput | LearnLessionWhereInput[]
     name?: StringFilter<"LearnLession"> | string
+    createBy?: StringNullableFilter<"LearnLession"> | string | null
+    createTime?: StringNullableFilter<"LearnLession"> | string | null
+    updateBy?: StringNullableFilter<"LearnLession"> | string | null
+    updateTime?: StringNullableFilter<"LearnLession"> | string | null
     remark?: StringNullableFilter<"LearnLession"> | string | null
   }, "id">
 
   export type LearnLessionOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    createTime?: SortOrderInput | SortOrder
+    updateBy?: SortOrderInput | SortOrder
+    updateTime?: SortOrderInput | SortOrder
     remark?: SortOrderInput | SortOrder
     _count?: LearnLessionCountOrderByAggregateInput
     _avg?: LearnLessionAvgOrderByAggregateInput
@@ -24881,6 +24945,10 @@ export namespace Prisma {
     NOT?: LearnLessionScalarWhereWithAggregatesInput | LearnLessionScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"LearnLession"> | number
     name?: StringWithAggregatesFilter<"LearnLession"> | string
+    createBy?: StringNullableWithAggregatesFilter<"LearnLession"> | string | null
+    createTime?: StringNullableWithAggregatesFilter<"LearnLession"> | string | null
+    updateBy?: StringNullableWithAggregatesFilter<"LearnLession"> | string | null
+    updateTime?: StringNullableWithAggregatesFilter<"LearnLession"> | string | null
     remark?: StringNullableWithAggregatesFilter<"LearnLession"> | string | null
   }
 
@@ -26586,40 +26654,68 @@ export namespace Prisma {
 
   export type LearnLessionCreateInput = {
     name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
     remark?: string | null
   }
 
   export type LearnLessionUncheckedCreateInput = {
     id?: number
     name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
     remark?: string | null
   }
 
   export type LearnLessionUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
     remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LearnLessionUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
     remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LearnLessionCreateManyInput = {
     id?: number
     name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
     remark?: string | null
   }
 
   export type LearnLessionUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
     remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type LearnLessionUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
     remark?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -28344,6 +28440,10 @@ export namespace Prisma {
   export type LearnLessionCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
     remark?: SortOrder
   }
 
@@ -28354,12 +28454,20 @@ export namespace Prisma {
   export type LearnLessionMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
     remark?: SortOrder
   }
 
   export type LearnLessionMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
     remark?: SortOrder
   }
 

@@ -208,6 +208,10 @@ exports.Prisma.GenTableColumnScalarFieldEnum = {
 exports.Prisma.LearnLessionScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  createBy: 'createBy',
+  createTime: 'createTime',
+  updateBy: 'updateBy',
+  updateTime: 'updateTime',
   remark: 'remark'
 };
 
