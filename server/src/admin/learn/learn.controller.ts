@@ -35,10 +35,10 @@ export class LearnController {
   ): Promise<Result<LearnLession>> {
     learn = {
       ...learn,
-      // createTime: nowDateTime(),
-      // updateTime: nowDateTime(),
-      // createBy: req.user?.userName,
-      // updateBy: req.user?.userName,
+      createTime: nowDateTime(),
+      updateTime: nowDateTime(),
+      createBy: req.user?.userName,
+      updateBy: req.user?.userName,
     }
     return Result.ok(await this.learnService.addLearn(learn))
   }
@@ -52,6 +52,11 @@ export class LearnController {
     @Body() learn: UpdateLearnDto,
     @Req() req,
   ): Promise<Result<any>> {
+    learn = {
+      ...learn,
+      updateTime: nowDateTime(),
+      updateBy: req.user?.username,
+    }
     await this.learnService.updateLearnLession(learn)
     return Result.ok("修改成功! ")
   }
