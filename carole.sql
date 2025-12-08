@@ -29,6 +29,36 @@ CREATE TABLE `learn_lession` (
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+INSERT INTO `learn_lession` VALUES (1, '计算机科学', 'admin', '2024-06-16 14:05:16', 'admin', '2024-06-16 14:05:16', '这个是计算机科学的描述');
+INSERT INTO `learn_lession` VALUES (2, '自然科学', 'admin', '2024-06-16 14:05:16', 'admin', '2024-06-16 14:05:16', '这个是自然科学的描述');
+
+DROP TABLE IF EXISTS `learn_book`;
+CREATE TABLE `learn_book` (
+    `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(50) NOT NULL DEFAULT '',
+    `create_by` VARCHAR(64) NULL DEFAULT '',
+    `create_time` VARCHAR(25) NULL,
+    `update_by` VARCHAR(64) NULL DEFAULT '',
+    `update_time` VARCHAR(25) NULL,
+    `remark` VARCHAR(500) NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+INSERT INTO `learn_book` VALUES (1,'数据结构','admin','2025-12-08 17:20:18','admin','2025-12-08 17:20:18','数据结构描述');
+INSERT INTO `learn_book` VALUES (2,'微积分','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','微积分描述');
+INSERT INTO `learn_book` VALUES (3,'图论','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','图论描述');
+INSERT INTO `learn_book` VALUES (4,'Java编程','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','Java编程描述');
+INSERT INTO `learn_book` VALUES (5,'React编程','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','React编程描述');
+INSERT INTO `learn_book` VALUES (6,'地理学','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','地理学描述');
+INSERT INTO `learn_book` VALUES (7,'生物学','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','生物学描述');
+
+DROP TABLE IF EXISTS `learn_lession_book`;
+CREATE TABLE `learn_lession_book` (
+    `lession_id` INTEGER UNSIGNED NOT NULL,
+    `book_id` INTEGER UNSIGNED NOT NULL,
+
+    PRIMARY KEY (`lession_id`, `book_id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS `buz_menu`;
 CREATE TABLE `buz_menu` (

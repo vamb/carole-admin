@@ -2,73 +2,73 @@ import { Body, Controller, Get, Param, Delete, Post, Put, Query, Req, Res } from
 import { ParseIntArrayPipe } from "@/common/pipe/parse-int-array.pipe";
 import Result from "@/common/result/Result";
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { LearnService } from '@/admin/learn/service/learn.service';
-import { CreateLearnDto, QueryLearnDto, UpdateLearnDto } from './dto/learnDto';
+import { LessionService } from '@/admin/learn/lession/service/lession.service';
+import { CreateLessionDto, QueryLessionDto, UpdateLessionDto } from './dto/lessionDto';
 import { LearnLession } from '@prismaClient';
 import { RequirePermission } from '@/common/decorator/require-premission.decorator';
 import { TableDataInfo } from '@/common/domain/TableDataInfo';
 import { nowDateTime } from '@/common/utils';
 
-@ApiTags("教学")
+@ApiTags("教学教程")
 @ApiBearerAuth()
-@Controller("learn")
-export class LearnController {
-  constructor(private learnService: LearnService ) {}
+@Controller("lession")
+export class LessionController {
+  constructor(private lessionService: LessionService ) {}
 
   @ApiResponse({ type: TableDataInfo<LearnLession> })
-  @RequirePermission("learn:query")
+  @RequirePermission("lession:query")
   @Get("/list")
-  async listLearn(
-    @Query() q: QueryLearnDto
+  async listLearnLession(
+    @Query() q: QueryLessionDto
   ): Promise<TableDataInfo<LearnLession>> {
-    return Result.TableData(await this.learnService.selectLearnLession(q));
+    return Result.TableData(await this.lessionService.selectLearnLession(q));
   }
 
   @ApiOperation({ summary: '新增教程' })
   @ApiResponse({ type: Result<LearnLession> })
-  @ApiBody({ type: CreateLearnDto })
-  @RequirePermission("learn:add")
+  @ApiBody({ type: CreateLessionDto })
+  @RequirePermission("lession:add")
   @Post("/")
-  async addLearn(
-    @Body() learn: CreateLearnDto,
+  async addLearnLession(
+    @Body() learnLession: CreateLessionDto,
     @Req() req,
   ): Promise<Result<LearnLession>> {
-    learn = {
-      ...learn,
+    learnLession = {
+      ...learnLession,
       createTime: nowDateTime(),
       updateTime: nowDateTime(),
       createBy: req.user?.userName,
       updateBy: req.user?.userName,
     }
-    return Result.ok(await this.learnService.addLearn(learn))
+    return Result.ok(await this.lessionService.addLearn(learnLession))
   }
 
   @ApiOperation({ summary: "修改教程" })
   @ApiResponse({ type: Result<any> })
-  @ApiBody({ type: UpdateLearnDto })
-  @RequirePermission("learn:edit")
+  @ApiBody({ type: UpdateLessionDto })
+  @RequirePermission("lession:edit")
   @Put("/")
-  async updateLearn(
-    @Body() learn: UpdateLearnDto,
+  async updateLearnLession(
+    @Body() learn: UpdateLessionDto,
     @Req() req,
   ): Promise<Result<any>> {
     learn = {
       ...learn,
       updateTime: nowDateTime(),
-      updateBy: req.user?.username,
+      updateBy: req.user?.userName,
     }
-    await this.learnService.updateLearnLession(learn)
+    await this.lessionService.updateLearnLession(learn)
     return Result.ok("修改成功! ")
   }
 
   @ApiOperation({ summary: "删除教程" })
   @ApiResponse({ type: Result<any> })
-  @RequirePermission("learn:remove")
+  @RequirePermission("lession:remove")
   @Delete("/:ids")
-  async delLearn(
-    @Param("ids", ParseIntArrayPipe) learnIds: number[],
+  async delLearnLession(
+    @Param("ids", ParseIntArrayPipe) learnLessionIds: number[],
   ): Promise<Result<any>> {
-    const { count } = await this.learnService.deleteLearnIds(learnIds)
+    const { count } = await this.lessionService.deleteLearnLessionIds(learnLessionIds)
     return Result.toAjax(count);
   }
 }

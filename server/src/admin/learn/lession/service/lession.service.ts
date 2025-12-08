@@ -3,20 +3,26 @@ import { PrismaService } from "@/common/service/prisma/prisma.service";
 import { Response } from "express";
 import { exportTable } from "@/common/utils";
 import {
-  QueryLearnDto,
-  CreateLearnDto, UpdateLearnDto,
-} from '../dto/learnDto';
+  QueryLessionDto,
+  CreateLessionDto, UpdateLessionDto,
+} from '../dto/lessionDto';
 import { Prisma } from "@prismaClient";
 import { isNotEmpty } from 'class-validator';
 import { redisUtils } from '@/common/utils/redisUtils';
 import { Constants } from '@/common/constant/Constants';
 
 @Injectable()
-export class LearnService {
+export class LessionService {
   constructor(private prisma: PrismaService) {}
 
-  async selectLearnLession(q: QueryLearnDto) {
+  async selectLearnLession(q: QueryLessionDto) {
     const queryCondition: Prisma.LearnLessionWhereInput = {};
+
+    if (isNotEmpty(q["id"])) {
+      queryCondition.id = {
+        equals: q.id
+      }
+    }
 
     if (isNotEmpty(q["name"])) {
       queryCondition.name = {
@@ -41,18 +47,18 @@ export class LearnService {
     }
   }
 
-  async addLearn(learn: CreateLearnDto) {
+  async addLearn(lession: CreateLessionDto) {
     //删除掉空值
-    for (const key in learn) {
-      !isNotEmpty(learn[key]) && delete learn[key];
+    for (const key in lession) {
+      !isNotEmpty(lession[key]) && delete lession[key];
     }
     const d = await this.prisma.learnLession.create({
-      data: learn
+      data: lession
     })
     return d
   }
 
-  async updateLearnLession(learnLession: UpdateLearnDto) {
+  async updateLearnLession(learnLession: UpdateLessionDto) {
     //删除掉空值
     for (const key in learnLession) {
       !isNotEmpty(learnLession[key]) && delete learnLession[key];
@@ -66,11 +72,11 @@ export class LearnService {
     return true;
   }
 
-  async deleteLearnIds(learnIds: number[]) {
+  async deleteLearnLessionIds(learnLessionIds: number[]) {
     const r = await this.prisma.learnLession.deleteMany({
       where: {
         id: {
-          in: learnIds
+          in: learnLessionIds
         },
       },
     });

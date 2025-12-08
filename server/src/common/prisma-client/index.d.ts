@@ -44,6 +44,16 @@ export type GenTableColumn = $Result.DefaultSelection<Prisma.$GenTableColumnPayl
  */
 export type LearnLession = $Result.DefaultSelection<Prisma.$LearnLessionPayload>
 /**
+ * Model LearnBook
+ * 
+ */
+export type LearnBook = $Result.DefaultSelection<Prisma.$LearnBookPayload>
+/**
+ * Model LearnLessionBook
+ * 
+ */
+export type LearnLessionBook = $Result.DefaultSelection<Prisma.$LearnLessionBookPayload>
+/**
  * Model SysConfig
  * 
  */
@@ -295,6 +305,26 @@ export class PrismaClient<
     * ```
     */
   get learnLession(): Prisma.LearnLessionDelegate<ExtArgs>;
+
+  /**
+   * `prisma.learnBook`: Exposes CRUD operations for the **LearnBook** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LearnBooks
+    * const learnBooks = await prisma.learnBook.findMany()
+    * ```
+    */
+  get learnBook(): Prisma.LearnBookDelegate<ExtArgs>;
+
+  /**
+   * `prisma.learnLessionBook`: Exposes CRUD operations for the **LearnLessionBook** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LearnLessionBooks
+    * const learnLessionBooks = await prisma.learnLessionBook.findMany()
+    * ```
+    */
+  get learnLessionBook(): Prisma.LearnLessionBookDelegate<ExtArgs>;
 
   /**
    * `prisma.sysConfig`: Exposes CRUD operations for the **SysConfig** model.
@@ -918,6 +948,8 @@ export namespace Prisma {
     GenTable: 'GenTable',
     GenTableColumn: 'GenTableColumn',
     LearnLession: 'LearnLession',
+    LearnBook: 'LearnBook',
+    LearnLessionBook: 'LearnLessionBook',
     SysConfig: 'SysConfig',
     SysDept: 'SysDept',
     SysDictData: 'SysDictData',
@@ -948,7 +980,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'buzMenu' | 'buzVegetable' | 'buzMenuOnVeg' | 'genTable' | 'genTableColumn' | 'learnLession' | 'sysConfig' | 'sysDept' | 'sysDictData' | 'sysDictType' | 'sysLogininfor' | 'sysMenu' | 'sysNotice' | 'sysPost' | 'sysUserPost' | 'sysRoleDept' | 'sysRoleMenu' | 'sysUser' | 'sysRole' | 'sysUserRole'
+      modelProps: 'buzMenu' | 'buzVegetable' | 'buzMenuOnVeg' | 'genTable' | 'genTableColumn' | 'learnLession' | 'learnBook' | 'learnLessionBook' | 'sysConfig' | 'sysDept' | 'sysDictData' | 'sysDictType' | 'sysLogininfor' | 'sysMenu' | 'sysNotice' | 'sysPost' | 'sysUserPost' | 'sysRoleDept' | 'sysRoleMenu' | 'sysUser' | 'sysRole' | 'sysUserRole'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1345,6 +1377,138 @@ export namespace Prisma {
           count: {
             args: Prisma.LearnLessionCountArgs<ExtArgs>,
             result: $Utils.Optional<LearnLessionCountAggregateOutputType> | number
+          }
+        }
+      }
+      LearnBook: {
+        payload: Prisma.$LearnBookPayload<ExtArgs>
+        fields: Prisma.LearnBookFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LearnBookFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnBookPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LearnBookFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnBookPayload>
+          }
+          findFirst: {
+            args: Prisma.LearnBookFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnBookPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LearnBookFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnBookPayload>
+          }
+          findMany: {
+            args: Prisma.LearnBookFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnBookPayload>[]
+          }
+          create: {
+            args: Prisma.LearnBookCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnBookPayload>
+          }
+          createMany: {
+            args: Prisma.LearnBookCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.LearnBookDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnBookPayload>
+          }
+          update: {
+            args: Prisma.LearnBookUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnBookPayload>
+          }
+          deleteMany: {
+            args: Prisma.LearnBookDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LearnBookUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.LearnBookUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnBookPayload>
+          }
+          aggregate: {
+            args: Prisma.LearnBookAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateLearnBook>
+          }
+          groupBy: {
+            args: Prisma.LearnBookGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<LearnBookGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LearnBookCountArgs<ExtArgs>,
+            result: $Utils.Optional<LearnBookCountAggregateOutputType> | number
+          }
+        }
+      }
+      LearnLessionBook: {
+        payload: Prisma.$LearnLessionBookPayload<ExtArgs>
+        fields: Prisma.LearnLessionBookFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LearnLessionBookFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionBookPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LearnLessionBookFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionBookPayload>
+          }
+          findFirst: {
+            args: Prisma.LearnLessionBookFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionBookPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LearnLessionBookFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionBookPayload>
+          }
+          findMany: {
+            args: Prisma.LearnLessionBookFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionBookPayload>[]
+          }
+          create: {
+            args: Prisma.LearnLessionBookCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionBookPayload>
+          }
+          createMany: {
+            args: Prisma.LearnLessionBookCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.LearnLessionBookDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionBookPayload>
+          }
+          update: {
+            args: Prisma.LearnLessionBookUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionBookPayload>
+          }
+          deleteMany: {
+            args: Prisma.LearnLessionBookDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LearnLessionBookUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.LearnLessionBookUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LearnLessionBookPayload>
+          }
+          aggregate: {
+            args: Prisma.LearnLessionBookAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateLearnLessionBook>
+          }
+          groupBy: {
+            args: Prisma.LearnLessionBookGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<LearnLessionBookGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LearnLessionBookCountArgs<ExtArgs>,
+            result: $Utils.Optional<LearnLessionBookCountAggregateOutputType> | number
           }
         }
       }
@@ -2517,6 +2681,68 @@ export namespace Prisma {
    */
   export type GenTableCountOutputTypeCountTableColumnsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: GenTableColumnWhereInput
+  }
+
+
+  /**
+   * Count Type LearnLessionCountOutputType
+   */
+
+  export type LearnLessionCountOutputType = {
+    lessionBooks: number
+  }
+
+  export type LearnLessionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    lessionBooks?: boolean | LearnLessionCountOutputTypeCountLessionBooksArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LearnLessionCountOutputType without action
+   */
+  export type LearnLessionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionCountOutputType
+     */
+    select?: LearnLessionCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LearnLessionCountOutputType without action
+   */
+  export type LearnLessionCountOutputTypeCountLessionBooksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LearnLessionBookWhereInput
+  }
+
+
+  /**
+   * Count Type LearnBookCountOutputType
+   */
+
+  export type LearnBookCountOutputType = {
+    lessionBooks: number
+  }
+
+  export type LearnBookCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    lessionBooks?: boolean | LearnBookCountOutputTypeCountLessionBooksArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * LearnBookCountOutputType without action
+   */
+  export type LearnBookCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBookCountOutputType
+     */
+    select?: LearnBookCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * LearnBookCountOutputType without action
+   */
+  export type LearnBookCountOutputTypeCountLessionBooksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LearnLessionBookWhereInput
   }
 
 
@@ -8484,6 +8710,8 @@ export namespace Prisma {
     updateBy?: boolean
     updateTime?: boolean
     remark?: boolean
+    lessionBooks?: boolean | LearnLession$lessionBooksArgs<ExtArgs>
+    _count?: boolean | LearnLessionCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["learnLession"]>
 
 
@@ -8498,10 +8726,16 @@ export namespace Prisma {
   }
 
   export type LearnLessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createBy" | "createTime" | "updateBy" | "updateTime" | "remark", ExtArgs["result"]["learnLession"]>
+  export type LearnLessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    lessionBooks?: boolean | LearnLession$lessionBooksArgs<ExtArgs>
+    _count?: boolean | LearnLessionCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $LearnLessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "LearnLession"
-    objects: {}
+    objects: {
+      lessionBooks: Prisma.$LearnLessionBookPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
@@ -8874,6 +9108,7 @@ export namespace Prisma {
   export interface Prisma__LearnLessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
+    lessionBooks<T extends LearnLession$lessionBooksArgs<ExtArgs> = {}>(args?: Subset<T, LearnLession$lessionBooksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -8927,6 +9162,10 @@ export namespace Prisma {
      */
     omit?: LearnLessionOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
+    /**
      * Filter, which LearnLession to fetch.
      */
     where: LearnLessionWhereUniqueInput
@@ -8946,6 +9185,10 @@ export namespace Prisma {
      */
     omit?: LearnLessionOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
+    /**
      * Filter, which LearnLession to fetch.
      */
     where: LearnLessionWhereUniqueInput
@@ -8964,6 +9207,10 @@ export namespace Prisma {
      * Omit specific fields from the LearnLession
      */
     omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
     /**
      * Filter, which LearnLession to fetch.
      */
@@ -9014,6 +9261,10 @@ export namespace Prisma {
      */
     omit?: LearnLessionOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
+    /**
      * Filter, which LearnLession to fetch.
      */
     where?: LearnLessionWhereInput
@@ -9063,6 +9314,10 @@ export namespace Prisma {
      */
     omit?: LearnLessionOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
+    /**
      * Filter, which LearnLessions to fetch.
      */
     where?: LearnLessionWhereInput
@@ -9107,6 +9362,10 @@ export namespace Prisma {
      */
     omit?: LearnLessionOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
+    /**
      * The data needed to create a LearnLession.
      */
     data?: XOR<LearnLessionCreateInput, LearnLessionUncheckedCreateInput>
@@ -9136,6 +9395,10 @@ export namespace Prisma {
      * Omit specific fields from the LearnLession
      */
     omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
     /**
      * The data needed to update a LearnLession.
      */
@@ -9174,6 +9437,10 @@ export namespace Prisma {
      */
     omit?: LearnLessionOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
+    /**
      * The filter to search for the LearnLession to update in case it exists.
      */
     where: LearnLessionWhereUniqueInput
@@ -9201,6 +9468,10 @@ export namespace Prisma {
      */
     omit?: LearnLessionOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
+    /**
      * Filter which LearnLession to delete.
      */
     where: LearnLessionWhereUniqueInput
@@ -9218,6 +9489,30 @@ export namespace Prisma {
   }
 
   /**
+   * LearnLession.lessionBooks
+   */
+  export type LearnLession$lessionBooksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    where?: LearnLessionBookWhereInput
+    orderBy?: LearnLessionBookOrderByWithRelationInput | LearnLessionBookOrderByWithRelationInput[]
+    cursor?: LearnLessionBookWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LearnLessionBookScalarFieldEnum | LearnLessionBookScalarFieldEnum[]
+  }
+
+  /**
    * LearnLession without action
    */
   export type LearnLessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9229,6 +9524,2008 @@ export namespace Prisma {
      * Omit specific fields from the LearnLession
      */
     omit?: LearnLessionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LearnBook
+   */
+
+  export type AggregateLearnBook = {
+    _count: LearnBookCountAggregateOutputType | null
+    _avg: LearnBookAvgAggregateOutputType | null
+    _sum: LearnBookSumAggregateOutputType | null
+    _min: LearnBookMinAggregateOutputType | null
+    _max: LearnBookMaxAggregateOutputType | null
+  }
+
+  export type LearnBookAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LearnBookSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type LearnBookMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
+    remark: string | null
+  }
+
+  export type LearnBookMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
+    remark: string | null
+  }
+
+  export type LearnBookCountAggregateOutputType = {
+    id: number
+    name: number
+    createBy: number
+    createTime: number
+    updateBy: number
+    updateTime: number
+    remark: number
+    _all: number
+  }
+
+
+  export type LearnBookAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type LearnBookSumAggregateInputType = {
+    id?: true
+  }
+
+  export type LearnBookMinAggregateInputType = {
+    id?: true
+    name?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
+    remark?: true
+  }
+
+  export type LearnBookMaxAggregateInputType = {
+    id?: true
+    name?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
+    remark?: true
+  }
+
+  export type LearnBookCountAggregateInputType = {
+    id?: true
+    name?: true
+    createBy?: true
+    createTime?: true
+    updateBy?: true
+    updateTime?: true
+    remark?: true
+    _all?: true
+  }
+
+  export type LearnBookAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearnBook to aggregate.
+     */
+    where?: LearnBookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnBooks to fetch.
+     */
+    orderBy?: LearnBookOrderByWithRelationInput | LearnBookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LearnBookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnBooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnBooks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LearnBooks
+    **/
+    _count?: true | LearnBookCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LearnBookAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LearnBookSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LearnBookMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LearnBookMaxAggregateInputType
+  }
+
+  export type GetLearnBookAggregateType<T extends LearnBookAggregateArgs> = {
+        [P in keyof T & keyof AggregateLearnBook]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLearnBook[P]>
+      : GetScalarType<T[P], AggregateLearnBook[P]>
+  }
+
+
+
+
+  export type LearnBookGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LearnBookWhereInput
+    orderBy?: LearnBookOrderByWithAggregationInput | LearnBookOrderByWithAggregationInput[]
+    by: LearnBookScalarFieldEnum[] | LearnBookScalarFieldEnum
+    having?: LearnBookScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LearnBookCountAggregateInputType | true
+    _avg?: LearnBookAvgAggregateInputType
+    _sum?: LearnBookSumAggregateInputType
+    _min?: LearnBookMinAggregateInputType
+    _max?: LearnBookMaxAggregateInputType
+  }
+
+  export type LearnBookGroupByOutputType = {
+    id: number
+    name: string
+    createBy: string | null
+    createTime: string | null
+    updateBy: string | null
+    updateTime: string | null
+    remark: string | null
+    _count: LearnBookCountAggregateOutputType | null
+    _avg: LearnBookAvgAggregateOutputType | null
+    _sum: LearnBookSumAggregateOutputType | null
+    _min: LearnBookMinAggregateOutputType | null
+    _max: LearnBookMaxAggregateOutputType | null
+  }
+
+  type GetLearnBookGroupByPayload<T extends LearnBookGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LearnBookGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LearnBookGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LearnBookGroupByOutputType[P]>
+            : GetScalarType<T[P], LearnBookGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LearnBookSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    createBy?: boolean
+    createTime?: boolean
+    updateBy?: boolean
+    updateTime?: boolean
+    remark?: boolean
+    lessionBooks?: boolean | LearnBook$lessionBooksArgs<ExtArgs>
+    _count?: boolean | LearnBookCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["learnBook"]>
+
+
+  export type LearnBookSelectScalar = {
+    id?: boolean
+    name?: boolean
+    createBy?: boolean
+    createTime?: boolean
+    updateBy?: boolean
+    updateTime?: boolean
+    remark?: boolean
+  }
+
+  export type LearnBookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createBy" | "createTime" | "updateBy" | "updateTime" | "remark", ExtArgs["result"]["learnBook"]>
+  export type LearnBookInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    lessionBooks?: boolean | LearnBook$lessionBooksArgs<ExtArgs>
+    _count?: boolean | LearnBookCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $LearnBookPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LearnBook"
+    objects: {
+      lessionBooks: Prisma.$LearnLessionBookPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      createBy: string | null
+      createTime: string | null
+      updateBy: string | null
+      updateTime: string | null
+      remark: string | null
+    }, ExtArgs["result"]["learnBook"]>
+    composites: {}
+  }
+
+  type LearnBookGetPayload<S extends boolean | null | undefined | LearnBookDefaultArgs> = $Result.GetResult<Prisma.$LearnBookPayload, S>
+
+  type LearnBookCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<LearnBookFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: LearnBookCountAggregateInputType | true
+    }
+
+  export interface LearnBookDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LearnBook'], meta: { name: 'LearnBook' } }
+    /**
+     * Find zero or one LearnBook that matches the filter.
+     * @param {LearnBookFindUniqueArgs} args - Arguments to find a LearnBook
+     * @example
+     * // Get one LearnBook
+     * const learnBook = await prisma.learnBook.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends LearnBookFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnBookFindUniqueArgs<ExtArgs>>
+    ): Prisma__LearnBookClient<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one LearnBook that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {LearnBookFindUniqueOrThrowArgs} args - Arguments to find a LearnBook
+     * @example
+     * // Get one LearnBook
+     * const learnBook = await prisma.learnBook.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends LearnBookFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnBookFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__LearnBookClient<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first LearnBook that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnBookFindFirstArgs} args - Arguments to find a LearnBook
+     * @example
+     * // Get one LearnBook
+     * const learnBook = await prisma.learnBook.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends LearnBookFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnBookFindFirstArgs<ExtArgs>>
+    ): Prisma__LearnBookClient<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first LearnBook that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnBookFindFirstOrThrowArgs} args - Arguments to find a LearnBook
+     * @example
+     * // Get one LearnBook
+     * const learnBook = await prisma.learnBook.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends LearnBookFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnBookFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__LearnBookClient<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more LearnBooks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnBookFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LearnBooks
+     * const learnBooks = await prisma.learnBook.findMany()
+     * 
+     * // Get first 10 LearnBooks
+     * const learnBooks = await prisma.learnBook.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const learnBookWithIdOnly = await prisma.learnBook.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends LearnBookFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnBookFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a LearnBook.
+     * @param {LearnBookCreateArgs} args - Arguments to create a LearnBook.
+     * @example
+     * // Create one LearnBook
+     * const LearnBook = await prisma.learnBook.create({
+     *   data: {
+     *     // ... data to create a LearnBook
+     *   }
+     * })
+     * 
+    **/
+    create<T extends LearnBookCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnBookCreateArgs<ExtArgs>>
+    ): Prisma__LearnBookClient<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many LearnBooks.
+     * @param {LearnBookCreateManyArgs} args - Arguments to create many LearnBooks.
+     * @example
+     * // Create many LearnBooks
+     * const learnBook = await prisma.learnBook.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends LearnBookCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnBookCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a LearnBook.
+     * @param {LearnBookDeleteArgs} args - Arguments to delete one LearnBook.
+     * @example
+     * // Delete one LearnBook
+     * const LearnBook = await prisma.learnBook.delete({
+     *   where: {
+     *     // ... filter to delete one LearnBook
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends LearnBookDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnBookDeleteArgs<ExtArgs>>
+    ): Prisma__LearnBookClient<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one LearnBook.
+     * @param {LearnBookUpdateArgs} args - Arguments to update one LearnBook.
+     * @example
+     * // Update one LearnBook
+     * const learnBook = await prisma.learnBook.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends LearnBookUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnBookUpdateArgs<ExtArgs>>
+    ): Prisma__LearnBookClient<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more LearnBooks.
+     * @param {LearnBookDeleteManyArgs} args - Arguments to filter LearnBooks to delete.
+     * @example
+     * // Delete a few LearnBooks
+     * const { count } = await prisma.learnBook.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends LearnBookDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnBookDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LearnBooks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnBookUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LearnBooks
+     * const learnBook = await prisma.learnBook.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends LearnBookUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnBookUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one LearnBook.
+     * @param {LearnBookUpsertArgs} args - Arguments to update or create a LearnBook.
+     * @example
+     * // Update or create a LearnBook
+     * const learnBook = await prisma.learnBook.upsert({
+     *   create: {
+     *     // ... data to create a LearnBook
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LearnBook we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends LearnBookUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnBookUpsertArgs<ExtArgs>>
+    ): Prisma__LearnBookClient<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of LearnBooks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnBookCountArgs} args - Arguments to filter LearnBooks to count.
+     * @example
+     * // Count the number of LearnBooks
+     * const count = await prisma.learnBook.count({
+     *   where: {
+     *     // ... the filter for the LearnBooks we want to count
+     *   }
+     * })
+    **/
+    count<T extends LearnBookCountArgs>(
+      args?: Subset<T, LearnBookCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LearnBookCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LearnBook.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnBookAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LearnBookAggregateArgs>(args: Subset<T, LearnBookAggregateArgs>): Prisma.PrismaPromise<GetLearnBookAggregateType<T>>
+
+    /**
+     * Group by LearnBook.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnBookGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LearnBookGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LearnBookGroupByArgs['orderBy'] }
+        : { orderBy?: LearnBookGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LearnBookGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLearnBookGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LearnBook model
+   */
+  readonly fields: LearnBookFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LearnBook.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LearnBookClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    lessionBooks<T extends LearnBook$lessionBooksArgs<ExtArgs> = {}>(args?: Subset<T, LearnBook$lessionBooksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the LearnBook model
+   */ 
+  interface LearnBookFieldRefs {
+    readonly id: FieldRef<"LearnBook", 'Int'>
+    readonly name: FieldRef<"LearnBook", 'String'>
+    readonly createBy: FieldRef<"LearnBook", 'String'>
+    readonly createTime: FieldRef<"LearnBook", 'String'>
+    readonly updateBy: FieldRef<"LearnBook", 'String'>
+    readonly updateTime: FieldRef<"LearnBook", 'String'>
+    readonly remark: FieldRef<"LearnBook", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LearnBook findUnique
+   */
+  export type LearnBookFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnBook to fetch.
+     */
+    where: LearnBookWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnBook findUniqueOrThrow
+   */
+  export type LearnBookFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnBook to fetch.
+     */
+    where: LearnBookWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnBook findFirst
+   */
+  export type LearnBookFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnBook to fetch.
+     */
+    where?: LearnBookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnBooks to fetch.
+     */
+    orderBy?: LearnBookOrderByWithRelationInput | LearnBookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearnBooks.
+     */
+    cursor?: LearnBookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnBooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnBooks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearnBooks.
+     */
+    distinct?: LearnBookScalarFieldEnum | LearnBookScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnBook findFirstOrThrow
+   */
+  export type LearnBookFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnBook to fetch.
+     */
+    where?: LearnBookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnBooks to fetch.
+     */
+    orderBy?: LearnBookOrderByWithRelationInput | LearnBookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearnBooks.
+     */
+    cursor?: LearnBookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnBooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnBooks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearnBooks.
+     */
+    distinct?: LearnBookScalarFieldEnum | LearnBookScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnBook findMany
+   */
+  export type LearnBookFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnBooks to fetch.
+     */
+    where?: LearnBookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnBooks to fetch.
+     */
+    orderBy?: LearnBookOrderByWithRelationInput | LearnBookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LearnBooks.
+     */
+    cursor?: LearnBookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnBooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnBooks.
+     */
+    skip?: number
+    distinct?: LearnBookScalarFieldEnum | LearnBookScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnBook create
+   */
+  export type LearnBookCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LearnBook.
+     */
+    data?: XOR<LearnBookCreateInput, LearnBookUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnBook createMany
+   */
+  export type LearnBookCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LearnBooks.
+     */
+    data: LearnBookCreateManyInput | LearnBookCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LearnBook update
+   */
+  export type LearnBookUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LearnBook.
+     */
+    data: XOR<LearnBookUpdateInput, LearnBookUncheckedUpdateInput>
+    /**
+     * Choose, which LearnBook to update.
+     */
+    where: LearnBookWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnBook updateMany
+   */
+  export type LearnBookUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LearnBooks.
+     */
+    data: XOR<LearnBookUpdateManyMutationInput, LearnBookUncheckedUpdateManyInput>
+    /**
+     * Filter which LearnBooks to update
+     */
+    where?: LearnBookWhereInput
+  }
+
+  /**
+   * LearnBook upsert
+   */
+  export type LearnBookUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LearnBook to update in case it exists.
+     */
+    where: LearnBookWhereUniqueInput
+    /**
+     * In case the LearnBook found by the `where` argument doesn't exist, create a new LearnBook with this data.
+     */
+    create: XOR<LearnBookCreateInput, LearnBookUncheckedCreateInput>
+    /**
+     * In case the LearnBook was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LearnBookUpdateInput, LearnBookUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnBook delete
+   */
+  export type LearnBookDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+    /**
+     * Filter which LearnBook to delete.
+     */
+    where: LearnBookWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnBook deleteMany
+   */
+  export type LearnBookDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearnBooks to delete
+     */
+    where?: LearnBookWhereInput
+  }
+
+  /**
+   * LearnBook.lessionBooks
+   */
+  export type LearnBook$lessionBooksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    where?: LearnLessionBookWhereInput
+    orderBy?: LearnLessionBookOrderByWithRelationInput | LearnLessionBookOrderByWithRelationInput[]
+    cursor?: LearnLessionBookWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LearnLessionBookScalarFieldEnum | LearnLessionBookScalarFieldEnum[]
+  }
+
+  /**
+   * LearnBook without action
+   */
+  export type LearnBookDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnBook
+     */
+    select?: LearnBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnBook
+     */
+    omit?: LearnBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnBookInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LearnLessionBook
+   */
+
+  export type AggregateLearnLessionBook = {
+    _count: LearnLessionBookCountAggregateOutputType | null
+    _avg: LearnLessionBookAvgAggregateOutputType | null
+    _sum: LearnLessionBookSumAggregateOutputType | null
+    _min: LearnLessionBookMinAggregateOutputType | null
+    _max: LearnLessionBookMaxAggregateOutputType | null
+  }
+
+  export type LearnLessionBookAvgAggregateOutputType = {
+    lessionId: number | null
+    bookId: number | null
+  }
+
+  export type LearnLessionBookSumAggregateOutputType = {
+    lessionId: number | null
+    bookId: number | null
+  }
+
+  export type LearnLessionBookMinAggregateOutputType = {
+    lessionId: number | null
+    bookId: number | null
+  }
+
+  export type LearnLessionBookMaxAggregateOutputType = {
+    lessionId: number | null
+    bookId: number | null
+  }
+
+  export type LearnLessionBookCountAggregateOutputType = {
+    lessionId: number
+    bookId: number
+    _all: number
+  }
+
+
+  export type LearnLessionBookAvgAggregateInputType = {
+    lessionId?: true
+    bookId?: true
+  }
+
+  export type LearnLessionBookSumAggregateInputType = {
+    lessionId?: true
+    bookId?: true
+  }
+
+  export type LearnLessionBookMinAggregateInputType = {
+    lessionId?: true
+    bookId?: true
+  }
+
+  export type LearnLessionBookMaxAggregateInputType = {
+    lessionId?: true
+    bookId?: true
+  }
+
+  export type LearnLessionBookCountAggregateInputType = {
+    lessionId?: true
+    bookId?: true
+    _all?: true
+  }
+
+  export type LearnLessionBookAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearnLessionBook to aggregate.
+     */
+    where?: LearnLessionBookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnLessionBooks to fetch.
+     */
+    orderBy?: LearnLessionBookOrderByWithRelationInput | LearnLessionBookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LearnLessionBookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnLessionBooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnLessionBooks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LearnLessionBooks
+    **/
+    _count?: true | LearnLessionBookCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LearnLessionBookAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LearnLessionBookSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LearnLessionBookMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LearnLessionBookMaxAggregateInputType
+  }
+
+  export type GetLearnLessionBookAggregateType<T extends LearnLessionBookAggregateArgs> = {
+        [P in keyof T & keyof AggregateLearnLessionBook]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLearnLessionBook[P]>
+      : GetScalarType<T[P], AggregateLearnLessionBook[P]>
+  }
+
+
+
+
+  export type LearnLessionBookGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LearnLessionBookWhereInput
+    orderBy?: LearnLessionBookOrderByWithAggregationInput | LearnLessionBookOrderByWithAggregationInput[]
+    by: LearnLessionBookScalarFieldEnum[] | LearnLessionBookScalarFieldEnum
+    having?: LearnLessionBookScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LearnLessionBookCountAggregateInputType | true
+    _avg?: LearnLessionBookAvgAggregateInputType
+    _sum?: LearnLessionBookSumAggregateInputType
+    _min?: LearnLessionBookMinAggregateInputType
+    _max?: LearnLessionBookMaxAggregateInputType
+  }
+
+  export type LearnLessionBookGroupByOutputType = {
+    lessionId: number
+    bookId: number
+    _count: LearnLessionBookCountAggregateOutputType | null
+    _avg: LearnLessionBookAvgAggregateOutputType | null
+    _sum: LearnLessionBookSumAggregateOutputType | null
+    _min: LearnLessionBookMinAggregateOutputType | null
+    _max: LearnLessionBookMaxAggregateOutputType | null
+  }
+
+  type GetLearnLessionBookGroupByPayload<T extends LearnLessionBookGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LearnLessionBookGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LearnLessionBookGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LearnLessionBookGroupByOutputType[P]>
+            : GetScalarType<T[P], LearnLessionBookGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LearnLessionBookSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    lessionId?: boolean
+    bookId?: boolean
+    lession?: boolean | LearnLessionDefaultArgs<ExtArgs>
+    book?: boolean | LearnBookDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["learnLessionBook"]>
+
+
+  export type LearnLessionBookSelectScalar = {
+    lessionId?: boolean
+    bookId?: boolean
+  }
+
+  export type LearnLessionBookOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"lessionId" | "bookId", ExtArgs["result"]["learnLessionBook"]>
+  export type LearnLessionBookInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    lession?: boolean | LearnLessionDefaultArgs<ExtArgs>
+    book?: boolean | LearnBookDefaultArgs<ExtArgs>
+  }
+
+  export type $LearnLessionBookPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LearnLessionBook"
+    objects: {
+      lession: Prisma.$LearnLessionPayload<ExtArgs>
+      book: Prisma.$LearnBookPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      lessionId: number
+      bookId: number
+    }, ExtArgs["result"]["learnLessionBook"]>
+    composites: {}
+  }
+
+  type LearnLessionBookGetPayload<S extends boolean | null | undefined | LearnLessionBookDefaultArgs> = $Result.GetResult<Prisma.$LearnLessionBookPayload, S>
+
+  type LearnLessionBookCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<LearnLessionBookFindManyArgs, 'select' | 'include' | 'distinct' | 'omit' | 'relationLoadStrategy'> & {
+      select?: LearnLessionBookCountAggregateInputType | true
+    }
+
+  export interface LearnLessionBookDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LearnLessionBook'], meta: { name: 'LearnLessionBook' } }
+    /**
+     * Find zero or one LearnLessionBook that matches the filter.
+     * @param {LearnLessionBookFindUniqueArgs} args - Arguments to find a LearnLessionBook
+     * @example
+     * // Get one LearnLessionBook
+     * const learnLessionBook = await prisma.learnLessionBook.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends LearnLessionBookFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionBookFindUniqueArgs<ExtArgs>>
+    ): Prisma__LearnLessionBookClient<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one LearnLessionBook that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {LearnLessionBookFindUniqueOrThrowArgs} args - Arguments to find a LearnLessionBook
+     * @example
+     * // Get one LearnLessionBook
+     * const learnLessionBook = await prisma.learnLessionBook.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends LearnLessionBookFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionBookFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__LearnLessionBookClient<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first LearnLessionBook that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionBookFindFirstArgs} args - Arguments to find a LearnLessionBook
+     * @example
+     * // Get one LearnLessionBook
+     * const learnLessionBook = await prisma.learnLessionBook.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends LearnLessionBookFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionBookFindFirstArgs<ExtArgs>>
+    ): Prisma__LearnLessionBookClient<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first LearnLessionBook that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionBookFindFirstOrThrowArgs} args - Arguments to find a LearnLessionBook
+     * @example
+     * // Get one LearnLessionBook
+     * const learnLessionBook = await prisma.learnLessionBook.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends LearnLessionBookFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionBookFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__LearnLessionBookClient<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more LearnLessionBooks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionBookFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LearnLessionBooks
+     * const learnLessionBooks = await prisma.learnLessionBook.findMany()
+     * 
+     * // Get first 10 LearnLessionBooks
+     * const learnLessionBooks = await prisma.learnLessionBook.findMany({ take: 10 })
+     * 
+     * // Only select the `lessionId`
+     * const learnLessionBookWithLessionIdOnly = await prisma.learnLessionBook.findMany({ select: { lessionId: true } })
+     * 
+    **/
+    findMany<T extends LearnLessionBookFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionBookFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a LearnLessionBook.
+     * @param {LearnLessionBookCreateArgs} args - Arguments to create a LearnLessionBook.
+     * @example
+     * // Create one LearnLessionBook
+     * const LearnLessionBook = await prisma.learnLessionBook.create({
+     *   data: {
+     *     // ... data to create a LearnLessionBook
+     *   }
+     * })
+     * 
+    **/
+    create<T extends LearnLessionBookCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionBookCreateArgs<ExtArgs>>
+    ): Prisma__LearnLessionBookClient<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many LearnLessionBooks.
+     * @param {LearnLessionBookCreateManyArgs} args - Arguments to create many LearnLessionBooks.
+     * @example
+     * // Create many LearnLessionBooks
+     * const learnLessionBook = await prisma.learnLessionBook.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+    **/
+    createMany<T extends LearnLessionBookCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionBookCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a LearnLessionBook.
+     * @param {LearnLessionBookDeleteArgs} args - Arguments to delete one LearnLessionBook.
+     * @example
+     * // Delete one LearnLessionBook
+     * const LearnLessionBook = await prisma.learnLessionBook.delete({
+     *   where: {
+     *     // ... filter to delete one LearnLessionBook
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends LearnLessionBookDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionBookDeleteArgs<ExtArgs>>
+    ): Prisma__LearnLessionBookClient<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one LearnLessionBook.
+     * @param {LearnLessionBookUpdateArgs} args - Arguments to update one LearnLessionBook.
+     * @example
+     * // Update one LearnLessionBook
+     * const learnLessionBook = await prisma.learnLessionBook.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends LearnLessionBookUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionBookUpdateArgs<ExtArgs>>
+    ): Prisma__LearnLessionBookClient<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more LearnLessionBooks.
+     * @param {LearnLessionBookDeleteManyArgs} args - Arguments to filter LearnLessionBooks to delete.
+     * @example
+     * // Delete a few LearnLessionBooks
+     * const { count } = await prisma.learnLessionBook.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends LearnLessionBookDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LearnLessionBookDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LearnLessionBooks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionBookUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LearnLessionBooks
+     * const learnLessionBook = await prisma.learnLessionBook.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends LearnLessionBookUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionBookUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one LearnLessionBook.
+     * @param {LearnLessionBookUpsertArgs} args - Arguments to update or create a LearnLessionBook.
+     * @example
+     * // Update or create a LearnLessionBook
+     * const learnLessionBook = await prisma.learnLessionBook.upsert({
+     *   create: {
+     *     // ... data to create a LearnLessionBook
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LearnLessionBook we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends LearnLessionBookUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, LearnLessionBookUpsertArgs<ExtArgs>>
+    ): Prisma__LearnLessionBookClient<$Result.GetResult<Prisma.$LearnLessionBookPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of LearnLessionBooks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionBookCountArgs} args - Arguments to filter LearnLessionBooks to count.
+     * @example
+     * // Count the number of LearnLessionBooks
+     * const count = await prisma.learnLessionBook.count({
+     *   where: {
+     *     // ... the filter for the LearnLessionBooks we want to count
+     *   }
+     * })
+    **/
+    count<T extends LearnLessionBookCountArgs>(
+      args?: Subset<T, LearnLessionBookCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LearnLessionBookCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LearnLessionBook.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionBookAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LearnLessionBookAggregateArgs>(args: Subset<T, LearnLessionBookAggregateArgs>): Prisma.PrismaPromise<GetLearnLessionBookAggregateType<T>>
+
+    /**
+     * Group by LearnLessionBook.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LearnLessionBookGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LearnLessionBookGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LearnLessionBookGroupByArgs['orderBy'] }
+        : { orderBy?: LearnLessionBookGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LearnLessionBookGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLearnLessionBookGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LearnLessionBook model
+   */
+  readonly fields: LearnLessionBookFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LearnLessionBook.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LearnLessionBookClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    lession<T extends LearnLessionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LearnLessionDefaultArgs<ExtArgs>>): Prisma__LearnLessionClient<$Result.GetResult<Prisma.$LearnLessionPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    book<T extends LearnBookDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LearnBookDefaultArgs<ExtArgs>>): Prisma__LearnBookClient<$Result.GetResult<Prisma.$LearnBookPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the LearnLessionBook model
+   */ 
+  interface LearnLessionBookFieldRefs {
+    readonly lessionId: FieldRef<"LearnLessionBook", 'Int'>
+    readonly bookId: FieldRef<"LearnLessionBook", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LearnLessionBook findUnique
+   */
+  export type LearnLessionBookFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnLessionBook to fetch.
+     */
+    where: LearnLessionBookWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLessionBook findUniqueOrThrow
+   */
+  export type LearnLessionBookFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnLessionBook to fetch.
+     */
+    where: LearnLessionBookWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLessionBook findFirst
+   */
+  export type LearnLessionBookFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnLessionBook to fetch.
+     */
+    where?: LearnLessionBookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnLessionBooks to fetch.
+     */
+    orderBy?: LearnLessionBookOrderByWithRelationInput | LearnLessionBookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearnLessionBooks.
+     */
+    cursor?: LearnLessionBookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnLessionBooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnLessionBooks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearnLessionBooks.
+     */
+    distinct?: LearnLessionBookScalarFieldEnum | LearnLessionBookScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLessionBook findFirstOrThrow
+   */
+  export type LearnLessionBookFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnLessionBook to fetch.
+     */
+    where?: LearnLessionBookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnLessionBooks to fetch.
+     */
+    orderBy?: LearnLessionBookOrderByWithRelationInput | LearnLessionBookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LearnLessionBooks.
+     */
+    cursor?: LearnLessionBookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnLessionBooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnLessionBooks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LearnLessionBooks.
+     */
+    distinct?: LearnLessionBookScalarFieldEnum | LearnLessionBookScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLessionBook findMany
+   */
+  export type LearnLessionBookFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    /**
+     * Filter, which LearnLessionBooks to fetch.
+     */
+    where?: LearnLessionBookWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LearnLessionBooks to fetch.
+     */
+    orderBy?: LearnLessionBookOrderByWithRelationInput | LearnLessionBookOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LearnLessionBooks.
+     */
+    cursor?: LearnLessionBookWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LearnLessionBooks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LearnLessionBooks.
+     */
+    skip?: number
+    distinct?: LearnLessionBookScalarFieldEnum | LearnLessionBookScalarFieldEnum[]
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLessionBook create
+   */
+  export type LearnLessionBookCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LearnLessionBook.
+     */
+    data: XOR<LearnLessionBookCreateInput, LearnLessionBookUncheckedCreateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLessionBook createMany
+   */
+  export type LearnLessionBookCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LearnLessionBooks.
+     */
+    data: LearnLessionBookCreateManyInput | LearnLessionBookCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LearnLessionBook update
+   */
+  export type LearnLessionBookUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LearnLessionBook.
+     */
+    data: XOR<LearnLessionBookUpdateInput, LearnLessionBookUncheckedUpdateInput>
+    /**
+     * Choose, which LearnLessionBook to update.
+     */
+    where: LearnLessionBookWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLessionBook updateMany
+   */
+  export type LearnLessionBookUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LearnLessionBooks.
+     */
+    data: XOR<LearnLessionBookUpdateManyMutationInput, LearnLessionBookUncheckedUpdateManyInput>
+    /**
+     * Filter which LearnLessionBooks to update
+     */
+    where?: LearnLessionBookWhereInput
+  }
+
+  /**
+   * LearnLessionBook upsert
+   */
+  export type LearnLessionBookUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LearnLessionBook to update in case it exists.
+     */
+    where: LearnLessionBookWhereUniqueInput
+    /**
+     * In case the LearnLessionBook found by the `where` argument doesn't exist, create a new LearnLessionBook with this data.
+     */
+    create: XOR<LearnLessionBookCreateInput, LearnLessionBookUncheckedCreateInput>
+    /**
+     * In case the LearnLessionBook was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LearnLessionBookUpdateInput, LearnLessionBookUncheckedUpdateInput>
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLessionBook delete
+   */
+  export type LearnLessionBookDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
+    /**
+     * Filter which LearnLessionBook to delete.
+     */
+    where: LearnLessionBookWhereUniqueInput
+    relationLoadStrategy?: RelationLoadStrategy
+  }
+
+  /**
+   * LearnLessionBook deleteMany
+   */
+  export type LearnLessionBookDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LearnLessionBooks to delete
+     */
+    where?: LearnLessionBookWhereInput
+  }
+
+  /**
+   * LearnLessionBook without action
+   */
+  export type LearnLessionBookDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LearnLessionBook
+     */
+    select?: LearnLessionBookSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the LearnLessionBook
+     */
+    omit?: LearnLessionBookOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LearnLessionBookInclude<ExtArgs> | null
   }
 
 
@@ -24132,6 +26429,27 @@ export namespace Prisma {
   export type LearnLessionScalarFieldEnum = (typeof LearnLessionScalarFieldEnum)[keyof typeof LearnLessionScalarFieldEnum]
 
 
+  export const LearnBookScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    createBy: 'createBy',
+    createTime: 'createTime',
+    updateBy: 'updateBy',
+    updateTime: 'updateTime',
+    remark: 'remark'
+  };
+
+  export type LearnBookScalarFieldEnum = (typeof LearnBookScalarFieldEnum)[keyof typeof LearnBookScalarFieldEnum]
+
+
+  export const LearnLessionBookScalarFieldEnum: {
+    lessionId: 'lessionId',
+    bookId: 'bookId'
+  };
+
+  export type LearnLessionBookScalarFieldEnum = (typeof LearnLessionBookScalarFieldEnum)[keyof typeof LearnLessionBookScalarFieldEnum]
+
+
   export const SysConfigScalarFieldEnum: {
     configId: 'configId',
     configName: 'configName',
@@ -24899,6 +27217,7 @@ export namespace Prisma {
     updateBy?: StringNullableFilter<"LearnLession"> | string | null
     updateTime?: StringNullableFilter<"LearnLession"> | string | null
     remark?: StringNullableFilter<"LearnLession"> | string | null
+    lessionBooks?: LearnLessionBookListRelationFilter
   }
 
   export type LearnLessionOrderByWithRelationInput = {
@@ -24909,6 +27228,7 @@ export namespace Prisma {
     updateBy?: SortOrderInput | SortOrder
     updateTime?: SortOrderInput | SortOrder
     remark?: SortOrderInput | SortOrder
+    lessionBooks?: LearnLessionBookOrderByRelationAggregateInput
   }
 
   export type LearnLessionWhereUniqueInput = Prisma.AtLeast<{
@@ -24922,6 +27242,7 @@ export namespace Prisma {
     updateBy?: StringNullableFilter<"LearnLession"> | string | null
     updateTime?: StringNullableFilter<"LearnLession"> | string | null
     remark?: StringNullableFilter<"LearnLession"> | string | null
+    lessionBooks?: LearnLessionBookListRelationFilter
   }, "id">
 
   export type LearnLessionOrderByWithAggregationInput = {
@@ -24950,6 +27271,119 @@ export namespace Prisma {
     updateBy?: StringNullableWithAggregatesFilter<"LearnLession"> | string | null
     updateTime?: StringNullableWithAggregatesFilter<"LearnLession"> | string | null
     remark?: StringNullableWithAggregatesFilter<"LearnLession"> | string | null
+  }
+
+  export type LearnBookWhereInput = {
+    AND?: LearnBookWhereInput | LearnBookWhereInput[]
+    OR?: LearnBookWhereInput[]
+    NOT?: LearnBookWhereInput | LearnBookWhereInput[]
+    id?: IntFilter<"LearnBook"> | number
+    name?: StringFilter<"LearnBook"> | string
+    createBy?: StringNullableFilter<"LearnBook"> | string | null
+    createTime?: StringNullableFilter<"LearnBook"> | string | null
+    updateBy?: StringNullableFilter<"LearnBook"> | string | null
+    updateTime?: StringNullableFilter<"LearnBook"> | string | null
+    remark?: StringNullableFilter<"LearnBook"> | string | null
+    lessionBooks?: LearnLessionBookListRelationFilter
+  }
+
+  export type LearnBookOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    createTime?: SortOrderInput | SortOrder
+    updateBy?: SortOrderInput | SortOrder
+    updateTime?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
+    lessionBooks?: LearnLessionBookOrderByRelationAggregateInput
+  }
+
+  export type LearnBookWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: LearnBookWhereInput | LearnBookWhereInput[]
+    OR?: LearnBookWhereInput[]
+    NOT?: LearnBookWhereInput | LearnBookWhereInput[]
+    name?: StringFilter<"LearnBook"> | string
+    createBy?: StringNullableFilter<"LearnBook"> | string | null
+    createTime?: StringNullableFilter<"LearnBook"> | string | null
+    updateBy?: StringNullableFilter<"LearnBook"> | string | null
+    updateTime?: StringNullableFilter<"LearnBook"> | string | null
+    remark?: StringNullableFilter<"LearnBook"> | string | null
+    lessionBooks?: LearnLessionBookListRelationFilter
+  }, "id">
+
+  export type LearnBookOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    createTime?: SortOrderInput | SortOrder
+    updateBy?: SortOrderInput | SortOrder
+    updateTime?: SortOrderInput | SortOrder
+    remark?: SortOrderInput | SortOrder
+    _count?: LearnBookCountOrderByAggregateInput
+    _avg?: LearnBookAvgOrderByAggregateInput
+    _max?: LearnBookMaxOrderByAggregateInput
+    _min?: LearnBookMinOrderByAggregateInput
+    _sum?: LearnBookSumOrderByAggregateInput
+  }
+
+  export type LearnBookScalarWhereWithAggregatesInput = {
+    AND?: LearnBookScalarWhereWithAggregatesInput | LearnBookScalarWhereWithAggregatesInput[]
+    OR?: LearnBookScalarWhereWithAggregatesInput[]
+    NOT?: LearnBookScalarWhereWithAggregatesInput | LearnBookScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"LearnBook"> | number
+    name?: StringWithAggregatesFilter<"LearnBook"> | string
+    createBy?: StringNullableWithAggregatesFilter<"LearnBook"> | string | null
+    createTime?: StringNullableWithAggregatesFilter<"LearnBook"> | string | null
+    updateBy?: StringNullableWithAggregatesFilter<"LearnBook"> | string | null
+    updateTime?: StringNullableWithAggregatesFilter<"LearnBook"> | string | null
+    remark?: StringNullableWithAggregatesFilter<"LearnBook"> | string | null
+  }
+
+  export type LearnLessionBookWhereInput = {
+    AND?: LearnLessionBookWhereInput | LearnLessionBookWhereInput[]
+    OR?: LearnLessionBookWhereInput[]
+    NOT?: LearnLessionBookWhereInput | LearnLessionBookWhereInput[]
+    lessionId?: IntFilter<"LearnLessionBook"> | number
+    bookId?: IntFilter<"LearnLessionBook"> | number
+    lession?: XOR<LearnLessionRelationFilter, LearnLessionWhereInput>
+    book?: XOR<LearnBookRelationFilter, LearnBookWhereInput>
+  }
+
+  export type LearnLessionBookOrderByWithRelationInput = {
+    lessionId?: SortOrder
+    bookId?: SortOrder
+    lession?: LearnLessionOrderByWithRelationInput
+    book?: LearnBookOrderByWithRelationInput
+  }
+
+  export type LearnLessionBookWhereUniqueInput = Prisma.AtLeast<{
+    lessionId_bookId?: LearnLessionBookLessionIdBookIdCompoundUniqueInput
+    AND?: LearnLessionBookWhereInput | LearnLessionBookWhereInput[]
+    OR?: LearnLessionBookWhereInput[]
+    NOT?: LearnLessionBookWhereInput | LearnLessionBookWhereInput[]
+    lessionId?: IntFilter<"LearnLessionBook"> | number
+    bookId?: IntFilter<"LearnLessionBook"> | number
+    lession?: XOR<LearnLessionRelationFilter, LearnLessionWhereInput>
+    book?: XOR<LearnBookRelationFilter, LearnBookWhereInput>
+  }, "lessionId_bookId">
+
+  export type LearnLessionBookOrderByWithAggregationInput = {
+    lessionId?: SortOrder
+    bookId?: SortOrder
+    _count?: LearnLessionBookCountOrderByAggregateInput
+    _avg?: LearnLessionBookAvgOrderByAggregateInput
+    _max?: LearnLessionBookMaxOrderByAggregateInput
+    _min?: LearnLessionBookMinOrderByAggregateInput
+    _sum?: LearnLessionBookSumOrderByAggregateInput
+  }
+
+  export type LearnLessionBookScalarWhereWithAggregatesInput = {
+    AND?: LearnLessionBookScalarWhereWithAggregatesInput | LearnLessionBookScalarWhereWithAggregatesInput[]
+    OR?: LearnLessionBookScalarWhereWithAggregatesInput[]
+    NOT?: LearnLessionBookScalarWhereWithAggregatesInput | LearnLessionBookScalarWhereWithAggregatesInput[]
+    lessionId?: IntWithAggregatesFilter<"LearnLessionBook"> | number
+    bookId?: IntWithAggregatesFilter<"LearnLessionBook"> | number
   }
 
   export type SysConfigWhereInput = {
@@ -26659,6 +29093,7 @@ export namespace Prisma {
     updateBy?: string | null
     updateTime?: string | null
     remark?: string | null
+    lessionBooks?: LearnLessionBookCreateNestedManyWithoutLessionInput
   }
 
   export type LearnLessionUncheckedCreateInput = {
@@ -26669,6 +29104,7 @@ export namespace Prisma {
     updateBy?: string | null
     updateTime?: string | null
     remark?: string | null
+    lessionBooks?: LearnLessionBookUncheckedCreateNestedManyWithoutLessionInput
   }
 
   export type LearnLessionUpdateInput = {
@@ -26678,6 +29114,7 @@ export namespace Prisma {
     updateBy?: NullableStringFieldUpdateOperationsInput | string | null
     updateTime?: NullableStringFieldUpdateOperationsInput | string | null
     remark?: NullableStringFieldUpdateOperationsInput | string | null
+    lessionBooks?: LearnLessionBookUpdateManyWithoutLessionNestedInput
   }
 
   export type LearnLessionUncheckedUpdateInput = {
@@ -26688,6 +29125,7 @@ export namespace Prisma {
     updateBy?: NullableStringFieldUpdateOperationsInput | string | null
     updateTime?: NullableStringFieldUpdateOperationsInput | string | null
     remark?: NullableStringFieldUpdateOperationsInput | string | null
+    lessionBooks?: LearnLessionBookUncheckedUpdateManyWithoutLessionNestedInput
   }
 
   export type LearnLessionCreateManyInput = {
@@ -26717,6 +29155,111 @@ export namespace Prisma {
     updateBy?: NullableStringFieldUpdateOperationsInput | string | null
     updateTime?: NullableStringFieldUpdateOperationsInput | string | null
     remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnBookCreateInput = {
+    name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
+    lessionBooks?: LearnLessionBookCreateNestedManyWithoutBookInput
+  }
+
+  export type LearnBookUncheckedCreateInput = {
+    id?: number
+    name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
+    lessionBooks?: LearnLessionBookUncheckedCreateNestedManyWithoutBookInput
+  }
+
+  export type LearnBookUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    lessionBooks?: LearnLessionBookUpdateManyWithoutBookNestedInput
+  }
+
+  export type LearnBookUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+    lessionBooks?: LearnLessionBookUncheckedUpdateManyWithoutBookNestedInput
+  }
+
+  export type LearnBookCreateManyInput = {
+    id?: number
+    name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
+  }
+
+  export type LearnBookUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnBookUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnLessionBookCreateInput = {
+    lession: LearnLessionCreateNestedOneWithoutLessionBooksInput
+    book: LearnBookCreateNestedOneWithoutLessionBooksInput
+  }
+
+  export type LearnLessionBookUncheckedCreateInput = {
+    lessionId: number
+    bookId: number
+  }
+
+  export type LearnLessionBookUpdateInput = {
+    lession?: LearnLessionUpdateOneRequiredWithoutLessionBooksNestedInput
+    book?: LearnBookUpdateOneRequiredWithoutLessionBooksNestedInput
+  }
+
+  export type LearnLessionBookUncheckedUpdateInput = {
+    lessionId?: IntFieldUpdateOperationsInput | number
+    bookId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LearnLessionBookCreateManyInput = {
+    lessionId: number
+    bookId: number
+  }
+
+  export type LearnLessionBookUpdateManyMutationInput = {
+
+  }
+
+  export type LearnLessionBookUncheckedUpdateManyInput = {
+    lessionId?: IntFieldUpdateOperationsInput | number
+    bookId?: IntFieldUpdateOperationsInput | number
   }
 
   export type SysConfigCreateInput = {
@@ -28437,6 +30980,16 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type LearnLessionBookListRelationFilter = {
+    every?: LearnLessionBookWhereInput
+    some?: LearnLessionBookWhereInput
+    none?: LearnLessionBookWhereInput
+  }
+
+  export type LearnLessionBookOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type LearnLessionCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -28473,6 +31026,84 @@ export namespace Prisma {
 
   export type LearnLessionSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type LearnBookCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
+    remark?: SortOrder
+  }
+
+  export type LearnBookAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type LearnBookMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
+    remark?: SortOrder
+  }
+
+  export type LearnBookMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    createBy?: SortOrder
+    createTime?: SortOrder
+    updateBy?: SortOrder
+    updateTime?: SortOrder
+    remark?: SortOrder
+  }
+
+  export type LearnBookSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type LearnLessionRelationFilter = {
+    is?: LearnLessionWhereInput
+    isNot?: LearnLessionWhereInput
+  }
+
+  export type LearnBookRelationFilter = {
+    is?: LearnBookWhereInput
+    isNot?: LearnBookWhereInput
+  }
+
+  export type LearnLessionBookLessionIdBookIdCompoundUniqueInput = {
+    lessionId: number
+    bookId: number
+  }
+
+  export type LearnLessionBookCountOrderByAggregateInput = {
+    lessionId?: SortOrder
+    bookId?: SortOrder
+  }
+
+  export type LearnLessionBookAvgOrderByAggregateInput = {
+    lessionId?: SortOrder
+    bookId?: SortOrder
+  }
+
+  export type LearnLessionBookMaxOrderByAggregateInput = {
+    lessionId?: SortOrder
+    bookId?: SortOrder
+  }
+
+  export type LearnLessionBookMinOrderByAggregateInput = {
+    lessionId?: SortOrder
+    bookId?: SortOrder
+  }
+
+  export type LearnLessionBookSumOrderByAggregateInput = {
+    lessionId?: SortOrder
+    bookId?: SortOrder
   }
 
   export type SysConfigCountOrderByAggregateInput = {
@@ -29459,6 +32090,118 @@ export namespace Prisma {
     delete?: GenTableWhereInput | boolean
     connect?: GenTableWhereUniqueInput
     update?: XOR<XOR<GenTableUpdateToOneWithWhereWithoutTableColumnsInput, GenTableUpdateWithoutTableColumnsInput>, GenTableUncheckedUpdateWithoutTableColumnsInput>
+  }
+
+  export type LearnLessionBookCreateNestedManyWithoutLessionInput = {
+    create?: XOR<LearnLessionBookCreateWithoutLessionInput, LearnLessionBookUncheckedCreateWithoutLessionInput> | LearnLessionBookCreateWithoutLessionInput[] | LearnLessionBookUncheckedCreateWithoutLessionInput[]
+    connectOrCreate?: LearnLessionBookCreateOrConnectWithoutLessionInput | LearnLessionBookCreateOrConnectWithoutLessionInput[]
+    createMany?: LearnLessionBookCreateManyLessionInputEnvelope
+    connect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+  }
+
+  export type LearnLessionBookUncheckedCreateNestedManyWithoutLessionInput = {
+    create?: XOR<LearnLessionBookCreateWithoutLessionInput, LearnLessionBookUncheckedCreateWithoutLessionInput> | LearnLessionBookCreateWithoutLessionInput[] | LearnLessionBookUncheckedCreateWithoutLessionInput[]
+    connectOrCreate?: LearnLessionBookCreateOrConnectWithoutLessionInput | LearnLessionBookCreateOrConnectWithoutLessionInput[]
+    createMany?: LearnLessionBookCreateManyLessionInputEnvelope
+    connect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+  }
+
+  export type LearnLessionBookUpdateManyWithoutLessionNestedInput = {
+    create?: XOR<LearnLessionBookCreateWithoutLessionInput, LearnLessionBookUncheckedCreateWithoutLessionInput> | LearnLessionBookCreateWithoutLessionInput[] | LearnLessionBookUncheckedCreateWithoutLessionInput[]
+    connectOrCreate?: LearnLessionBookCreateOrConnectWithoutLessionInput | LearnLessionBookCreateOrConnectWithoutLessionInput[]
+    upsert?: LearnLessionBookUpsertWithWhereUniqueWithoutLessionInput | LearnLessionBookUpsertWithWhereUniqueWithoutLessionInput[]
+    createMany?: LearnLessionBookCreateManyLessionInputEnvelope
+    set?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    disconnect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    delete?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    connect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    update?: LearnLessionBookUpdateWithWhereUniqueWithoutLessionInput | LearnLessionBookUpdateWithWhereUniqueWithoutLessionInput[]
+    updateMany?: LearnLessionBookUpdateManyWithWhereWithoutLessionInput | LearnLessionBookUpdateManyWithWhereWithoutLessionInput[]
+    deleteMany?: LearnLessionBookScalarWhereInput | LearnLessionBookScalarWhereInput[]
+  }
+
+  export type LearnLessionBookUncheckedUpdateManyWithoutLessionNestedInput = {
+    create?: XOR<LearnLessionBookCreateWithoutLessionInput, LearnLessionBookUncheckedCreateWithoutLessionInput> | LearnLessionBookCreateWithoutLessionInput[] | LearnLessionBookUncheckedCreateWithoutLessionInput[]
+    connectOrCreate?: LearnLessionBookCreateOrConnectWithoutLessionInput | LearnLessionBookCreateOrConnectWithoutLessionInput[]
+    upsert?: LearnLessionBookUpsertWithWhereUniqueWithoutLessionInput | LearnLessionBookUpsertWithWhereUniqueWithoutLessionInput[]
+    createMany?: LearnLessionBookCreateManyLessionInputEnvelope
+    set?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    disconnect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    delete?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    connect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    update?: LearnLessionBookUpdateWithWhereUniqueWithoutLessionInput | LearnLessionBookUpdateWithWhereUniqueWithoutLessionInput[]
+    updateMany?: LearnLessionBookUpdateManyWithWhereWithoutLessionInput | LearnLessionBookUpdateManyWithWhereWithoutLessionInput[]
+    deleteMany?: LearnLessionBookScalarWhereInput | LearnLessionBookScalarWhereInput[]
+  }
+
+  export type LearnLessionBookCreateNestedManyWithoutBookInput = {
+    create?: XOR<LearnLessionBookCreateWithoutBookInput, LearnLessionBookUncheckedCreateWithoutBookInput> | LearnLessionBookCreateWithoutBookInput[] | LearnLessionBookUncheckedCreateWithoutBookInput[]
+    connectOrCreate?: LearnLessionBookCreateOrConnectWithoutBookInput | LearnLessionBookCreateOrConnectWithoutBookInput[]
+    createMany?: LearnLessionBookCreateManyBookInputEnvelope
+    connect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+  }
+
+  export type LearnLessionBookUncheckedCreateNestedManyWithoutBookInput = {
+    create?: XOR<LearnLessionBookCreateWithoutBookInput, LearnLessionBookUncheckedCreateWithoutBookInput> | LearnLessionBookCreateWithoutBookInput[] | LearnLessionBookUncheckedCreateWithoutBookInput[]
+    connectOrCreate?: LearnLessionBookCreateOrConnectWithoutBookInput | LearnLessionBookCreateOrConnectWithoutBookInput[]
+    createMany?: LearnLessionBookCreateManyBookInputEnvelope
+    connect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+  }
+
+  export type LearnLessionBookUpdateManyWithoutBookNestedInput = {
+    create?: XOR<LearnLessionBookCreateWithoutBookInput, LearnLessionBookUncheckedCreateWithoutBookInput> | LearnLessionBookCreateWithoutBookInput[] | LearnLessionBookUncheckedCreateWithoutBookInput[]
+    connectOrCreate?: LearnLessionBookCreateOrConnectWithoutBookInput | LearnLessionBookCreateOrConnectWithoutBookInput[]
+    upsert?: LearnLessionBookUpsertWithWhereUniqueWithoutBookInput | LearnLessionBookUpsertWithWhereUniqueWithoutBookInput[]
+    createMany?: LearnLessionBookCreateManyBookInputEnvelope
+    set?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    disconnect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    delete?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    connect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    update?: LearnLessionBookUpdateWithWhereUniqueWithoutBookInput | LearnLessionBookUpdateWithWhereUniqueWithoutBookInput[]
+    updateMany?: LearnLessionBookUpdateManyWithWhereWithoutBookInput | LearnLessionBookUpdateManyWithWhereWithoutBookInput[]
+    deleteMany?: LearnLessionBookScalarWhereInput | LearnLessionBookScalarWhereInput[]
+  }
+
+  export type LearnLessionBookUncheckedUpdateManyWithoutBookNestedInput = {
+    create?: XOR<LearnLessionBookCreateWithoutBookInput, LearnLessionBookUncheckedCreateWithoutBookInput> | LearnLessionBookCreateWithoutBookInput[] | LearnLessionBookUncheckedCreateWithoutBookInput[]
+    connectOrCreate?: LearnLessionBookCreateOrConnectWithoutBookInput | LearnLessionBookCreateOrConnectWithoutBookInput[]
+    upsert?: LearnLessionBookUpsertWithWhereUniqueWithoutBookInput | LearnLessionBookUpsertWithWhereUniqueWithoutBookInput[]
+    createMany?: LearnLessionBookCreateManyBookInputEnvelope
+    set?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    disconnect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    delete?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    connect?: LearnLessionBookWhereUniqueInput | LearnLessionBookWhereUniqueInput[]
+    update?: LearnLessionBookUpdateWithWhereUniqueWithoutBookInput | LearnLessionBookUpdateWithWhereUniqueWithoutBookInput[]
+    updateMany?: LearnLessionBookUpdateManyWithWhereWithoutBookInput | LearnLessionBookUpdateManyWithWhereWithoutBookInput[]
+    deleteMany?: LearnLessionBookScalarWhereInput | LearnLessionBookScalarWhereInput[]
+  }
+
+  export type LearnLessionCreateNestedOneWithoutLessionBooksInput = {
+    create?: XOR<LearnLessionCreateWithoutLessionBooksInput, LearnLessionUncheckedCreateWithoutLessionBooksInput>
+    connectOrCreate?: LearnLessionCreateOrConnectWithoutLessionBooksInput
+    connect?: LearnLessionWhereUniqueInput
+  }
+
+  export type LearnBookCreateNestedOneWithoutLessionBooksInput = {
+    create?: XOR<LearnBookCreateWithoutLessionBooksInput, LearnBookUncheckedCreateWithoutLessionBooksInput>
+    connectOrCreate?: LearnBookCreateOrConnectWithoutLessionBooksInput
+    connect?: LearnBookWhereUniqueInput
+  }
+
+  export type LearnLessionUpdateOneRequiredWithoutLessionBooksNestedInput = {
+    create?: XOR<LearnLessionCreateWithoutLessionBooksInput, LearnLessionUncheckedCreateWithoutLessionBooksInput>
+    connectOrCreate?: LearnLessionCreateOrConnectWithoutLessionBooksInput
+    upsert?: LearnLessionUpsertWithoutLessionBooksInput
+    connect?: LearnLessionWhereUniqueInput
+    update?: XOR<XOR<LearnLessionUpdateToOneWithWhereWithoutLessionBooksInput, LearnLessionUpdateWithoutLessionBooksInput>, LearnLessionUncheckedUpdateWithoutLessionBooksInput>
+  }
+
+  export type LearnBookUpdateOneRequiredWithoutLessionBooksNestedInput = {
+    create?: XOR<LearnBookCreateWithoutLessionBooksInput, LearnBookUncheckedCreateWithoutLessionBooksInput>
+    connectOrCreate?: LearnBookCreateOrConnectWithoutLessionBooksInput
+    upsert?: LearnBookUpsertWithoutLessionBooksInput
+    connect?: LearnBookWhereUniqueInput
+    update?: XOR<XOR<LearnBookUpdateToOneWithWhereWithoutLessionBooksInput, LearnBookUpdateWithoutLessionBooksInput>, LearnBookUncheckedUpdateWithoutLessionBooksInput>
   }
 
   export type SysUserCreateNestedManyWithoutDeptInput = {
@@ -30595,6 +33338,190 @@ export namespace Prisma {
     genType?: NullableStringFieldUpdateOperationsInput | string | null
     genPath?: NullableStringFieldUpdateOperationsInput | string | null
     options?: NullableStringFieldUpdateOperationsInput | string | null
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnLessionBookCreateWithoutLessionInput = {
+    book: LearnBookCreateNestedOneWithoutLessionBooksInput
+  }
+
+  export type LearnLessionBookUncheckedCreateWithoutLessionInput = {
+    bookId: number
+  }
+
+  export type LearnLessionBookCreateOrConnectWithoutLessionInput = {
+    where: LearnLessionBookWhereUniqueInput
+    create: XOR<LearnLessionBookCreateWithoutLessionInput, LearnLessionBookUncheckedCreateWithoutLessionInput>
+  }
+
+  export type LearnLessionBookCreateManyLessionInputEnvelope = {
+    data: LearnLessionBookCreateManyLessionInput | LearnLessionBookCreateManyLessionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LearnLessionBookUpsertWithWhereUniqueWithoutLessionInput = {
+    where: LearnLessionBookWhereUniqueInput
+    update: XOR<LearnLessionBookUpdateWithoutLessionInput, LearnLessionBookUncheckedUpdateWithoutLessionInput>
+    create: XOR<LearnLessionBookCreateWithoutLessionInput, LearnLessionBookUncheckedCreateWithoutLessionInput>
+  }
+
+  export type LearnLessionBookUpdateWithWhereUniqueWithoutLessionInput = {
+    where: LearnLessionBookWhereUniqueInput
+    data: XOR<LearnLessionBookUpdateWithoutLessionInput, LearnLessionBookUncheckedUpdateWithoutLessionInput>
+  }
+
+  export type LearnLessionBookUpdateManyWithWhereWithoutLessionInput = {
+    where: LearnLessionBookScalarWhereInput
+    data: XOR<LearnLessionBookUpdateManyMutationInput, LearnLessionBookUncheckedUpdateManyWithoutLessionInput>
+  }
+
+  export type LearnLessionBookScalarWhereInput = {
+    AND?: LearnLessionBookScalarWhereInput | LearnLessionBookScalarWhereInput[]
+    OR?: LearnLessionBookScalarWhereInput[]
+    NOT?: LearnLessionBookScalarWhereInput | LearnLessionBookScalarWhereInput[]
+    lessionId?: IntFilter<"LearnLessionBook"> | number
+    bookId?: IntFilter<"LearnLessionBook"> | number
+  }
+
+  export type LearnLessionBookCreateWithoutBookInput = {
+    lession: LearnLessionCreateNestedOneWithoutLessionBooksInput
+  }
+
+  export type LearnLessionBookUncheckedCreateWithoutBookInput = {
+    lessionId: number
+  }
+
+  export type LearnLessionBookCreateOrConnectWithoutBookInput = {
+    where: LearnLessionBookWhereUniqueInput
+    create: XOR<LearnLessionBookCreateWithoutBookInput, LearnLessionBookUncheckedCreateWithoutBookInput>
+  }
+
+  export type LearnLessionBookCreateManyBookInputEnvelope = {
+    data: LearnLessionBookCreateManyBookInput | LearnLessionBookCreateManyBookInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LearnLessionBookUpsertWithWhereUniqueWithoutBookInput = {
+    where: LearnLessionBookWhereUniqueInput
+    update: XOR<LearnLessionBookUpdateWithoutBookInput, LearnLessionBookUncheckedUpdateWithoutBookInput>
+    create: XOR<LearnLessionBookCreateWithoutBookInput, LearnLessionBookUncheckedCreateWithoutBookInput>
+  }
+
+  export type LearnLessionBookUpdateWithWhereUniqueWithoutBookInput = {
+    where: LearnLessionBookWhereUniqueInput
+    data: XOR<LearnLessionBookUpdateWithoutBookInput, LearnLessionBookUncheckedUpdateWithoutBookInput>
+  }
+
+  export type LearnLessionBookUpdateManyWithWhereWithoutBookInput = {
+    where: LearnLessionBookScalarWhereInput
+    data: XOR<LearnLessionBookUpdateManyMutationInput, LearnLessionBookUncheckedUpdateManyWithoutBookInput>
+  }
+
+  export type LearnLessionCreateWithoutLessionBooksInput = {
+    name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
+  }
+
+  export type LearnLessionUncheckedCreateWithoutLessionBooksInput = {
+    id?: number
+    name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
+  }
+
+  export type LearnLessionCreateOrConnectWithoutLessionBooksInput = {
+    where: LearnLessionWhereUniqueInput
+    create: XOR<LearnLessionCreateWithoutLessionBooksInput, LearnLessionUncheckedCreateWithoutLessionBooksInput>
+  }
+
+  export type LearnBookCreateWithoutLessionBooksInput = {
+    name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
+  }
+
+  export type LearnBookUncheckedCreateWithoutLessionBooksInput = {
+    id?: number
+    name?: string
+    createBy?: string | null
+    createTime?: string | null
+    updateBy?: string | null
+    updateTime?: string | null
+    remark?: string | null
+  }
+
+  export type LearnBookCreateOrConnectWithoutLessionBooksInput = {
+    where: LearnBookWhereUniqueInput
+    create: XOR<LearnBookCreateWithoutLessionBooksInput, LearnBookUncheckedCreateWithoutLessionBooksInput>
+  }
+
+  export type LearnLessionUpsertWithoutLessionBooksInput = {
+    update: XOR<LearnLessionUpdateWithoutLessionBooksInput, LearnLessionUncheckedUpdateWithoutLessionBooksInput>
+    create: XOR<LearnLessionCreateWithoutLessionBooksInput, LearnLessionUncheckedCreateWithoutLessionBooksInput>
+    where?: LearnLessionWhereInput
+  }
+
+  export type LearnLessionUpdateToOneWithWhereWithoutLessionBooksInput = {
+    where?: LearnLessionWhereInput
+    data: XOR<LearnLessionUpdateWithoutLessionBooksInput, LearnLessionUncheckedUpdateWithoutLessionBooksInput>
+  }
+
+  export type LearnLessionUpdateWithoutLessionBooksInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnLessionUncheckedUpdateWithoutLessionBooksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnBookUpsertWithoutLessionBooksInput = {
+    update: XOR<LearnBookUpdateWithoutLessionBooksInput, LearnBookUncheckedUpdateWithoutLessionBooksInput>
+    create: XOR<LearnBookCreateWithoutLessionBooksInput, LearnBookUncheckedCreateWithoutLessionBooksInput>
+    where?: LearnBookWhereInput
+  }
+
+  export type LearnBookUpdateToOneWithWhereWithoutLessionBooksInput = {
+    where?: LearnBookWhereInput
+    data: XOR<LearnBookUpdateWithoutLessionBooksInput, LearnBookUncheckedUpdateWithoutLessionBooksInput>
+  }
+
+  export type LearnBookUpdateWithoutLessionBooksInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    createTime?: NullableStringFieldUpdateOperationsInput | string | null
+    updateBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updateTime?: NullableStringFieldUpdateOperationsInput | string | null
+    remark?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type LearnBookUncheckedUpdateWithoutLessionBooksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     createTime?: NullableStringFieldUpdateOperationsInput | string | null
     updateBy?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32059,6 +34986,38 @@ export namespace Prisma {
     updateTime?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type LearnLessionBookCreateManyLessionInput = {
+    bookId: number
+  }
+
+  export type LearnLessionBookUpdateWithoutLessionInput = {
+    book?: LearnBookUpdateOneRequiredWithoutLessionBooksNestedInput
+  }
+
+  export type LearnLessionBookUncheckedUpdateWithoutLessionInput = {
+    bookId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LearnLessionBookUncheckedUpdateManyWithoutLessionInput = {
+    bookId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LearnLessionBookCreateManyBookInput = {
+    lessionId: number
+  }
+
+  export type LearnLessionBookUpdateWithoutBookInput = {
+    lession?: LearnLessionUpdateOneRequiredWithoutLessionBooksNestedInput
+  }
+
+  export type LearnLessionBookUncheckedUpdateWithoutBookInput = {
+    lessionId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type LearnLessionBookUncheckedUpdateManyWithoutBookInput = {
+    lessionId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type SysUserCreateManyDeptInput = {
     userId?: number
     userName: string
@@ -32351,6 +35310,14 @@ export namespace Prisma {
      */
     export type GenTableCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = GenTableCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use LearnLessionCountOutputTypeDefaultArgs instead
+     */
+    export type LearnLessionCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LearnLessionCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use LearnBookCountOutputTypeDefaultArgs instead
+     */
+    export type LearnBookCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LearnBookCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use SysDeptCountOutputTypeDefaultArgs instead
      */
     export type SysDeptCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SysDeptCountOutputTypeDefaultArgs<ExtArgs>
@@ -32398,6 +35365,14 @@ export namespace Prisma {
      * @deprecated Use LearnLessionDefaultArgs instead
      */
     export type LearnLessionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LearnLessionDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use LearnBookDefaultArgs instead
+     */
+    export type LearnBookArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LearnBookDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use LearnLessionBookDefaultArgs instead
+     */
+    export type LearnLessionBookArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LearnLessionBookDefaultArgs<ExtArgs>
     /**
      * @deprecated Use SysConfigDefaultArgs instead
      */

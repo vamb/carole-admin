@@ -27,8 +27,10 @@ import { UserService } from './system/user/service/sys-user.service';
 import { SysNoticeController } from './system/notice/sys-notice.controller';
 import { SysLogininforController } from './system/logininfor/sys-logininfor.controller';
 import { monitorController } from './system/monitor/monitor.controller';
-import { LearnService } from "./learn/service/learn.service";
-import { LearnController } from "./learn/learn.controller";
+import { LessionService } from "@/admin/learn/lession/service/lession.service";
+import { BookService } from '@/admin/learn/book/service/book.service';
+import { LessionController } from "@/admin/learn/lession/lession.controller";
+import { BookController } from '@/admin/learn/book/book.controller';
 @Module({
   imports: [],
   controllers: [
@@ -48,7 +50,8 @@ import { LearnController } from "./learn/learn.controller";
     SysNoticeController,
     SysLogininforController,
     monitorController,
-    LearnController
+    LessionController,
+    BookController,
   ],
   providers: [
     DeptService,
@@ -65,7 +68,8 @@ import { LearnController } from "./learn/learn.controller";
     SysDictTypeService,
     UserService,
     LogininforService,
-    LearnService,
+    LessionService,
+    BookService,
   ],
 })
 export class AdminModule {}

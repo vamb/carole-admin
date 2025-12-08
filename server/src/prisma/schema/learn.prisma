@@ -6,5 +6,30 @@ model LearnLession {
   updateBy      String?       @default("") @map("update_by") @db.VarChar(64)
   updateTime    String?       @map("update_time") @db.VarChar(25)
   remark        String?       @map("remark") @db.VarChar(500)
+
+  lessionBooks LearnLessionBook[]
   @@map("learn_lession")
+}
+
+model LearnBook {
+  id            Int           @id @default(autoincrement()) @map("id") @db.UnsignedInt
+  name          String        @default("") @map("name") @db.VarChar(50)
+  createBy      String?       @default("") @map("create_by") @db.VarChar(64)
+  createTime    String?       @map("create_time") @db.VarChar(25)
+  updateBy      String?       @default("") @map("update_by") @db.VarChar(64)
+  updateTime    String?       @map("update_time") @db.VarChar(25)
+  remark        String?       @map("remark") @db.VarChar(500)
+
+  lessionBooks LearnLessionBook[]
+  @@map("learn_book")
+}
+
+model LearnLessionBook {
+  lessionId    Int              @map("lession_id") @db.UnsignedInt
+  bookId       Int              @map("book_id") @db.UnsignedInt
+  lession      LearnLession     @relation(fields: [lessionId], references: [id], onDelete: Cascade) // 级联删除
+  book         LearnBook        @relation(fields: [bookId], references: [id], onDelete: Cascade)
+
+  @@id([lessionId, bookId])
+  @@map("learn_lession_book")
 }

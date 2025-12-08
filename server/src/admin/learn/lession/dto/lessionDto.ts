@@ -4,7 +4,7 @@ import { Transform } from 'class-transformer';
 import { IsNotEmpty, IsNumber, IsString, IsOptional } from "class-validator";
 import { queryDomain } from "@/common/domain/queryDomain";
 
-export class QueryLearnDto extends queryDomain {
+export class QueryLessionDto extends queryDomain {
   @ApiProperty({ description: "教程主键", required: false })
   @IsOptional()
   @IsNumber()
@@ -17,7 +17,7 @@ export class QueryLearnDto extends queryDomain {
   remark: string | null;
 }
 
-export class CreateLearnDto extends BaseDomain {
+export class CreateLessionDto extends BaseDomain {
   @ApiProperty({ description: '课程名称' })
   @IsNotEmpty({ message: "名称不能为空" })
   @IsString()
@@ -29,7 +29,7 @@ export class CreateLearnDto extends BaseDomain {
   remark?: string;
 }
 
-export class UpdateLearnDto extends BaseDomain {
+export class UpdateLessionDto extends BaseDomain {
   @ApiProperty({ description: "教程主键" })
   @IsNotEmpty({ message: "主键不能为空" })
   @Transform((v) => + v.value)
