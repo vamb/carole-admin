@@ -3,7 +3,7 @@ import { ParseIntArrayPipe } from "@/common/pipe/parse-int-array.pipe";
 import Result from "@/common/result/Result";
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LessionService } from '@/admin/learn/lession/service/lession.service';
-import { CreateLessionDto, QueryLessionDto, UpdateLessionDto } from './dto/lessionDto';
+import { CreateLessionBookDto, CreateLessionDto, QueryLessionDto, UpdateLessionDto } from './dto/lessionDto';
 import { LearnLession } from '@prismaClient';
 import { RequirePermission } from '@/common/decorator/require-premission.decorator';
 import { TableDataInfo } from '@/common/domain/TableDataInfo';
@@ -70,5 +70,21 @@ export class LessionController {
   ): Promise<Result<any>> {
     const { count } = await this.lessionService.deleteLearnLessionIds(learnLessionIds)
     return Result.toAjax(count);
+  }
+
+  @Post("/addLessionBooks")
+  async createLessionBooks(
+    @Body() createLessionBookDto: CreateLessionBookDto,
+    @Req() req,
+  ): Promise<Result<any>> {
+    createLessionBookDto = {
+      ...createLessionBookDto,
+      createTime: nowDateTime(),
+      updateTime: nowDateTime(),
+      createBy: req.user?.userName,
+      updateBy: req.user?.userName,
+    }
+    await this.lessionService.createLeassionBook(createLessionBookDto)
+    return Result.ok("创建成功!")
   }
 }

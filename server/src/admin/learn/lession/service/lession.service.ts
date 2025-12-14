@@ -3,8 +3,8 @@ import { PrismaService } from "@/common/service/prisma/prisma.service";
 import { Response } from "express";
 import { exportTable } from "@/common/utils";
 import {
-  QueryLessionDto,
-  CreateLessionDto, UpdateLessionDto,
+  QueryLessionDto, CreateLessionDto, UpdateLessionDto,
+  CreateLessionBookDto,
 } from '../dto/lessionDto';
 import { Prisma } from "@prismaClient";
 import { isNotEmpty } from 'class-validator';
@@ -81,5 +81,47 @@ export class LessionService {
       },
     });
     return r;
+  }
+
+  async createLeassionBook(createLessionBookDto: CreateLessionBookDto) {
+    const result = await this.prisma.$transaction(async (tx) => {
+
+      const lession = await tx.learnLession.create({
+        data: {
+          name: createLessionBookDto?.name,
+          createBy: createLessionBookDto?.createBy,
+          createTime: createLessionBookDto?.createTime,
+          updateBy: createLessionBookDto?.updateBy,
+          updateTime: createLessionBookDto?.updateTime,
+          remark: createLessionBookDto?.remark,
+        }
+      })
+
+      if(createLessionBookDto?.bookIds?.length>0) {
+        const lessionBookData = createLessionBookDto?.bookIds?.map((bookId) => ({
+          lessionId: lession.id,
+          bookId,
+        }))
+
+        await tx.learnLessionBook.createMany({
+          data: lessionBookData,
+          skipDuplicates: true
+        })
+      }
+
+      // 3. 返回完整数据
+      return await tx.learnLession.findUnique({
+        where: { id: lession.id },
+        include: {
+          lessionBooks: {
+            include: {
+              book: true,
+            },
+          },
+        },
+      });
+    });
+
+    return result
   }
 }
