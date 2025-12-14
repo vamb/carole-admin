@@ -4,9 +4,9 @@ import { Response } from "express";
 import { exportTable } from "@/common/utils";
 import {
   QueryLessionDto, CreateLessionDto, UpdateLessionDto,
-  CreateLessionBookDto,
+  CreateLessionBookDto, UpdateLessionBookDto,
 } from '../dto/lessionDto';
-import { Prisma } from "@prismaClient";
+import { LearnLession, LearnLessionBook, Prisma } from '@prismaClient';
 import { isNotEmpty } from 'class-validator';
 import { redisUtils } from '@/common/utils/redisUtils';
 import { Constants } from '@/common/constant/Constants';
@@ -121,7 +121,18 @@ export class LessionService {
         },
       });
     });
-
     return result
+  }
+
+  async findAllLession(): Promise<LearnLession[]> {
+    return this.prisma.learnLession.findMany({
+      include: {
+        lessionBooks: {
+          include: {
+            book: true
+          }
+        }
+      }
+    })
   }
 }

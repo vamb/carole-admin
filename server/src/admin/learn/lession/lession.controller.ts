@@ -87,4 +87,9 @@ export class LessionController {
     await this.lessionService.createLeassionBook(createLessionBookDto)
     return Result.ok("创建成功!")
   }
+
+  @Get("/allLessionBooks")
+  async allLessionBooks(): Promise<Result<any>> {
+    return Result.ok(await this.lessionService.findAllLession())
+  }
 }
