@@ -1,9 +1,15 @@
-import { Body, Controller, Get, Param, Delete, Post, Put, Query, Req, Res } from "@nestjs/common";
+import { Body, Controller, Get, Param, Delete, Post, Put, Query, Req, ParseIntPipe, Patch } from '@nestjs/common';
 import { ParseIntArrayPipe } from "@/common/pipe/parse-int-array.pipe";
 import Result from "@/common/result/Result";
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { LessionService } from '@/admin/learn/lession/service/lession.service';
-import { CreateLessionBookDto, CreateLessionDto, QueryLessionDto, UpdateLessionDto } from './dto/lessionDto';
+import {
+  CreateLessionBookDto,
+  CreateLessionDto,
+  QueryLessionDto,
+  UpdateLessionBookDto,
+  UpdateLessionDto,
+} from './dto/lessionDto';
 import { LearnLession } from '@prismaClient';
 import { RequirePermission } from '@/common/decorator/require-premission.decorator';
 import { TableDataInfo } from '@/common/domain/TableDataInfo';
@@ -91,5 +97,30 @@ export class LessionController {
   @Get("/allLessionBooks")
   async allLessionBooks(): Promise<Result<any>> {
     return Result.ok(await this.lessionService.findAllLession())
+  }
+
+  @Get(":id")
+  async findOne(@Param("id", ParseIntPipe) id: number): Promise<any> {
+    try {
+      const data = await this.lessionService.findOne(id);
+      return Result.ok(data)
+    }catch (err) {
+      return Result.Error("")
+    }
+  }
+
+  @Patch(":id")
+  async updata(
+    @Param("id", ParseIntPipe) id: number,
+    @Body() updateLessionBookDto: UpdateLessionBookDto,
+    @Req() req,
+  ): Promise<any> {
+    updateLessionBookDto = {
+      ...updateLessionBookDto,
+      updateTime: nowDateTime(),
+      updateBy: req.user?.userName
+    }
+    const data = await this.lessionService.updateLearnLessionBook(id, updateLessionBookDto)
+    return Result.ok(data)
   }
 }

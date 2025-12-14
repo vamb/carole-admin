@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from "@/common/service/prisma/prisma.service";
 import { Response } from "express";
-import { exportTable } from "@/common/utils";
+import { exportTable, nowDateTime } from '@/common/utils';
 import {
   QueryLessionDto, CreateLessionDto, UpdateLessionDto,
   CreateLessionBookDto, UpdateLessionBookDto,
@@ -133,6 +133,66 @@ export class LessionService {
           }
         }
       }
+    })
+  }
+
+  async findOne(id: number): Promise<any> {
+    const lession = await this.prisma.learnLession.findUnique({
+      where: { id },
+      include: {
+        lessionBooks: {
+          include: {
+            book: true
+          }
+        }
+      }
+    })
+    if(!lession) {
+      throw new NotFoundException(`ID为 ${id} 的课程不存在`);
+    }
+    return lession
+  }
+
+  async updateLearnLessionBook(id: number, updateLessionBookDto: UpdateLessionBookDto): Promise<any> {
+    await this.findOne(id)
+
+    const { bookIds, ...updateData } = updateLessionBookDto
+
+    return await this.prisma.$transaction(async tx => {
+
+      const updatedLession = await tx.learnLession.update({
+        where: { id },
+        data: updateData
+      })
+
+      if(bookIds !== undefined) {
+        await tx.learnLessionBook.deleteMany({
+          where: { lessionId: id }
+        })
+
+        if(bookIds.length > 0) {
+          const lessionBookData = bookIds.map((bookId) => ({
+            lessionId: id,
+            bookId
+          }))
+
+          await tx.learnLessionBook.createMany({
+            data: lessionBookData,
+            skipDuplicates: true
+          })
+        }
+      }
+
+      return await tx.learnLession.findUnique({
+        where: { id },
+        include: {
+          lessionBooks: {
+            include: {
+              book: true
+            }
+          }
+        }
+      })
     })
   }
 }
