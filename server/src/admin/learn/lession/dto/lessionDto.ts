@@ -1,5 +1,5 @@
 import { BaseDomain } from "@/common/domain/BaseDomain";
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty, PartialType } from "@nestjs/swagger";
 import { Transform } from 'class-transformer';
 import { IsNotEmpty, IsNumber, IsString, IsOptional, IsArray, IsInt } from "class-validator";
 import { Type } from 'class-transformer';
@@ -46,7 +46,24 @@ export class UpdateLessionDto extends BaseDomain {
   remark?: string;
 }
 
+// @ts-ignore
 export class CreateLessionBookDto extends BaseDomain {
+  @IsNotEmpty({ message: '课程名称不能为空' })
+  @IsString()
+  name: string;
+
+  @IsOptional()
+  @IsString()
+  remark?: string;
+
+  @IsOptional()
+  @IsArray()
+  @IsInt({ each: true })
+  @Type(() => Number)
+  bookIds?: number[];
+}
+
+export class UpdateLessionBookDto extends BaseDomain {
   @IsNotEmpty({ message: '课程名称不能为空' })
   @IsString()
   name: string;
