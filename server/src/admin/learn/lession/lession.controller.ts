@@ -98,11 +98,13 @@ export class LessionController {
     return Result.ok("创建成功!")
   }
 
+  @ApiOperation({ summary: "获取所有的课程列表及关联的课本列表" })
   @Get("/allLessionBooks")
   async allLessionBooks(): Promise<Result<any>> {
     return Result.ok(await this.lessionService.findAllLession())
   }
 
+  @ApiOperation({ summary: "获取某一个课程的信息及该课程的关联课本列表" })
   @Get(":id")
   async findOne(@Param("id", ParseIntPipe) id: number): Promise<any> {
     try {
@@ -113,6 +115,7 @@ export class LessionController {
     }
   }
 
+  @ApiOperation({ summary: "更新某一个课程的信息或这个课程的关联课本列表" })
   @Patch(":id")
   async updata(
     @Param("id", ParseIntPipe) id: number,
