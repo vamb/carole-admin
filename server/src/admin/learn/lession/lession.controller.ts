@@ -81,7 +81,7 @@ export class LessionController {
 
   // ================= 创建课程
 
-  @ApiOperation({ summary: "创建新的教程并关联已有的课本" })
+  @ApiOperation({ summary: "创建新的教程与详情并关联已有的课本" })
   @Post("/addLessionBooks")
   async createLessionBooks(
     @Body() createLessionBookDto: CreateLessionBookDto,
@@ -93,6 +93,13 @@ export class LessionController {
       updateTime: nowDateTime(),
       createBy: req.user?.userName,
       updateBy: req.user?.userName,
+      detail: {
+        ...createLessionBookDto?.detail,
+        updateBy: req.user?.userName,
+        createBy: req.user?.userName,
+        createTime: nowDateTime(),
+        updateTime: nowDateTime(),
+      }
     }
     await this.lessionService.createLeassionBook(createLessionBookDto)
     return Result.ok("创建成功!")
@@ -135,7 +142,7 @@ export class LessionController {
     return Result.ok(data)
   }
 
-  @ApiOperation({ summary: "关联删除某一个课程及课本的关联信息" })
+  @ApiOperation({ summary: "关联删除某一个课程及详情与课本的关联信息" })
   @Delete(":id")
   async removeOne(@Param("id", ParseIntPipe) id: number): Promise<void> {
     await this.lessionService.removeOne(id)
@@ -166,4 +173,8 @@ export class LessionController {
       return Result.Error(error?.message)
     }
   }
+
+  // ==============================================
+
+
 }
