@@ -101,7 +101,11 @@ export class LessionController {
   @ApiOperation({ summary: "获取所有的课程列表及关联的课本列表" })
   @Get("/allLessionBooks")
   async allLessionBooks(): Promise<Result<any>> {
-    return Result.ok(await this.lessionService.findAllLession())
+    try {
+      return Result.ok(await this.lessionService.findAllLession())
+    }catch (error) {
+      return Result.Error(error?.message)
+    }
   }
 
   @ApiOperation({ summary: "获取某一个课程的信息及该课程的关联课本列表" })
@@ -129,5 +133,24 @@ export class LessionController {
     }
     const data = await this.lessionService.updateLearnLessionBook(id, updateLessionBookDto)
     return Result.ok(data)
+  }
+
+  @ApiOperation({ summary: "关联删除某一个课程及课本的关联信息" })
+  @Delete(":id")
+  async removeOne(@Param("id", ParseIntPipe) id: number): Promise<void> {
+    await this.lessionService.removeOne(id)
+  }
+
+  @ApiOperation({ summary: "对某一个课程创建其对课本的关联关系" })
+  @Post(":id/books")
+  async addBooks(
+    @Param('id', ParseIntPipe) id: number,
+    @Body('bookIds') bookIds: number[],
+  ): Promise<any> {
+    try {
+      return Result.ok(await this.lessionService.addBooksToLession(id, bookIds))
+    } catch (error) {
+      return Result.Error(error?.message)
+    }
   }
 }
