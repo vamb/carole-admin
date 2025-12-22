@@ -15,6 +15,7 @@ import { nowDateTime } from '@/common/utils';
 export class LessionController {
   constructor(private lessionService: LessionService ) {}
 
+  @ApiOperation({ summary: "分页查询课程数据" })
   @ApiResponse({ type: TableDataInfo<LearnLession> })
   @RequirePermission("lession:query")
   @Get("/list")
@@ -72,6 +73,9 @@ export class LessionController {
     return Result.toAjax(count);
   }
 
+  // ================= 创建课程
+
+  @ApiOperation({ summary: "创建新的教程并关联已有的课本" })
   @Post("/addLessionBooks")
   async createLessionBooks(
     @Body() createLessionBookDto: CreateLessionBookDto,

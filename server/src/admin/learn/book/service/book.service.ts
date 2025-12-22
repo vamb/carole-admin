@@ -14,6 +14,7 @@ export class BookService {
 
   async selectLearnBook(q: QueryBootDto) {
     const queryCondition: Prisma.LearnBookWhereInput = {};
+
     if (isNotEmpty(q["id"])) {
       queryCondition.id = {
         equals: q.id

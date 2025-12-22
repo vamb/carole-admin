@@ -15,6 +15,7 @@ import { nowDateTime } from '@/common/utils';
 export class BookController {
   constructor(private bookService: BookService) {}
 
+  @ApiOperation({ summary: "分页查询课本数据" })
   @ApiResponse({ type: TableDataInfo<LearnBook> })
   @RequirePermission("book:query")
   @Get("/list")
