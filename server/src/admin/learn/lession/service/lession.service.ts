@@ -197,7 +197,6 @@ export class LessionService {
 
     const { bookIds, ...updateData } = updateLessionBookDto
 
-
     try {
       return await this.prisma.$transaction(async tx => {
         // 1. 更新课程基本信息
@@ -263,7 +262,7 @@ export class LessionService {
   }
 
   // 批量创建课程关联
-  async addBooksToLession(lessionId: number, bookIds: []): Promise<any> {
+  async addBooksToLession(lessionId: number, bookIds: number[]): Promise<any> {
     // 检查课程是否尊在
     await this.findOne(lessionId)
 
