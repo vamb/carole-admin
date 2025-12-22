@@ -153,4 +153,17 @@ export class LessionController {
       return Result.Error(error?.message)
     }
   }
+
+  @ApiOperation({ summary: "移除课程的关联课本" })
+  @Delete(":id/books")
+  async removeBooks(
+    @Param("id", ParseIntPipe) id: number,
+    @Body("bookIds") bookIds: number[],
+  ): Promise<any> {
+    try {
+      return Result.ok(await this.lessionService.removeBooksFromLession(id, bookIds))
+    } catch (error) {
+      return Result.Error(error?.message)
+    }
+  }
 }
