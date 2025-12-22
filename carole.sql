@@ -44,13 +44,15 @@ CREATE TABLE `learn_book` (
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-INSERT INTO `learn_book` VALUES (1,'数据结构','admin','2025-12-08 17:20:18','admin','2025-12-08 17:20:18','数据结构描述');
-INSERT INTO `learn_book` VALUES (2,'微积分','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','微积分描述');
-INSERT INTO `learn_book` VALUES (3,'图论','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','图论描述');
-INSERT INTO `learn_book` VALUES (4,'Java编程','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','Java编程描述');
-INSERT INTO `learn_book` VALUES (5,'React编程','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','React编程描述');
-INSERT INTO `learn_book` VALUES (6,'地理学','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','地理学描述');
-INSERT INTO `learn_book` VALUES (7,'生物学','admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','生物学描述');
+INSERT INTO `learn_book` VALUES (1,'数据结构',   'admin','2025-12-08 17:20:18','admin','2025-12-08 17:20:18','数据结构描述');
+INSERT INTO `learn_book` VALUES (2,'微积分',     'admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','微积分描述');
+INSERT INTO `learn_book` VALUES (3,'图论',       'admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','图论描述');
+INSERT INTO `learn_book` VALUES (4,'Java编程',   'admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','Java编程描述');
+INSERT INTO `learn_book` VALUES (5,'React编程',  'admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','React编程描述');
+INSERT INTO `learn_book` VALUES (6,'地理学',     'admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','地理学描述');
+INSERT INTO `learn_book` VALUES (7,'生物学',     'admin','2025-12-08 17:21:00','admin','2025-12-08 17:22:13','生物学描述');
+INSERT INTO `learn_book` VALUES (8,'数字电路',   'admin','2025-12-22 10:28:45','admin','2025-12-22 10:28:45','数字电路描述');
+INSERT INTO `learn_book` VALUES (9,'模拟电路',   'admin','2025-12-22 10:29:02','admin','2025-12-22 10:29:58','模拟电路描述');
 
 DROP TABLE IF EXISTS `learn_lession_book`;
 CREATE TABLE `learn_lession_book` (
@@ -58,6 +60,22 @@ CREATE TABLE `learn_lession_book` (
     `book_id` INTEGER UNSIGNED NOT NULL,
 
     PRIMARY KEY (`lession_id`, `book_id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS `learn_lession_detail`;
+CREATE TABLE `learn_lession_detail` (
+    `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+    `lession_id` INTEGER UNSIGNED NOT NULL,
+    `content` VARCHAR(200) NULL DEFAULT '',
+    `duration` INTEGER UNSIGNED NULL DEFAULT 0,
+    `create_by` VARCHAR(64) NULL DEFAULT '',
+    `create_time` VARCHAR(25) NULL,
+    `update_by` VARCHAR(64) NULL DEFAULT '',
+    `update_time` VARCHAR(25) NULL,
+    `remark` VARCHAR(500) NULL,
+
+    UNIQUE INDEX `learn_lession_detail_lession_id_key`(`lession_id`),
+    PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS `buz_menu`;

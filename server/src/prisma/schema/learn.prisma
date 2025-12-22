@@ -7,7 +7,8 @@ model LearnLession {
   updateTime    String?       @map("update_time") @db.VarChar(25)
   remark        String?       @map("remark") @db.VarChar(500)
 
-  lessionBooks LearnLessionBook[]
+  lessionBooks  LearnLessionBook[] // 关联关系
+  lessionDetail LearnLessionDetail? // 一对一关系
   @@map("learn_lession")
 }
 
@@ -20,7 +21,7 @@ model LearnBook {
   updateTime    String?       @map("update_time") @db.VarChar(25)
   remark        String?       @map("remark") @db.VarChar(500)
 
-  lessionBooks LearnLessionBook[]
+  lessionBooks LearnLessionBook[] // 关联关系
   @@map("learn_book")
 }
 
@@ -32,4 +33,19 @@ model LearnLessionBook {
 
   @@id([lessionId, bookId])
   @@map("learn_lession_book")
+}
+
+model LearnLessionDetail {
+  id            Int           @id @default(autoincrement()) @map("id") @db.UnsignedInt
+  lessionId     Int           @unique @map("lession_id") @db.UnsignedInt  // 一对一关系，添加unique约束
+  content       String?       @default("") @map("content") @db.VarChar(200) // 课程详情内容，支持HTML
+  duration      Int?          @default(0) @map("duration") @db.UnsignedInt // 课程时长（分钟）
+  createBy      String?       @default("") @map("create_by") @db.VarChar(64)
+  createTime    String?       @map("create_time") @db.VarChar(25)
+  updateBy      String?       @default("") @map("update_by") @db.VarChar(64)
+  updateTime    String?       @map("update_time") @db.VarChar(25)
+  remark        String?       @map("remark") @db.VarChar(500)
+
+  lession       LearnLession  @relation(fields: [lessionId], references: [id], onDelete: Cascade)  // 关联关系
+  @@map("learn_lession_detail")
 }
