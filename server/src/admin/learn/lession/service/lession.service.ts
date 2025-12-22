@@ -8,6 +8,7 @@ import { exportTable, nowDateTime } from '@/common/utils';
 import {
   QueryLessionDto, CreateLessionDto, UpdateLessionDto,
   CreateLessionBookDto, UpdateLessionBookDto,
+  CreateLessionDetailDto, UpdateLessionDetailDto
 } from '../dto/lessionDto';
 import { LearnLession, LearnLessionBook, Prisma } from '@prismaClient';
 import { isNotEmpty } from 'class-validator';
@@ -94,7 +95,7 @@ export class LessionService {
       }
 
       const result = await this.prisma.$transaction(async (tx) => {
-
+        // 创建课程
         const lession = await tx.learnLession.create({
           data: {
             name: createLessionBookDto?.name,
@@ -105,6 +106,22 @@ export class LessionService {
             remark: createLessionBookDto?.remark,
           }
         })
+
+        // 创建详情
+        if(createLessionBookDto?.detail) {
+          await tx.learnLessionDetail.create({
+            data: {
+              lessionId: lession?.id,
+              content: createLessionBookDto?.detail?.content || "",
+              duration: createLessionBookDto?.detail?.duration || 0,
+              createBy: createLessionBookDto?.createBy,
+              createTime: createLessionBookDto?.createTime,
+              updateBy: createLessionBookDto?.updateBy,
+              updateTime: createLessionBookDto?.updateTime,
+              remark: createLessionBookDto?.detail?.remark || ""
+            }
+          })
+        }
 
         if(createLessionBookDto?.bookIds?.length>0) {
           const lessionBookData = createLessionBookDto?.bookIds?.map((bookId) => ({
@@ -122,6 +139,7 @@ export class LessionService {
         return await tx.learnLession.findUnique({
           where: { id: lession.id },
           include: {
+            lessionDetail: true,
             lessionBooks: {
               include: {
                 book: true,
@@ -156,10 +174,11 @@ export class LessionService {
     }
   }
 
-  // 查询所有课程
+  // 查询所有课程（包含详情）
   async findAllLession(): Promise<LearnLession[]> {
     return this.prisma.learnLession.findMany({
       include: {
+        lessionDetail: true,
         lessionBooks: {
           include: {
             book: true
@@ -177,6 +196,7 @@ export class LessionService {
     const lession = await this.prisma.learnLession.findUnique({
       where: { id },
       include: {
+        lessionDetail: true,
         lessionBooks: {
           include: {
             book: true
@@ -195,7 +215,7 @@ export class LessionService {
     // 检查课程是否存在
     await this.findOne(id)
 
-    const { bookIds, ...updateData } = updateLessionBookDto
+    const { bookIds, detail, ...updateData } = updateLessionBookDto
 
     try {
       return await this.prisma.$transaction(async tx => {
@@ -204,6 +224,34 @@ export class LessionService {
           where: { id },
           data: updateData
         })
+
+        if(detail) {
+          const existingDetail = await tx.learnLessionDetail.findUnique({
+            where: { lessionId: id }
+          })
+
+          const detailData = {
+            ...detail,
+          }
+
+          if(existingDetail) {
+            await tx.learnLessionDetail.update({
+              where: { lessionId: id },
+              data: detailData
+            })
+          } else {
+            await tx.learnLessionDetail.create({
+              data: {
+                ...detailData,
+                lessionId: id,
+                content: detailData?.content,
+                duration: detailData?.duration,
+
+              }
+            })
+          }
+        }
+
         // 2.如果提供了bookIds，更新关联关系
         if(bookIds !== undefined) {
           // 验证书籍ID
@@ -234,6 +282,7 @@ export class LessionService {
         return await tx.learnLession.findUnique({
           where: { id },
           include: {
+            lessionDetail: true,
             lessionBooks: {
               include: {
                 book: true
@@ -250,7 +299,7 @@ export class LessionService {
     }
   }
 
-  // 删除某一个课程
+  // 删除某一个课程(级联删除详情)
   async removeOne(id: number): Promise<void> {
     // 检查课程是否存在
     await this.findOne(id);
@@ -258,6 +307,62 @@ export class LessionService {
     // prisma 的 cascade 删除会自动处理关联表
     await this.prisma.learnLession.delete({
       where: { id }
+    })
+  }
+
+  // 创建或更新课程详情
+  async createOrUpdateDetail(lessionId: number, createLessionDetailDto: CreateLessionDetailDto) {
+    // 检查课程是否存在
+    await this.findOne(lessionId)
+
+    try {
+      const existingDetail = await this.prisma.learnLessionDetail.findUnique({
+        where: { lessionId }
+      })
+
+      const data = {
+        ...createLessionDetailDto,
+      }
+
+      if(existingDetail) {
+        return await this.prisma.learnLessionDetail.update({
+          where: { lessionId },
+          data
+        });
+      } else {
+        return await this.prisma.learnLessionDetail.create({
+          data: {
+            ...data,
+            lessionId
+          }
+        })
+      }
+    } catch (error) {
+      throw new InternalServerErrorException(`操作详情失败: ${error.message}`);
+    }
+  }
+
+  // 获取课程详情
+  async getDetail(lessionId: number) {
+    const detail = await this.prisma.learnLessionDetail.findUnique({
+      where: { lessionId }
+    })
+    if(!detail) {
+      throw new NotFoundException(`课程 ${lessionId} 的详情不存在`)
+    }
+    return detail
+  }
+
+  // 删除课程详情
+  async removeDetail(lessionId: number) {
+    const detail = await this.prisma.learnLessionDetail.findUnique({
+      where: { lessionId }
+    })
+    if(!detail) {
+      throw new NotFoundException(`课程 ${lessionId} 的详情不存在`)
+    }
+    await this.prisma.learnLessionDetail.delete({
+      where: { lessionId }
     })
   }
 

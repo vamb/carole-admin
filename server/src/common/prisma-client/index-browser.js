@@ -230,6 +230,18 @@ exports.Prisma.LearnLessionBookScalarFieldEnum = {
   bookId: 'bookId'
 };
 
+exports.Prisma.LearnLessionDetailScalarFieldEnum = {
+  id: 'id',
+  lessionId: 'lessionId',
+  content: 'content',
+  duration: 'duration',
+  createBy: 'createBy',
+  createTime: 'createTime',
+  updateBy: 'updateBy',
+  updateTime: 'updateTime',
+  remark: 'remark'
+};
+
 exports.Prisma.SysConfigScalarFieldEnum = {
   configId: 'configId',
   configName: 'configName',
@@ -425,6 +437,7 @@ exports.Prisma.ModelName = {
   LearnLession: 'LearnLession',
   LearnBook: 'LearnBook',
   LearnLessionBook: 'LearnLessionBook',
+  LearnLessionDetail: 'LearnLessionDetail',
   SysConfig: 'SysConfig',
   SysDept: 'SysDept',
   SysDictData: 'SysDictData',

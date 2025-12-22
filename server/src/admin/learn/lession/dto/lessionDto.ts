@@ -1,7 +1,7 @@
 import { BaseDomain } from "@/common/domain/BaseDomain";
 import { ApiProperty, PartialType } from "@nestjs/swagger";
 import { Transform } from 'class-transformer';
-import { IsNotEmpty, IsNumber, IsString, IsOptional, IsArray, IsInt } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString, IsOptional, IsArray, IsInt, Min, Max, MaxLength } from 'class-validator';
 import { Type } from 'class-transformer';
 import { queryDomain } from "@/common/domain/queryDomain";
 
@@ -16,6 +16,9 @@ export class QueryLessionDto extends queryDomain {
   @ApiProperty({ description: "教程描述", required: false })
   @IsOptional()
   remark: string | null;
+
+  @IsOptional()
+  detail?: CreateLessionDetailDto;
 }
 
 export class CreateLessionDto extends BaseDomain {
@@ -28,6 +31,9 @@ export class CreateLessionDto extends BaseDomain {
   @IsOptional()
   @IsString()
   remark?: string;
+
+  @IsOptional()
+  detail?: CreateLessionDetailDto;
 }
 
 export class UpdateLessionDto extends BaseDomain {
@@ -44,6 +50,9 @@ export class UpdateLessionDto extends BaseDomain {
   @IsOptional()
   @IsString()
   remark?: string;
+
+  @IsOptional()
+  detail?: CreateLessionDetailDto;
 }
 
 // @ts-ignore
@@ -57,24 +66,32 @@ export class CreateLessionBookDto extends BaseDomain {
   remark?: string;
 
   @IsOptional()
+  detail?: CreateLessionDetailDto;
+
+  @IsOptional()
   @IsArray()
   @IsInt({ each: true })
   @Type(() => Number)
   bookIds?: number[];
 }
 
-export class UpdateLessionBookDto extends BaseDomain {
-  @IsNotEmpty({ message: '课程名称不能为空' })
+export class UpdateLessionBookDto extends PartialType(CreateLessionBookDto) {}
+
+export class CreateLessionDetailDto extends BaseDomain {
+  @IsOptional()
   @IsString()
-  name: string;
+  content?: string;
+
+  @IsOptional()
+  @IsInt()
+  @Min(0, { message: '课程时长不能小于0分钟' })
+  @Max(10000, { message: '课程时长不能超过10000分钟' })
+  duration?: number;
 
   @IsOptional()
   @IsString()
+  @MaxLength(500, { message: '备注不能超过500个字符' })
   remark?: string;
-
-  @IsOptional()
-  @IsArray()
-  @IsInt({ each: true })
-  @Type(() => Number)
-  bookIds?: number[];
 }
+
+export class UpdateLessionDetailDto extends PartialType(CreateLessionDetailDto) {}
