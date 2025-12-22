@@ -5,6 +5,25 @@ import { IsNotEmpty, IsNumber, IsString, IsOptional, IsArray, IsInt, Min, Max, M
 import { Type } from 'class-transformer';
 import { queryDomain } from "@/common/domain/queryDomain";
 
+export class CreateLessionDetailDto extends BaseDomain {
+  @IsOptional()
+  @IsString()
+  content?: string;
+
+  @IsOptional()
+  @IsInt()
+  @Min(0, { message: '课程时长不能小于0分钟' })
+  @Max(10000, { message: '课程时长不能超过10000分钟' })
+  duration?: number;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(500, { message: '备注不能超过500个字符' })
+  remark?: string;
+}
+
+export class UpdateLessionDetailDto extends PartialType(CreateLessionDetailDto) {}
+
 export class QueryLessionDto extends queryDomain {
   @ApiProperty({ description: "教程主键", required: false })
   @IsOptional()
@@ -76,22 +95,3 @@ export class CreateLessionBookDto extends BaseDomain {
 }
 
 export class UpdateLessionBookDto extends PartialType(CreateLessionBookDto) {}
-
-export class CreateLessionDetailDto extends BaseDomain {
-  @IsOptional()
-  @IsString()
-  content?: string;
-
-  @IsOptional()
-  @IsInt()
-  @Min(0, { message: '课程时长不能小于0分钟' })
-  @Max(10000, { message: '课程时长不能超过10000分钟' })
-  duration?: number;
-
-  @IsOptional()
-  @IsString()
-  @MaxLength(500, { message: '备注不能超过500个字符' })
-  remark?: string;
-}
-
-export class UpdateLessionDetailDto extends PartialType(CreateLessionDetailDto) {}

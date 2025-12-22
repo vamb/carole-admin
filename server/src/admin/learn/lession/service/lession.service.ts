@@ -377,15 +377,24 @@ export class LessionService {
     }
 
     try {
-      // 创建关联关系
-      const lessionBookData = bookIds.map(bookId => ({
-        lessionId,
-        bookId
-      }))
+      return await this.prisma.$transaction(async tx => {
+        // 删除现有关联
+        await tx.learnLessionBook.deleteMany({
+          where: { lessionId },
+        });
 
-      await this.prisma.learnLessionBook.createMany({
-        data: lessionBookData,
-        skipDuplicates: true
+        if(bookIds?.length > 0) {
+          // 创建关联关系
+          const lessionBookData = bookIds.map(bookId => ({
+            lessionId,
+            bookId
+          }))
+
+          await tx.learnLessionBook.createMany({
+            data: lessionBookData,
+            skipDuplicates: true
+          })
+        }
       })
 
       // 返回更新后的课程数据
@@ -393,6 +402,15 @@ export class LessionService {
     } catch (error) {
       throw new InternalServerErrorException(`添加书籍关联失败: ${error?.message}`)
     }
+  }
+
+  // 批量查询课程详情
+  async findDetailsByIds(lessionIds: number[]) {
+    return this.prisma.learnLessionDetail.findMany({
+      where: {
+        lessionId: { in: lessionIds }
+      }
+    })
   }
 
   // 移除课程关联
